@@ -1,0 +1,16 @@
+.container{
+    margin: 10% auto;
+}
+.image{
+    height: 70%;
+    width: 70%;
+    border-radius: 50%;
+    border: 2px solid black;
+    
+}
+.textaligncenter{
+    text-align: center;
+}
+.marginBorder{
+    margin:auto
+}

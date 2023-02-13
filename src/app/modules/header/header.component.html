@@ -1,0 +1,32 @@
+<header>
+
+    <div>
+        <p>
+            <mat-toolbar class="backgroundlight">
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span class="example-spacer">My Porfolio</span>
+                <mat-tab-group mat-stretch-tabs="false" class="btn-light" mat-align-tabs="center"(selectedTabChange)="selectedTabValue($event)">
+                    <mat-tab label="Home"></mat-tab>
+                    <mat-tab label="Intro"></mat-tab>
+                    <mat-tab label="Work"></mat-tab>
+                </mat-tab-group>
+                <span class="example-spacer"></span>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                    <mat-icon>share</mat-icon>
+                </button>
+                <div style="text-align: right">
+                    <select class="backgroundlight">
+                        <option value="en" selected>English</option>
+                        <option value="hn">Hindi</option>
+                    </select>
+                </div>
+            </mat-toolbar>
+
+        </p>
+
+    </div>
+
+
+</header>
