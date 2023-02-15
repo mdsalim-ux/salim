@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { LoaderService } from 'src/app/comman/loader/loader.service';
 @Component({
   selector: 'app-header',
@@ -7,7 +8,8 @@ import { LoaderService } from 'src/app/comman/loader/loader.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(public router: Router, public LoaderService: LoaderService) {
+  supportedLanguages = ['English', 'Hindi'];
+  constructor(public router: Router, public LoaderService: LoaderService, public translate: TranslateService) {
     router.events.subscribe((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.LoaderService.show();
@@ -16,13 +18,21 @@ export class HeaderComponent {
         this.LoaderService.hide();
       }
     })
+    translate.setDefaultLang('English');
+  }
+  ngOnInit(): void {
+    this.selectedTabValue(event);
   }
   TabIndex: any;
   event: any;
+  // tab change calling component
   selectedTabValue(event: any) {
-    console.log(event);
+    console.log(event, 'Index');
+    if (event == undefined) {
+      this.router.navigate(['/home'])
+      return
+    }
     this.TabIndex = event.index;
-    console.log(this.TabIndex, 'Index')
     if (this.TabIndex == 0) {
       this.router.navigate(['/home'])
     }
@@ -32,5 +42,20 @@ export class HeaderComponent {
     if (this.TabIndex == 2) {
       this.router.navigate(['/work'])
     }
+  }
+  //On click download cv 
+  downloadCV() {
+    let link = document.createElement('a');
+    link.setAttribute('type', 'hidden');
+    link.href = 'assets/resume/MdSalimAlamResume.pdf';
+    link.download = "Md_Salim_Alam_CV";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+  //on click linkdin profile
+  LinkedinProfile() {
+    let url = "https://in.linkedin.com/in/md-salim-alam-0bb365b9"
+    window.open(url, '_blank');
   }
 }

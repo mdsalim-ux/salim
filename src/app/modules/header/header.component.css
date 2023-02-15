@@ -1,29 +1,4 @@
-.bg-color{
-    background-color: white;
-}
-.lan{
-    padding-top: 0;
-    padding-right: 2.25rem;
-    padding-bottom: 0;
-    padding-left: 0.75rem;
-    border: none;
-}
-.fixed-top{
-    position: sticky;
-    z-index: 2 !important;
-}
-.navbar-light .navbar-nav .nav-link{
-    font-weight: 600;
-    border-bottom: 3px solid white ;
-    color:#5236AB;
-}
-.navbar-light .navbar-nav .nav-link.active {
-    color: white !important;
-    font-weight: 600;
-     border-bottom: 3px solid transparent;
-    border-image:linear-gradient(to right, #e31937 , #a82465, #5236ab);
-    border-image-slice: 1;   
-}
+
 .btn-light{
     background-color: white;
     border: none;

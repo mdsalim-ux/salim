@@ -3,24 +3,35 @@
     <div>
         <p>
             <mat-toolbar class="backgroundlight">
-                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
+                    aria-label="Example icon-button with menu icon">
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
+                        <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
+                        <button mat-menu-item routerLink="/work">{{'Workspace'|translate}}</button>
+                        <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
+                        <mat-menu #submenu="matMenu">
+                            <button mat-menu-item (click)="LinkedinProfile()">{{'Linkedin'|translate}}</button>
+                            <button mat-menu-item (click)="downloadCV()">{{'Download_CV'|translate}}</button>
+                        </mat-menu>
+                    </mat-menu>
                     <mat-icon>menu</mat-icon>
                 </button>
-                <span class="example-spacer">My Porfolio</span>
-                <mat-tab-group mat-stretch-tabs="false" class="btn-light" mat-align-tabs="center"(selectedTabChange)="selectedTabValue($event)">
-                    <mat-tab label="Home"></mat-tab>
-                    <mat-tab label="Intro"></mat-tab>
-                    <mat-tab label="Work"></mat-tab>
+                <span class="example-spacer">{{'My_Portfolio'|translate}}</span>
+                <mat-tab-group mat-stretch-tabs="false"  class="btn-light navbar-light navbar-nav nav-link.active" mat-align-tabs="center"
+                    (selectedTabChange)="selectedTabValue($event)">
+                    <mat-tab label="{{'Home'|translate}}"></mat-tab>
+                    <mat-tab label="{{'Intro'|translate}}"></mat-tab>
+                    <mat-tab label="{{'Workspace'|translate}}"></mat-tab>
                 </mat-tab-group>
                 <span class="example-spacer"></span>
                 <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
                     <mat-icon>share</mat-icon>
                 </button>
                 <div style="text-align: right">
-                    <select class="backgroundlight">
-                        <option value="en" selected>English</option>
-                        <option value="hn">Hindi</option>
-                    </select>
+                    <select #langs (change)="translate.use(langs.value)">
+                        <option *ngFor="let lang of supportedLanguages" [value]="lang">{{ lang }}</option>
+                      </select>                      
                 </div>
             </mat-toolbar>
 
