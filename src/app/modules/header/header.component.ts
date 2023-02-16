@@ -27,7 +27,8 @@ export class HeaderComponent {
   event: any;
   // tab change calling component
   selectedTabValue(event: any) {
-    console.log(event, 'Index');
+    console.log(event, 'index');
+  // on refresh tab change issue
     if (event == undefined) {
       this.router.navigate(['/home'])
       return
