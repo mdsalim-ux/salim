@@ -10,6 +10,7 @@ import { HeaderComponent } from './modules/header/header.component'
 import { MaterialModule } from './angular/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { TranslationModule } from './comman/translation/translation.module';
+import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { TranslationModule } from './comman/translation/translation.module';
     FormsModule,
     TranslationModule
   ],
-  providers: [],
+  providers: [ { provide: LocationStrategy, useClass: PathLocationStrategy },
+    { provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

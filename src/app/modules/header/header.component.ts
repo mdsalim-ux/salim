@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LoaderService } from 'src/app/comman/loader/loader.service';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +11,7 @@ import { LoaderService } from 'src/app/comman/loader/loader.service';
 })
 export class HeaderComponent {
   supportedLanguages = ['English', 'Hindi'];
-  constructor(public router: Router, public LoaderService: LoaderService, public translate: TranslateService) {
+  constructor(public router: Router,private location: Location, public LoaderService: LoaderService, public translate: TranslateService) {
     router.events.subscribe((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.LoaderService.show();
@@ -21,6 +23,7 @@ export class HeaderComponent {
     translate.setDefaultLang('English');
   }
   ngOnInit(): void {
+    this.location.go('/');
     this.selectedTabValue(event);
   }
   TabIndex: any;
