@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class LoaderService {
   public isLoadingMessage = new BehaviorSubject({});
   isLoadingMessageObs = this.isLoadingMessage.asObservable()
 
-  constructor() {
+  constructor(private TranslatedLanguages:TranslateService) {
     this.isLoadingMessage.next(this.data);
   }
   show() {
@@ -23,5 +24,9 @@ export class LoaderService {
     this.data["message"] = key
     this.isLoadingMessage.next(this.data);
   }
-
+  //get translate the file in typescript
+  getTranslatedLanguages(key:string){
+    let language=this.TranslatedLanguages.currentLang
+    return this.TranslatedLanguages.translations[language][key]
+  }
 }

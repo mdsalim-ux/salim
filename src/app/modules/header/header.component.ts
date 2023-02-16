@@ -10,8 +10,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  supportedLanguages = ['English', 'Hindi'];
-  constructor(public router: Router,private location: Location, public LoaderService: LoaderService, public translate: TranslateService) {
+  supportedLanguages = ['en', 'hn'];
+  constructor(public router: Router, private location: Location, public LoaderService: LoaderService, public translate: TranslateService) {
     router.events.subscribe((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.LoaderService.show();
@@ -20,7 +20,8 @@ export class HeaderComponent {
         this.LoaderService.hide();
       }
     })
-    translate.setDefaultLang('English');
+    translate.setDefaultLang('en');
+    console.log(translate.langs, "Languages")
   }
   ngOnInit(): void {
     this.location.go('/');
@@ -31,7 +32,7 @@ export class HeaderComponent {
   // tab change calling component
   selectedTabValue(event: any) {
     console.log(event, 'index');
-  // on refresh tab change issue
+    // on refresh tab change issue
     if (event == undefined) {
       this.router.navigate(['/home'])
       return

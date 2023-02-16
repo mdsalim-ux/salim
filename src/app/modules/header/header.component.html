@@ -30,7 +30,7 @@
                 </button>
                 <div style="text-align: right">
                     <select #langs (change)="translate.use(langs.value)">
-                        <option *ngFor="let lang of supportedLanguages" [value]="lang">{{ lang }}</option>
+                        <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
                     </select>
                 </div>
             </mat-toolbar>
