@@ -31,11 +31,11 @@ export class TranslationModule {
   constructor(translate: TranslateService) {
     translate.addLangs(['en', 'ru']);
     const broswerLang = translate.getBrowserLang();
-    translate.use(broswerLang?.match(/en|fr/) ? broswerLang : 'en')
+    translate.use(broswerLang?.match(/en|hn/) ? broswerLang : 'en')
 
   }
 }
 
-export function TranslateLoaderFactory(httpClient:HttpClient){
+export function TranslateLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient)
 }
