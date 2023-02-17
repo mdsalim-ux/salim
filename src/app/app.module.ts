@@ -17,6 +17,9 @@ import { AlertboxModule } from './comman/dialogbox/alertbox/alertbox.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AlertboxComponent } from './comman/dialogbox/alertbox/alertbox.component';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,9 +44,6 @@ import { AlertboxComponent } from './comman/dialogbox/alertbox/alertbox.componen
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
-}
 export function TranslateLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient)
+  return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json")
 }
