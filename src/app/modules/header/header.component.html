@@ -5,16 +5,25 @@
             <mat-toolbar class="backgroundlight">
                 <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
                     aria-label="Example icon-button with menu icon">
-                    <mat-menu #menu="matMenu">
-                        <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
-                        <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
-                        <button mat-menu-item routerLink="/work">{{'Workspace'|translate}}</button>
-                        <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
-                        <mat-menu #submenu="matMenu">
-                            <button mat-menu-item (click)="LinkedinProfile()">{{'Linkedin'|translate}}</button>
-                            <button mat-menu-item (click)="downloadCV()">{{'Download_CV'|translate}}</button>
+                    <div style="background: darkgreen ">
+                        <mat-menu #menu="matMenu">
+                            <div style="background: #a99fc1">
+                                <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
+                                <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
+                                <button mat-menu-item routerLink="/work">{{'Workspace'|translate}}</button>
+                                <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
+                                <mat-menu #submenu="matMenu">
+                                    <div style="background: darkseagreen">
+                                        <button mat-menu-item
+                                            (click)="LinkedinProfile()">{{'Linkedin'|translate}}</button>
+                                        <button mat-menu-item
+                                            (click)="downloadCV()">{{'Download_CV'|translate}}</button>
+                                    </div>
+
+                                </mat-menu>
+                            </div>
                         </mat-menu>
-                    </mat-menu>
+                    </div>
                     <mat-icon>menu</mat-icon>
                 </button>
                 <span class="example-spacer">{{'My_Portfolio'|translate}}</span>
@@ -25,11 +34,13 @@
                     <mat-tab label="{{'Workspace'|translate}}"></mat-tab>
                 </mat-tab-group>
                 <span class="example-spacer"></span>
-                <button mat-icon-button class="example-icon" (change)="onShareClick($event)" aria-label="Example icon-button with share icon">
+                <button mat-icon-button class="example-icon" (click)="onShareClick($event)"
+                    aria-label="Example icon-button with share icon">
                     <mat-icon>share</mat-icon>
                 </button>
                 <div style="text-align: right">
-                    <select #Languages (change)="onDropdownChange($event)" (change)="translate.use(Languages.value)">
+                    <select class="dropdown" #Languages (change)="onDropdownChange($event)"
+                        (change)="translate.use(Languages.value)">
                         <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
                     </select>
                 </div>

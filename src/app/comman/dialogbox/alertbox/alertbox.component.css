@@ -1,12 +1,21 @@
-.messageSize{
+.messageSize {
     font-size: 15px;
-    color:#1c1a1a
+    overflow: hidden;
+    color: #1c1a1a
 }
-.borderButton{
+
+.borderButton {
     border-bottom: rgb(13 238 80 / 87%);
+    overflow: hidden
 }
-.titleheader{
-    background: #9297b3;
+
+.titleheader {
+    background: #5f2066;
     height: 50px;
-    color:white;
+    color: white;
+    overflow: hidden
+}
+
+.alertbox {
+    overflow: hidden;
 }

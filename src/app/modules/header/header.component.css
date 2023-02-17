@@ -1,21 +1,31 @@
-
-.btn-light{
-    background-color: white;
-    border: none;
+.btn-light {
+  background-color: papayawhip;
+  border: none;
+  color: mediumvioletred;
 }
-textalign{
-    text-align: center;
+
+textalign {
+  text-align: center;
 }
 
 .mat-tab-group {
-    margin-bottom: 48px;
-  }
+  margin-bottom: 48px;
+}
 
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  .backgroundlight{
-    border-block: revert;
-    border: white;
-    background-color:white
-  }
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.backgroundlight {
+  border-block: revert;
+  border: white;
+  color: mediumvioletred;
+  background-color: papayawhip
+}
+
+.dropdown {
+  color: #121112;
+  border-block-end-width: 0px;
+  border-color: papayawhip;
+  background: papayawhip;
+}

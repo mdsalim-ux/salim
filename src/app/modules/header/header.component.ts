@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { LoaderService } from 'src/app/comman/loader/loader.service';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/comman/notification/notification.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,7 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class HeaderComponent {
   supportedLanguages = ['en', 'hn'];
   dropdownindex: any;
-  constructor(public dialog: MatDialog, public router: Router, private location: Location, public LoaderService: LoaderService, public translate: TranslateService) {
+  constructor(public dialog: MatDialog, public router: Router, private location: Location,
+    public LoaderService: LoaderService, public translate: TranslateService, private _notification: NotificationService) {
     router.events.subscribe((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.LoaderService.show();
@@ -51,8 +54,17 @@ export class HeaderComponent {
   onDropdownChange(event: any) {
     for (let i = 0; i < event.currentTarget.length; i++) {
       this.dropdownindex = event.currentTarget;
-      if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1) {
-        let input = { 'title': 'Info', message: [`Are you sure you want to change default languague to other languague`] }
+      if (this.dropdownindex.selectedIndex == 0) {
+        let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [this.LoaderService.getTranslatedLanguages("Language_Msg")] }
+        this.LoaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
+          if (data) {
+            return
+          }
+        })
+        break;
+      }
+      if (this.dropdownindex.selectedIndex == 1) {
+        let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [this.LoaderService.getTranslatedLanguages("Language_Msg")] }
         this.LoaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
           if (data) {
             return
@@ -62,15 +74,15 @@ export class HeaderComponent {
       }
     }
   }
-  onShareClick(event:any){
-    let input = { 'title': 'Info', message: [`Share working functionalty will come soon`] }
+  onShareClick(event: any) {
+    let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [`Share working functionalty will come soon`] }
     this.LoaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
       if (data) {
         return
       }
     })
   }
- 
+
   //On click download cv 
   downloadCV() {
     let link = document.createElement('a');

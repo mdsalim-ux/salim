@@ -7,7 +7,10 @@ import { WorkComponent } from './modules/work/work.component';
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "intro", component: IntroComponent },
-  { path: "work", component: WorkComponent }
+  { path: "work", component: WorkComponent },
+  { path: 'home', loadChildren: () => import('src/app/modules/home/home.module').then(m => m.HomeModule) },
+  { path: 'intro', loadChildren: () => import('src/app/modules/intro/intro.module').then(m => m.IntroModule) },
+  { path: 'work', loadChildren: () => import('src/app/modules/work/work.module').then(m => m.WorkModule) },
 ];
 
 @NgModule({

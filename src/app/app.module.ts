@@ -14,12 +14,17 @@ import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { AlertboxModule } from './comman/dialogbox/alertbox/alertbox.module';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AlertboxComponent } from './comman/dialogbox/alertbox/alertbox.component';
+import { InjectionToken } from '@angular/core';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { NotificationModule } from './comman/notification/notification.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
 }
+export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     IntroComponent,
     WorkComponent,
     HeaderComponent,
-    AlertboxComponent
+    AlertboxComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,10 +42,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     TranslationModule,
     AlertboxModule,
-    MatDialogModule
+    MatDialogModule,
+    NotificationModule,
+    ToastrModule.forRoot({
+    }),
   ],
-  providers: [ { provide: LocationStrategy, useClass: PathLocationStrategy },
-  { provide: APP_BASE_HREF, useValue: '/' }],
+  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy },
+  { provide: APP_BASE_HREF, useValue: '/' }, { provide: TOAST_CONFIG, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
