@@ -44,3 +44,6 @@ export class AppModule { }
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
 }
+export function TranslateLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient)
+}
