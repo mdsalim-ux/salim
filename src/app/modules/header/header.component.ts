@@ -3,7 +3,7 @@ import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/route
 import { TranslateService } from '@ngx-translate/core';
 import { LoaderService } from 'src/app/comman/loader/loader.service';
 import { Location } from '@angular/common';
-
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,7 +11,8 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent {
   supportedLanguages = ['en', 'hn'];
-  constructor(public router: Router, private location: Location, public LoaderService: LoaderService, public translate: TranslateService) {
+  dropdownindex: any;
+  constructor(public dialog: MatDialog, public router: Router, private location: Location, public LoaderService: LoaderService, public translate: TranslateService) {
     router.events.subscribe((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.LoaderService.show();
@@ -21,7 +22,6 @@ export class HeaderComponent {
       }
     })
     translate.setDefaultLang('en');
-    console.log(translate.langs, "Languages")
   }
   ngOnInit(): void {
     this.location.go('/');
@@ -31,7 +31,6 @@ export class HeaderComponent {
   event: any;
   // tab change calling component
   selectedTabValue(event: any) {
-    console.log(event, 'index');
     // on refresh tab change issue
     if (event == undefined) {
       this.router.navigate(['/home'])
@@ -48,6 +47,30 @@ export class HeaderComponent {
       this.router.navigate(['/work'])
     }
   }
+  //on change of language dropdown 
+  onDropdownChange(event: any) {
+    for (let i = 0; i < event.currentTarget.length; i++) {
+      this.dropdownindex = event.currentTarget;
+      if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1) {
+        let input = { 'title': 'Info', message: [`Are you sure you want to change default languague to other languague`] }
+        this.LoaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
+          if (data) {
+            return
+          }
+        })
+        break;
+      }
+    }
+  }
+  onShareClick(event:any){
+    let input = { 'title': 'Info', message: [`Share working functionalty will come soon`] }
+    this.LoaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
+      if (data) {
+        return
+      }
+    })
+  }
+ 
   //On click download cv 
   downloadCV() {
     let link = document.createElement('a');

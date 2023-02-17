@@ -1,5 +1,4 @@
-[
-  {
+{
     "My_Portfolio": "My Portfolio",
     "Home": "Home",
     "Intro": "Intro",
@@ -9,5 +8,4 @@
     "Linkedin": "Linkedin",
     "en":"English",
     "hn":"Hindi"
- }
-]
+}

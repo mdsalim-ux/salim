@@ -1,0 +1,13 @@
+<div class="row" *ngIf="title">
+  <div class="col-sm-12 borderButtom">
+    <h2 mat-dialog-title class="md-title-h4 dialogHeader titleheader ">{{title}}</h2>
+  </div>
+</div>
+<div mat-dialog-content>
+  <div  class="row messageSize pt-2" *ngFor="let msg of message">
+       <div class="col-sm-12">{{msg}}</div>
+  </div>
+</div>
+  <div mat-dialog-actions align="end" class="titleheader">
+    <button mat-flat-button color="accent" (click)="Confirm()">{{'Ok'|translate}}</button>
+  </div>

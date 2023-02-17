@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { AlertboxComponent } from '../dialogbox/alertbox/alertbox.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class LoaderService {
   public isLoadingMessage = new BehaviorSubject({});
   isLoadingMessageObs = this.isLoadingMessage.asObservable()
 
-  constructor(private TranslatedLanguages:TranslateService) {
+  constructor(private TranslatedLanguages:TranslateService,public dialog:MatDialog) {
     this.isLoadingMessage.next(this.data);
   }
   show() {
@@ -28,5 +30,14 @@ export class LoaderService {
   getTranslatedLanguages(key:string){
     let language=this.TranslatedLanguages.currentLang
     return this.TranslatedLanguages.translations[language][key]
+  }
+  AlertDialogBox(input: any, width: any): Observable<any> {
+    const dialogRef = this.dialog.open(AlertboxComponent, {
+      width: width,
+      autoFocus: false,
+      data: input,
+      disableClose: true
+    });
+    return dialogRef.afterClosed()
   }
 }

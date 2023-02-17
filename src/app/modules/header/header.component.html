@@ -25,11 +25,11 @@
                     <mat-tab label="{{'Workspace'|translate}}"></mat-tab>
                 </mat-tab-group>
                 <span class="example-spacer"></span>
-                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <button mat-icon-button class="example-icon" (change)="onShareClick($event)" aria-label="Example icon-button with share icon">
                     <mat-icon>share</mat-icon>
                 </button>
                 <div style="text-align: right">
-                    <select #langs (change)="translate.use(langs.value)">
+                    <select #Languages (change)="onDropdownChange($event)" (change)="translate.use(Languages.value)">
                         <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
                     </select>
                 </div>

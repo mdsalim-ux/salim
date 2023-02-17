@@ -1,0 +1,12 @@
+.messageSize{
+    font-size: 15px;
+    color:#1c1a1a
+}
+.borderButton{
+    border-bottom: rgb(13 238 80 / 87%);
+}
+.titleheader{
+    background: #9297b3;
+    height: 50px;
+    color:white;
+}
