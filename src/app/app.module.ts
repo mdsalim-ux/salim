@@ -12,14 +12,17 @@ import { FormsModule } from '@angular/forms';
 import { TranslationModule } from './comman/translation/translation.module';
 import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlertboxModule } from './comman/dialogbox/alertbox/alertbox.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AlertboxComponent } from './comman/dialogbox/alertbox/alertbox.component';
 import { InjectionToken } from '@angular/core';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { NotificationModule } from './comman/notification/notification.module';
-
+import { UserService } from './comman/service/user.service';
+import { TokenInterceptor } from './core/interceptor/token.interceptor';
+import { LoaderComponent } from './comman/loader/loader/loader.component';
+import { LoginComponent } from './login/login.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
 }
@@ -33,6 +36,8 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     WorkComponent,
     HeaderComponent,
     AlertboxComponent,
+    LoaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +52,7 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     ToastrModule.forRoot({
     }),
   ],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy },
-  { provide: APP_BASE_HREF, useValue: '/' }, { provide: TOAST_CONFIG, useValue: '/' }],
+  providers: [UserService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
