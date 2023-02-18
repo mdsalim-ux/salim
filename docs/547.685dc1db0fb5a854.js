@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkPortfolio=self.webpackChunkPortfolio||[]).push([[547],{547:(t,n,l)=>{l.r(n),l.d(n,{WorkModule:()=>o});var r=l(6895),u=l(4650);class o{}o.\u0275fac=function(s){return new(s||o)},o.\u0275mod=u.oAB({type:o}),o.\u0275inj=u.cJS({imports:[r.ez]})}}]);

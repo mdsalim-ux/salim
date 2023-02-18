@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/enviroment/enviroment.prod';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,23 @@ import { Component } from '@angular/core';
 
 })
 export class AppComponent {
+  timeinterval: any;
+  minutes: number = 0;
+  constructor(public router: Router) {
+
+  }
   title = 'Portfolio';
+  ngOnInit(): void {
+    let parsedUrl = new URL(window.location.href);
+
+    if (!parsedUrl.href.includes('?'))
+      this.router.navigate(['/header']);
+
+    this.timeinterval = setInterval(() => {
+      this.minutes++;
+      if (this.minutes == environment.timout) {
+        this.router.navigate(['/logout/1']);
+      }
+    }, 60000)
+  }
 }
