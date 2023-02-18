@@ -5,15 +5,15 @@
             <mat-toolbar class="backgroundlight">
                 <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
                     aria-label="Example icon-button with menu icon">
-                    <div style="background: darkgreen ">
+                    <div>
                         <mat-menu #menu="matMenu">
-                            <div style="background: #a99fc1">
+                            <div>
                                 <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
                                 <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
                                 <button mat-menu-item routerLink="/work">{{'Workspace'|translate}}</button>
                                 <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
                                 <mat-menu #submenu="matMenu">
-                                    <div style="background: darkseagreen">
+                                    <div>
                                         <button mat-menu-item
                                             (click)="LinkedinProfile()">{{'Linkedin'|translate}}</button>
                                         <button mat-menu-item
@@ -34,8 +34,7 @@
                     <mat-tab label="{{'Workspace'|translate}}"></mat-tab>
                 </mat-tab-group>
                 <span class="example-spacer"></span>
-                <button mat-icon-button class="example-icon" (click)="onShareClick($event)"
-                    aria-label="Example icon-button with share icon">
+                <button mat-icon-button (click)="onShareClick($event)" aria-label="Example icon-button with share icon">
                     <mat-icon>share</mat-icon>
                 </button>
                 <div style="text-align: right">

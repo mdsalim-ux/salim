@@ -1,7 +1,7 @@
 .btn-light {
-  background-color: papayawhip;
+  background-color: white;
   border: none;
-  color: mediumvioletred;
+  color: yellowgreen;
 }
 
 textalign {
@@ -18,16 +18,16 @@ textalign {
 
 .backgroundlight {
   border-block: revert;
-  border: white;
-  color: mediumvioletred;
-  background-color: papayawhip
+  border: red;
+  color: red;
+  background-color: white
 }
 
 .dropdown {
-  color: #121112;
+  color: rgba(0, 0, 0, 0.77);
   border-block-end-width: 0px;
-  border-color: papayawhip;
-  background: papayawhip;
+  border-color: white;
+  background: white;
   cursor: pointer;
   font-size: initial
 }
