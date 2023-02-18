@@ -12,6 +12,8 @@ import { NotificationService } from 'src/app/comman/notification/notification.se
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  linkToShare = 'https://mdsalimportfolio.github.io/portfolio.github.io/';
+
   supportedLanguages = ['en', 'hn'];
   dropdownindex: any;
   constructor(public dialog: MatDialog, public router: Router, private location: Location,
@@ -41,6 +43,7 @@ export class HeaderComponent {
     }
     this.TabIndex = event.index;
     if (this.TabIndex == 0) {
+      this._notification.success(this.LoaderService.getTranslatedLanguages('Welcome'), '');
       this.router.navigate(['/home'])
     }
     if (this.TabIndex == 1) {
@@ -54,33 +57,16 @@ export class HeaderComponent {
   onDropdownChange(event: any) {
     for (let i = 0; i < event.currentTarget.length; i++) {
       this.dropdownindex = event.currentTarget;
-      if (this.dropdownindex.selectedIndex == 0) {
-        let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [this.LoaderService.getTranslatedLanguages("Language_Msg")] }
-        this.LoaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
-          if (data) {
-            return
-          }
-        })
-        break;
-      }
-      if (this.dropdownindex.selectedIndex == 1) {
-        let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [this.LoaderService.getTranslatedLanguages("Language_Msg")] }
-        this.LoaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
-          if (data) {
-            return
-          }
-        })
+      if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1) {
+        this._notification.success(this.LoaderService.getTranslatedLanguages('Language_Change'), '');
         break;
       }
     }
   }
   onShareClick(event: any) {
-    let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [`Share working functionalty will come soon`] }
-    this.LoaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
-      if (data) {
-        return
-      }
-    })
+    const url = `https://web.whatsapp.com/?url=${encodeURIComponent(this.linkToShare)}`;
+    window.open(url, '_blank');
+    this._notification.success(this.LoaderService.getTranslatedLanguages('Link_Share_WhatsApp'), '');
   }
 
   //On click download cv 

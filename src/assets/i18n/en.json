@@ -9,5 +9,8 @@
     "en":"English",
     "hn":"Hindi",
     "Info":"Info",
-    "Language_Msg":"Are you sure you want to change languague to any other languague"
+    "Language_Msg":"Are you sure you want to change languague to any other languague",
+    "Welcome":"Welcome to My Portfolio",
+    "Language_Change":"Language has been change successfully",
+    "Link_Share_WhatsApp":"WhatsApp is open to share the Link"
 }

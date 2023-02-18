@@ -19,22 +19,14 @@ import { ToastrService,Toast  } from "ngx-toastr";
   
   
     success(message:string,title:string){
-      iconClasses: {
-        success: 'toast-icon-success'
-      }
       this.notification.success(message,title,this.toasterSetting);
-    }
-    showMessage(message:string,title:string) {
-      this.toastr.success(message,title);
     }
     error(message:string,title:string){
       this.notification.error(message,title,this.toasterSetting);
-    }
-    
+    } 
     warning(message:string,title:string){
       this.notification.warning(message,title,this.toasterSetting);
     }
-  
     info(message:string,title:string){
       this.notification.info(message,title,this.toasterSetting);
     }

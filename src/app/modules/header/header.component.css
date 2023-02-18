@@ -28,4 +28,6 @@ textalign {
   border-block-end-width: 0px;
   border-color: papayawhip;
   background: papayawhip;
+  cursor: pointer;
+  font-size: initial
 }
