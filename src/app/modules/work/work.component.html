@@ -1,1 +1,25 @@
-Workspace coming soon!
+<div class="container-fluid form-group mb-3">
+    <h1> WorkSpace work in progress  </h1>
+    <form #userForm="ngForm">
+
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" class="form-controls" name="username" [ngModel]="userModel.name">
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="text" required="text" class="form-controls" name="email" ngModel>
+        </div>
+        <div class="form-group mb-3">
+            <label>Phone:</label>
+            <input type="text" class="form-controls" name="phone" ngModel>
+        </div>
+        <div class="form-group mb-3">
+            <select class="form-controls" name="Skills" ngModel>
+                <option value="" selected>--Select-- </option>
+                <option *ngFor="let Coding of CodingLang">{{Coding}}</option>
+            </select>
+        </div>
+        <h2>Enter Data{{userForm.value | json}}</h2>
+    </form>
+</div>
