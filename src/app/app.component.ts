@@ -14,12 +14,12 @@ export class AppComponent {
   constructor(public router: Router) {
 
   }
-  title = 'Portfolio';
+  title = 'profile';
   ngOnInit(): void {
     let parsedUrl = new URL(window.location.href);
 
-    if (!parsedUrl.href.includes('?'))
-      this.router.navigate(['/header']);
+    if (!parsedUrl.href.includes('main'))
+      this.router.navigate(['/']);
 
     this.timeinterval = setInterval(() => {
       this.minutes++;
