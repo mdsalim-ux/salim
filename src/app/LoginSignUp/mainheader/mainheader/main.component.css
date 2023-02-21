@@ -1,0 +1,9 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.backgroundlight {
+    color: black;
+    background: white;
+    border: white;
+}

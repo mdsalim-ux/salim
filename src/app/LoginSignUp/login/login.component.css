@@ -1,0 +1,64 @@
+.centerAlign {
+    display: flux;
+    justify-content: center;
+    align-items: center;
+}
+
+.minimum-vh-90 {
+    min-height: 90vh !important;
+}
+
+.mat-toolbar.mat-primary {
+    background: white;
+    color: #e3156a
+}
+
+.hidedata {
+    text-align: center;
+}
+
+.form-group {
+    width: fit-content;
+}
+
+.custom-select {
+    width: 200px;
+    height: 30px;
+}
+
+.forgetpass {
+    color: #e3156a;
+    font-size: large;
+    text-align: right;
+}
+
+.form-group mb-3 {
+    text-align: right;
+}
+
+.form-controls {
+    height: 30px;
+    display: block;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #2fd13d;
+    background-clip: padding-box;
+    border: 2px solid whitesmoke;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.backgroundlight {
+    border-block: revert;
+    border: red;
+    color: red;
+    background-color: white
+}

@@ -1,0 +1,16 @@
+<header class="row justify-content-center">
+    <div>
+        <p>
+            <mat-toolbar class="backgroundlight">
+                <span class="example-spacer"></span>
+                <button mat-raised-button color="accent" routerLink="/login">{{'Login'|translate}}</button>&nbsp;
+                <button mat-raised-button color="accent" routerLink="/signup">{{'Create an
+                    Account'|translate}}</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <select class="dropdown" #Languages (change)="onDropdownChange($event)"
+                    (change)="translate.use(Languages.value)">
+                    <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
+                </select>
+            </mat-toolbar>
+        </p>
+    </div>
+</header>

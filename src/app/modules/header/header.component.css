@@ -31,3 +31,9 @@ textalign {
   cursor: pointer;
   font-size: initial
 }
+
+.centerAlign {
+  display: flux;
+  justify-content: center;
+  align-items: center;
+}
