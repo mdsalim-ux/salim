@@ -53,16 +53,6 @@ export class HeaderComponent {
       this.router.navigate(['/work'])
     }
   }
-  //on change of language dropdown 
-  onDropdownChange(event: any) {
-    for (let i = 0; i < event.currentTarget.length; i++) {
-      this.dropdownindex = event.currentTarget;
-      if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1) {
-        this._notification.success(this.LoaderService.getTranslatedLanguages('Language_Change'), '');
-        break;
-      }
-    }
-  }
   onShareClick(event: any) {
     const url = `https://web.whatsapp.com/?url=${encodeURIComponent(this.linkToShare)}`;
     window.open(url, '_blank');

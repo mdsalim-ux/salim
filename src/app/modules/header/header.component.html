@@ -37,14 +37,8 @@
                 <button mat-icon-button (click)="onShareClick($event)" aria-label="Example icon-button with share icon">
                     <mat-icon>share</mat-icon>
                 </button>
-                <div style="text-align: right">
-                    <select class="dropdown" #Languages (change)="onDropdownChange($event)"
-                        (change)="translate.use(Languages.value)">
-                        <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
-                    </select>
-                </div>
             </mat-toolbar>
-
+            
         </p>
 
     </div>

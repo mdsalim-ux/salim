@@ -28,5 +28,5 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.valid) {
             this.router.navigate(['/header'])
         }
-    }   
+    }
 }
