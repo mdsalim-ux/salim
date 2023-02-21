@@ -1,46 +1,46 @@
-<div class=" row justify-content-center">
-    <div class="col-sm-4">
-        <mat-toolbar color="primary">{{'Login'|translate}}</mat-toolbar>
-        <mat-card>
-            <form (ngSubmit)="login()" name="loginForm" novalidate [formGroup]="loginForm">
-                <div class="row">
-                    <mat-form-field appearance="outline">
-                        <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
-                        <mat-label>{{'Username'|translate}}</mat-label>
-                        <input type="text" matInput formControlName="username" placeholder="{{'Username'|translate}}"
-                            required>
-                        <mat-error *ngIf="loginForm.controls['username'].invalid">{{'User_Valid'|translate}}
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
-                        <mat-label>{{'Password_Val'|translate}}</mat-label>
-                        <input type="password" formControlName="password" matInput placeholder="Password" required>
-                        <mat-error
-                            *ngIf="loginForm.controls['password'].invalid">{{'Password_Confirm_Val'|translate}}</mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="row">
-
-                    <a href="" class="forgetpass">{{'Forget_Pass'|translate}}</a>
-                </div>
-                <br>
-                <header class="row justify-content-center">
-                    <div>
-                        <p>
-                            <mat-toolbar class="backgroundlight">
-                                <button mat-raised-button color="accent"
-                                    routerLink="/signup">{{'Create_Account'|translate}}</button>
-                                <span class="example-spacer"></span>
-
-                                <button mat-raised-button color="accent"
-                                    (click)="login()">{{'Login'|translate}}</button>
-                            </mat-toolbar>
-                        </p>
+<div class="outer">
+    <div class=" row justify-content-center">
+        <div class="col-sm-4">
+            <mat-toolbar color="primary">{{'Login'|translate}}</mat-toolbar>
+            <mat-card>
+                <form (ngSubmit)="login()" name="loginForm" novalidate [formGroup]="loginForm">
+                    <div class="row">
+                        <mat-form-field appearance="outline">
+                            <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
+                            <mat-label>{{'Username'|translate}}</mat-label>
+                            <input type="text" matInput formControlName="username"
+                                placeholder="{{'Username'|translate}}" required>
+                            <mat-error *ngIf="loginForm.controls['username'].invalid">{{'User_Valid'|translate}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
+                            <mat-label>{{'Password_Val'|translate}}</mat-label>
+                            <input type="password" formControlName="password" matInput placeholder="Password" required>
+                            <mat-error
+                                *ngIf="loginForm.controls['password'].invalid">{{'Password_Confirm_Val'|translate}}</mat-error>
+                        </mat-form-field>
                     </div>
-                </header>
-            </form>
-        </mat-card>
-    </div>
+                    <div class="row">
+                        <a href="" class="forgetpass">{{'Forget_Pass'|translate}}</a>
+                    </div>
+                    <br>
+                    <header class="row justify-content-center">
+                        <div>
+                            <p>
+                                <mat-toolbar class="backgroundlight">
+                                    <button mat-raised-button color="accent"
+                                        routerLink="/signup">{{'Create_Account'|translate}}</button>
+                                    <span class="example-spacer"></span>
 
+                                    <button mat-raised-button color="accent"
+                                        (click)="login()">{{'Login'|translate}}</button>
+                                </mat-toolbar>
+                            </p>
+                        </div>
+                    </header>
+                </form>
+            </mat-card>
+        </div>
+    </div>
 </div>
