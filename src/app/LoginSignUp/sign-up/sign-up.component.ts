@@ -28,7 +28,7 @@ export class SignUpComponent {
   signUp() {
     if ((this.signForm.valid)) {
       console.log(this.signForm)
-      this.router.navigate(['/login'])
+      this.router.navigate(['/header'])
     }
   }
 }

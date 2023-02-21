@@ -33,6 +33,22 @@
                 </div>
                 <div class="row">
                     <mat-form-field appearance="outline">
+                        <mat-label>{{'DOB'|translate}}</mat-label>
+                        <input matInput [matDatepicker]="picker" readonly>
+                        <mat-hint>{{'MM/DD/YYYY'|translate}}</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-radio-group>
+                        <mat-radio-button value="1">{{'Male'|translate}}</mat-radio-button>
+                        <mat-radio-button value="2">{{'Female'|translate}}</mat-radio-button>
+                        <mat-radio-button value="3">{{'Others'|translate}}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="outline">
                         <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
                         <mat-label>{{'Password_Val'|translate}}</mat-label>
                         <input autofocus type="password" matInput formControlName="password"
