@@ -6,33 +6,30 @@
                 <div class="row">
                     <mat-form-field appearance="outline">
                         <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
-                        <mat-label>Username</mat-label>
-                        <input type="text" matInput formControlName="username" placeholder="Username" required>
-                        <mat-error *ngIf="loginForm.controls['username'].invalid"> Please Enter the
-                            Valid User
-                            Name</mat-error>
+                        <mat-label>{{'Username'|translate}}</mat-label>
+                        <input type="text" matInput formControlName="username" placeholder="{{'Username'|translate}}" required>
+                        <mat-error *ngIf="loginForm.controls['username'].invalid">{{'User_Valid'|translate}}
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
-                        <mat-label>Password</mat-label>
+                        <mat-label>{{'Password_Val'|translate}}</mat-label>
                         <input type="password" formControlName="password" matInput placeholder="Password" required>
-                        <mat-error *ngIf="loginForm.controls['password'].invalid">Please Enter the Valid
-                            Password</mat-error>
-
+                        <mat-error
+                            *ngIf="loginForm.controls['password'].invalid">{{'Password_Confirm_Val'|translate}}</mat-error>
                     </mat-form-field>
                 </div>
                 <div class="row">
 
-                    <a href="" class="forgetpass">Forget
-                        Passowrd</a>
+                    <a href="" class="forgetpass">{{'Forget_Pass'|translate}}</a>
                 </div>
                 <br>
                 <header class="row justify-content-center">
                     <div>
                         <p>
                             <mat-toolbar class="backgroundlight">
-                                <button mat-raised-button color="accent" routerLink="/signup">{{'Create an
-                                    Account'|translate}}</button>
+                                <button mat-raised-button color="accent"
+                                    routerLink="/signup">{{'Create_Account'|translate}}</button>
                                 <span class="example-spacer"></span>
 
                                 <button mat-raised-button color="accent"
