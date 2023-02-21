@@ -31,5 +31,6 @@
     "Female": "Female",
     "Others": "Others",
     "DOB": "Date of Birth",
-    "MM/DD/YYYY": "MM/DD/YYYY"
+    "MM/DD/YYYY": "MM/DD/YYYY",
+    "Gender": "Gender"
 }
