@@ -12,9 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslationModule } from './comman/translation/translation.module';
 import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlertboxModule } from './comman/dialogbox/alertbox/alertbox.module';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { AlertboxComponent } from './comman/dialogbox/alertbox/alertbox.component';
 import { InjectionToken } from '@angular/core';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
@@ -55,6 +55,7 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     MatDialogModule,
     NotificationModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ToastrModule.forRoot({
     }),
 

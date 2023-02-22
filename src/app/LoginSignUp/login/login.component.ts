@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../../comman/service/user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '../../comman/notification/notification.service';
 import { LoaderService } from '../../comman/loader/loader.service';
+import { UserdataService } from 'src/app/comman/service/userdata.service';
+import { AlertboxComponent } from 'src/app/comman/dialogbox/alertbox/alertbox.component';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -13,7 +14,8 @@ import { LoaderService } from '../../comman/loader/loader.service';
 export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
     dropdownindex: any;
-    constructor(public LoaderService: LoaderService, private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
+    constructor(public _DataService: UserdataService, public LoaderService: LoaderService,
+        private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     }
 
     ngOnInit(): void {
@@ -25,8 +27,27 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+        let Id: any;
         if (this.loginForm.valid) {
-            this.router.navigate(['/header'])
+            this._DataService.userlogin().subscribe
+                (res => {
+                    const users = res.find((a: any) => {
+                        return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
+                    });
+                    if (users) {
+                        this.router.navigate(['/header'])
+                        this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
+                    }
+                    else {
+                        this._notification.warning(this.LoaderService.getTranslatedLanguages('Incorrect_Login'), '');
+                        return
+                    }
+                },
+                    err => {
+                        alert("went wrong")
+                    }
+                );
         }
     }
+
 }
