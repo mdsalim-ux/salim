@@ -1,239 +1,112 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "UserData": [
     {
       "gender": "1",
-      "email": "mdsalim.alam@gmail.com",
-      "phone": "8971525470",
+      "email": "mdsalima@gmail.com",
+      "phone": "08971525470",
       "password": "Sa12345678@",
-      "username": "mdsalim",
+      "username": "mdsa",
       "confirmpassword": "Sa12345678@",
       "id": 1
     },
     {
+      "gender": "1",
+      "email": "mdsalima@gmail.com",
+      "phone": "08971525470",
       "password": "Sa12345678@",
-      "username": "mdsalim",
+      "username": "mdsa",
+      "confirmpassword": "Sa12345678@",
       "id": 2
     },
     {
+      "gender": "2",
+      "email": "mdsfdf6@gmail.com",
+      "phone": "08971525470",
       "password": "Sa12345678@",
-      "username": "s",
+      "username": "mdsaaa",
+      "confirmpassword": "Sa12345678@",
       "id": 3
     },
     {
+      "gender": "2",
+      "email": "mdsalim@gmail.com",
+      "phone": "08971525470",
       "password": "Sa12345678@",
-      "username": "s",
+      "username": "mdsalim",
+      "confirmpassword": "Sa12345678@",
       "id": 4
     },
     {
+      "gender": "2",
+      "email": "mdsalima@gmail.com",
+      "phone": "08971525470",
       "password": "Sa12345678@",
-      "username": "s",
+      "username": "usa",
+      "confirmpassword": "Sa12345678@",
       "id": 5
     },
     {
-      "password": "Sa12345678@",
-      "username": "s",
+      "gender": "1",
+      "email": "mdsalima@gmail.com",
+      "phone": "08971525470",
+      "password": "Sa8971525470@",
+      "username": "mdsalim",
+      "confirmpassword": "sA12345678@",
       "id": 6
     },
     {
-      "password": "Sa12345678@",
-      "username": "f",
+      "gender": "1",
+      "email": "mdsalima@gmail.com",
+      "phone": "08971525470",
+      "password": "Sa8971525470@",
+      "username": "mdsalim",
+      "confirmpassword": "sA12345678@",
       "id": 7
     },
     {
-      "password": "Sa12345678@",
-      "username": "s",
+      "gender": "",
+      "email": "sasa",
+      "phone": "asas",
+      "password": "",
+      "username": "as",
+      "confirmpassword": "sa",
       "id": 8
     },
     {
-      "password": "Sa12345678@",
-      "username": "s",
+      "gender": "",
+      "email": "sasa",
+      "phone": "asas",
+      "password": "",
+      "username": "as",
+      "confirmpassword": "sa",
       "id": 9
     },
     {
-      "password": "Sa12345678@",
-      "username": "s",
+      "gender": "",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "username": "",
+      "confirmpassword": "",
       "id": 10
     },
     {
-      "password": "Sa12345678@",
-      "username": "s",
+      "gender": "",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "username": "",
+      "confirmpassword": "",
       "id": 11
     },
     {
-      "password": "Sa12345678@",
-      "username": "s",
+      "gender": "",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "username": "",
+      "confirmpassword": "",
       "id": 12
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 13
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "mdsalim",
-      "id": 14
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "mdsalim",
-      "id": 15
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "S",
-      "id": 16
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "S",
-      "id": 17
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "S",
-      "id": 18
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "S",
-      "id": 19
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "S",
-      "id": 20
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 21
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 22
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "mdsalim",
-      "id": 23
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "mdsalim",
-      "id": 24
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 25
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 26
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "mdsalim",
-      "id": 27
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "mdsalim",
-      "id": 28
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 29
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 30
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 31
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 32
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "s",
-      "id": 33
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "k",
-      "id": 34
-    },
-    {
-      "password": "Sa12345678@",
-      "username": "k",
-      "id": 35
-    },
-    {
-      "id": 36
-    },
-    {
-      "id": 37
-    },
-    {
-      "id": 38
-    },
-    {
-      "id": 39
-    },
-    {
-      "gender": "1",
-      "email": "mdsaolima@gmail.com",
-      "phone": "8971525470",
-      "password": "Md123456789@",
-      "username": "Sk",
-      "confirmpassword": "Md123456789@",
-      "id": 40
-    },
-    {
-      "gender": "1",
-      "email": "mdsalimalaam@gmail.com",
-      "phone": "8971525470",
-      "password": "Md123456789@",
-      "username": "mdsalimalam",
-      "confirmpassword": "Md123456789@",
-      "id": 41
-    },
-    {
-      "gender": "1",
-      "email": "mdsalimalaam@gmail.com",
-      "phone": "8971525470",
-      "password": "Md123456789@",
-      "username": "mdsalimalam",
-      "confirmpassword": "Md123456789@",
-      "id": 42
     }
   ]
 }

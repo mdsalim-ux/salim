@@ -33,8 +33,10 @@
     "DOB": "Date of Birth",
     "MM/DD/YYYY": "MM/DD/YYYY",
     "Gender": "Gender",
-    "Account_created":"Account created successfully",
-    "Login_Success":"Account login successfully",
-    "Incorrect_Login":"User name and Password was Incorrect",
-    "Filled_Form_details": "To create a account make sure you have filled all the details"
+    "Account_created": "Account created successfully",
+    "Login_Success": "Account login successfully",
+    "Incorrect_Login": "User name and Password was Incorrect",
+    "Filled_Form_details": "To create a account make sure you have filled all the details",
+    "Server_Down": "Server is down,Please try after sometime",
+    "Already_Account": "Already have account?"
 }

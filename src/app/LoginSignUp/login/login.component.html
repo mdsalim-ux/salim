@@ -3,7 +3,7 @@
         <div class="col-sm-4">
             <mat-toolbar color="primary">{{'Login'|translate}}</mat-toolbar>
             <mat-card>
-                <form (ngSubmit)="login()" name="loginForm" novalidate [formGroup]="loginForm">
+                <form (ngSubmit)="login()" name="loginForm" [formGroup]="loginForm">
                     <div class="row">
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
@@ -29,8 +29,7 @@
                         <div>
                             <p>
                                 <mat-toolbar class="backgroundlight">
-                                    <button mat-raised-button color="accent"
-                                        routerLink="/signup">{{'Create_Account'|translate}}</button>
+                                    <a routerLink="/signup">{{'Create_Account'|translate}}</a>
                                     <span class="example-spacer"></span>
 
                                     <button mat-raised-button color="accent"
