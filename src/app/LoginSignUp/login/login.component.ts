@@ -27,27 +27,27 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        let Id: any;
-        if (this.loginForm.valid) {
-            this._DataService.userlogin().subscribe
-                (res => {
-                    const users = res.find((a: any) => {
-                        return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
-                    });
-                    if (users) {
+        this._DataService.userlogin().subscribe
+            (res => {
+                const users = res.find((a: any) => {
+                    return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
+                });
+                if (users) {
+                    if (this.loginForm.valid) {
+                        this.loginForm.reset()
                         this.router.navigate(['/header'])
                         this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
                     }
-                    else {
+                    else if (this.loginForm.invalid) {
+                        this.loginForm.reset()
                         this._notification.warning(this.LoaderService.getTranslatedLanguages('Incorrect_Login'), '');
-                        return
                     }
-                },
-                    err => {
-                        alert("went wrong")
-                    }
-                );
-        }
+                }
+            },
+                err => {
+                    this._notification.error(this.LoaderService.getTranslatedLanguages('Server_Down'), '');
+                }
+            );
     }
 
 }

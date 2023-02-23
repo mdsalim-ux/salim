@@ -24,7 +24,7 @@ export class SignUpComponent {
     this.signForm = this.formBuilder.group({
       gender: [''],
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.pattern(/^[0-9]\d*$/)]],
+      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],
       password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
       username: ['', [Validators.required, Validators.min(8), Validators.pattern("[a-zA-Z]*")]],
       confirmpassword: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
@@ -34,24 +34,26 @@ export class SignUpComponent {
 
 
   signUp() {
-    if ((this.signForm.valid)) {
-      this._DataService.addUserData(this.signForm.value).subscribe({
-        next: (val: any) => {
+
+    this._DataService.addUserData(this.signForm.value).subscribe({
+      next: (val: any) => {
+        if (this.signForm.valid) {
           this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
           this.router.navigate(['/login'])
           this.signForm.reset();
-        },
-        error: (err) => {
-          alert("something went wrong")
         }
-      })
-      return
-    }
-    else {
-      this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
-      this.signForm.reset();
+        else if (this.signForm.invalid && this.signForm.value.username != null) {
+          this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
+          this.signForm.reset();
 
+        }
+
+      }
+    });
+    error: () => {
+      this._notification.error(this.loaderService.getTranslatedLanguages('Server_Down'), '');
     }
+
   }
 }
 export const passwordMatchValidator = (control: FormGroup) => {
