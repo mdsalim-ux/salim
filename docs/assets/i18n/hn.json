@@ -38,5 +38,7 @@
     "Incorrect_Login": "उपयोगकर्ता नाम और पासवर्ड गलत था",
     "Filled_Form_details": "खाता बनाने के लिए सुनिश्चित करें कि आपने सभी विवरण भर दिए हैं",
     "Server_Down": "सर्वर डाउन है, कृपया कुछ समय बाद प्रयास करें",
-    "Already_Account": "पहले से ही खाता है?"
+    "Already_Account": "पहले से ही खाता है",
+    "User_already_exits": "यह उपयोगकर्ता नाम पहले से मौजूद है,कृपया किसी अन्य नाम का उपयोग करें",
+    "Invalid_Users": "This username or password does not exits, Please correct username and password"
 }

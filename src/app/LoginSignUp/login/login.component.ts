@@ -38,16 +38,22 @@ export class LoginComponent implements OnInit {
                         this.router.navigate(['/header'])
                         this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
                     }
-                    else if (this.loginForm.invalid) {
-                        this.loginForm.reset()
-                        this._notification.warning(this.LoaderService.getTranslatedLanguages('Incorrect_Login'), '');
-                    }
+
+                }
+
+                else if (users == undefined && this.loginForm.valid) {
+                    this.loginForm.reset()
+                    let input = { 'title': 'Info', message: [(this.LoaderService.getTranslatedLanguages('Invalid_Users')), ''] }
+                    this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
+                        return
+
+                    })
+
                 }
             },
                 err => {
                     this._notification.error(this.LoaderService.getTranslatedLanguages('Server_Down'), '');
-                }
-            );
+                });
     }
 
 }

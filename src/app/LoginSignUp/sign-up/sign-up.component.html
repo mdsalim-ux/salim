@@ -8,19 +8,19 @@
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
                             <mat-label>{{'Username'|translate}}</mat-label>
-                            <input autofocus type="text" matInput formControlName="username"
+                            <input type="text" matInput formControlName="username" (keyup)="duplicateUserName()"
                                 placeholder="{{'Username'|translate}}" required>
                             <mat-error
-                                *ngIf="signForm.controls['username'].invalid">{{'User_Name_Val'|translate}}</mat-error>
+                                *ngIf="signForm.controls['username'].invalid && !duplicateName">{{'User_Name_Val'|translate}}</mat-error>
+                            <mat-error *ngIf="duplicateName">{{'User_already_exits'|translate}}</mat-error>
                         </mat-form-field>
-
                     </div>
                     <div class="row">
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">email</mat-icon>
                             <mat-label>{{'Email_Id'|translate}}</mat-label>
-                            <input autofocus type="email" matInput formControlName="email"
-                                placeholder="{{'Email_Id'|translate}}" required>
+                            <input type="email" matInput formControlName="email" placeholder="{{'Email_Id'|translate}}"
+                                required>
                             <mat-error *ngIf="signForm.controls['email'].invalid">{{'Email_Val'|translate}}</mat-error>
                         </mat-form-field>
                     </div>
@@ -28,8 +28,8 @@
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">phone</mat-icon>
                             <mat-label>{{'Mobile_No'|translate}}</mat-label>
-                            <input autofocus type="phone" matInput formControlName="phone"
-                                placeholder="{{'Mobile_No'|translate}}" required>
+                            <input type="phone" matInput formControlName="phone" placeholder="{{'Mobile_No'|translate}}"
+                                required>
                             <mat-error *ngIf="signForm.controls['phone'].invalid">{{'Mobile_Val'|translate}}</mat-error>
                         </mat-form-field>
                     </div>
@@ -55,7 +55,7 @@
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
                             <mat-label>{{'Password_Val'|translate}}</mat-label>
-                            <input autofocus type="password" matInput formControlName="password"
+                            <input type="password" matInput formControlName="password"
                                 placeholder="{{'Password_Val'|translate}}" required>
                             <mat-error
                                 *ngIf="signForm.controls['password'].invalid">{{'Password_Confirm_Val'|translate}}</mat-error>
@@ -65,7 +65,7 @@
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">lock_open</mat-icon>
                             <mat-label>{{'Confirm_Password'|translate}}</mat-label>
-                            <input autofocus type="text" formControlName="confirmpassword" matInput
+                            <input type="text" formControlName="confirmpassword" matInput
                                 placeholder="{{'Confirm_Password'|translate}}" required>
                             <mat-error
                                 *ngIf="signForm.controls['confirmpassword'].invalid">{{'Pass_not_match'|translate}}</mat-error>
