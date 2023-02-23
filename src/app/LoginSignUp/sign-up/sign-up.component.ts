@@ -15,6 +15,9 @@ import { UserdataService } from 'src/app/comman/service/userdata.service';
 
 export class SignUpComponent {
   signForm!: FormGroup;
+  DataValid: boolean = false;
+  alluserdata: any;
+  duplicateName: boolean = false;
   constructor(private formBuilder: FormBuilder, public _DataService: UserdataService,
     public loaderService: LoaderService, private _notification: NotificationService, private router: Router, public translate: TranslateService) {
     translate.setDefaultLang('en');
@@ -34,28 +37,48 @@ export class SignUpComponent {
 
 
   signUp() {
-
-    this._DataService.addUserData(this.signForm.value).subscribe({
-      next: (val: any) => {
-        if (this.signForm.valid) {
-          this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
-          this.router.navigate(['/login'])
-          this.signForm.reset();
-        }
-        else if (this.signForm.invalid && this.signForm.value.username != null) {
-          this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
-          this.signForm.reset();
-
-        }
-
-      }
-    });
-    error: () => {
-      this._notification.error(this.loaderService.getTranslatedLanguages('Server_Down'), '');
+    if (this.DataValid == false && this.signForm.valid) {
+      this._DataService.addUserData(this.signForm.value).subscribe
+        (val => { }, err => {
+          this.router.navigate(['signup'])
+        });
     }
-
+    if (this.signForm.valid && this.signForm.value.confirmpassword != '') {
+      this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
+      this.router.navigate(['/login'])
+    }
+    else if (this.signForm.invalid && this.signForm.value.confirmpassword == '') {
+      this.signForm.reset()
+      this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
+    }
+    else if (this.signForm.invalid && this.signForm.value.confirmpassword == null) {
+      this.signForm.reset()
+      this.router.navigate(['signup'])
+      this.DataValid = true;
+      return
+    }
+  }
+  duplicateUserName() {
+    this._DataService.userlogin().subscribe
+      (res => {
+        this.alluserdata = res;
+      });
+    let appName = this.signForm.controls['username'].value;
+    let gridData = this.alluserdata;
+    this.duplicateName = false;
+    if (gridData != undefined) {
+      for (let i = 0; i < gridData.length; i++) {
+        if (gridData[i].username == appName) {
+          this.duplicateName = true;
+          this.signForm.controls['username'].setErrors({ 'incorrect': true });
+          return;
+        }
+      }
+    }
   }
 }
+
+
 export const passwordMatchValidator = (control: FormGroup) => {
   const password = control.get('password')?.value;
   const confirmpassword = control.get('confirmpassword')?.value;

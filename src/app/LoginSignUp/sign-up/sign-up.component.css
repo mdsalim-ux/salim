@@ -45,6 +45,7 @@
     border-block: revert;
     border: red;
     color: red;
+    font-size: initial;
     background-color: white;
 }
 
