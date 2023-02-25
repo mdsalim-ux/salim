@@ -1,4 +1,4 @@
-<header class="row justify-content-center">
+<!-- <header class="row justify-content-center">
 
     <div>
         <p>
@@ -34,9 +34,16 @@
                     <mat-tab label="{{'Workspace'|translate}}"></mat-tab>
                 </mat-tab-group>
                 <span class="example-spacer"></span>
+                <img class="image" src="assets/photo/ProfilePhoto.png" alter="profile" />
+
                 <button mat-icon-button (click)="onShareClick($event)" aria-label="Example icon-button with share icon">
                     <mat-icon>share</mat-icon>
                 </button>
+                <mat-icon mat-list-icon>language</mat-icon>
+                <select  style="font-size: initial;" #Languages (change)="onDropdownChange($event)"
+                    (change)="translate.use(Languages.value)">
+                    <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
+                </select>
             </mat-toolbar>
             
         </p>
@@ -44,4 +51,81 @@
     </div>
 
 
+</header> -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color ">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="px-1 pt-1">
+                    <img class="image" src="assets/photo/profilephoto.png" alter="Profile Photo" />
+                </li>
+                <li class="px-1 pt-1">
+                    <a class="navbar-brand  fw-bold title" href="#">{{'My_Portfolio'|translate}}</a>
+                </li>
+
+            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+                <ul class="navbar-nav">
+                    <li class="nav-item px-3">
+                        <a class="nav-link navbar-brand" routerLink="/home"
+                            routerLinkActive="active">{{'Home'|translate}}</a>
+                    </li>
+                    <li class="nav-item px-3">
+                        <a class="nav-link navbar-brand" routerLink="/intro"
+                            routerLinkActive="active">{{'Intro'|translate}}</a>
+                    </li>
+                    <!-- <li class="nav-item px-3">
+                        <a class="nav-link navbar-brand" routerLink="/work"
+                            routerLinkActive="active">{{'Workspace'|translate}}</a>
+                    </li> -->
+                    <li class="nav-item px-3">
+                        <a class="nav-link navbar-brand" routerLink="/login"
+                            routerLinkActive="active">{{'Login'|translate}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end " id="navbarText">
+                <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
+                    aria-label="Example icon-button with menu icon">
+                    <div>
+                        <mat-menu #menu="matMenu">
+                            <div>
+                                <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
+                                <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
+                                <!-- <button mat-menu-item routerLink="/work">{{'Workspace'|translate}}</button> -->
+                                <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
+                                <mat-menu #submenu="matMenu">
+                                    <div>
+                                        <button mat-menu-item
+                                            (click)="LinkedinProfile()">{{'Linkedin'|translate}}</button>
+                                        <button mat-menu-item
+                                            (click)="downloadCV()">{{'Download_CV'|translate}}</button>
+                                        <button mat-menu-item (click)="onShareClick($event)">{{'Share'|translate}}
+                                        </button>
+                                    </div>
+                                </mat-menu>
+                            </div>
+                        </mat-menu>
+                    </div>
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="px-1 pt-1">
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="px-1 pt-1 ">
+                        <select class="form-select form-select-sm lan mt-1" style="font-size:small" #Languages
+                            (change)="onDropdownChange($event)" (change)="translate.use(Languages.value)">
+                            <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>

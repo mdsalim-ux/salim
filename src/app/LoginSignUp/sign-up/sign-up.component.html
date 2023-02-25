@@ -8,7 +8,7 @@
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
                             <mat-label>{{'Username'|translate}}</mat-label>
-                            <input type="text" matInput formControlName="username" (keyup)="duplicateUserName()"
+                            <input type="text" matInput formControlName="username"
                                 placeholder="{{'Username'|translate}}" required>
                             <mat-error
                                 *ngIf="signForm.controls['username'].invalid && !duplicateName">{{'User_Name_Val'|translate}}</mat-error>

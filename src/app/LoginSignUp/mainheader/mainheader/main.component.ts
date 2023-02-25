@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from 'src/app/comman/notification/notification.service';
 import { LoaderService } from 'src/app/comman/loader/loader.service';
+import { MaterialModule } from 'src/app/angular/material/material.module';
 
 @Component({
   selector: 'app-main',
@@ -13,7 +14,8 @@ import { LoaderService } from 'src/app/comman/loader/loader.service';
 export class MainheaderComponent implements OnInit {
   supportedLanguages = ['en', 'hn'];
   dropdownindex: any;
-  constructor(public loaderService: LoaderService, private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
+  isExpanded:boolean=false;
+  constructor(public loaderService: LoaderService, public mat:MaterialModule,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     translate.setDefaultLang('en');
   }
 

@@ -12,8 +12,8 @@ import { NotificationService } from 'src/app/comman/notification/notification.se
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  linkToShare = 'https://mdsalimportfolio.github.io/portfolio.github.io/';
-
+  linkToShare = 'https://mdsalimprofile.web.app';
+  isExpanded:boolean=false
   supportedLanguages = ['en', 'hn'];
   dropdownindex: any;
   constructor(public dialog: MatDialog, public router: Router, private location: Location,
@@ -58,7 +58,15 @@ export class HeaderComponent {
     window.open(url, '_blank');
     this._notification.success(this.LoaderService.getTranslatedLanguages('Link_Share_WhatsApp'), '');
   }
-
+  onDropdownChange(event: any) {
+    for (let i = 0; i < event.currentTarget.length; i++) {
+      this.dropdownindex = event.currentTarget;
+      if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1) {
+        this._notification.success(this.LoaderService.getTranslatedLanguages('Language_Change'), '');
+        break;
+      }
+    }
+  }
   //On click download cv 
   downloadCV() {
     let link = document.createElement('a');

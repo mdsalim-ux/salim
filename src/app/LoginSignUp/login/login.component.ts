@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '../../comman/notification/notification.service';
 import { LoaderService } from '../../comman/loader/loader.service';
 import { UserdataService } from 'src/app/comman/service/userdata.service';
-import { AlertboxComponent } from 'src/app/comman/dialogbox/alertbox/alertbox.component';
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -14,46 +14,67 @@ import { AlertboxComponent } from 'src/app/comman/dialogbox/alertbox/alertbox.co
 export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
     dropdownindex: any;
+    otp: any;
+    twilioClient: any;
+    loginIsInvalid: boolean=true;
     constructor(public _DataService: UserdataService, public LoaderService: LoaderService,
         private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     }
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
-            password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
-            username: ['', [Validators.required, Validators.min(1), Validators.pattern("[a-zA-Z]*")]]
+            phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],
+           // password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
+            username: ['', [Validators.required, Validators.min(1), Validators.pattern("[a-zA-Z]*")]],
+            //otp: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(8), Validators.pattern(/^[0-6]\d*$/)]],
         });
 
     }
+    generateOTP() {
+        const randomNum = Math.floor(Math.random() * 1000000);
+        this.otp = ('000000' + randomNum).slice(-6);
 
-    login() {
-        this._DataService.userlogin().subscribe
-            (res => {
-                const users = res.find((a: any) => {
-                    return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
-                });
-                if (users) {
-                    if (this.loginForm.valid) {
-                        this.loginForm.reset()
-                        this.router.navigate(['/header'])
-                        this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
-                    }
-
-                }
-
-                else if (users == undefined && this.loginForm.valid) {
-                    this.loginForm.reset()
-                    let input = { 'title': 'Info', message: [(this.LoaderService.getTranslatedLanguages('Invalid_Users')), ''] }
-                    this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
-                        return
-
-                    })
-
-                }
-            },
-                err => {
-                    this._notification.error(this.LoaderService.getTranslatedLanguages('Server_Down'), '');
-                });
     }
+    loginValid(){
+        if (this.loginForm.value.phone.length==9 && this.loginForm.value.username.length!=0) {
+            this.loginIsInvalid=true;
+        }
+    }
+    
+    login() {
+        if(this.loginForm.valid){
+        this._DataService.addUserData(this.loginForm.value).subscribe
+            (res => {});
+                // const users = res.find((a: any) => {
+                //     return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
+                // });
+              //  if (users) {
+                    if (this.loginForm.valid) {
+                            this.loginForm.reset()
+                            this.router.navigate(['/work'])
+                            this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
+                            let input = { 'title': 'Info', message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
+                            this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
+                                return
+                    
+                            })
+                    }
+                   
+                    // if(this.loginForm.invalid) {
+                    //     this.router.navigate(['/login'])
+                    //     let input = { 'title': 'Info', message: [(this.LoaderService.getTranslatedLanguages('Invalid_Users')), ''] }
+                    //     this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
+                    //         return
+                
+                    //     })
+                
+                    // }
+             //   }
+
+               
+            }
+ 
+    }
+    
 
 }

@@ -51,13 +51,10 @@
     width: 100%;
     background:#0a58ca;
     
+    
   }
-  .EasevoRelease {
-    font-size: smaller;
-    color: silver;
-}
 .dropdown-item.active, .dropdown-item{
-    font-size: 14px;
+    font-size: 20px;
 }
 .dropdown-item.active, .dropdown-item:active{
     color: #1e2125;
@@ -70,6 +67,8 @@
 }
 .fixed-top{
     z-index: 2 !important;
+    font-size: larger;
+
 }
 
 .aligned-with-icon{
@@ -79,4 +78,13 @@
 }
 .bar{
     margin-top: 10px;
+    font-size: larger;
+
+}
+.title{
+    color:rgb(220 20 167);
+    text-align:center
+}
+.container{
+    margin: 10% auto;
 }
