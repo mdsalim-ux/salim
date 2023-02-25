@@ -9,7 +9,7 @@ import { WorkComponent } from './modules/work/work.component';
 import { MainheaderComponent } from './LoginSignUp/mainheader/mainheader/main.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '', redirectTo: '/header', pathMatch: 'full' },
   { path: 'main', component: MainheaderComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },

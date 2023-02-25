@@ -7,3 +7,16 @@
     background: white;
     border: white;
 }
+.mat-sidenav-container{
+    height: 160px; 
+    width: 116.5px;
+    background: white;
+}
+.chevron-button{
+    transition: 300ms ease-in-out;
+    transform: rotate (0deg);
+    right: 0;
+}
+.chevron-button.rotate{
+    transform: rotate(180deg);
+}

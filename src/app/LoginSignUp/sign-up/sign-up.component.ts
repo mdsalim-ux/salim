@@ -61,6 +61,7 @@ export class SignUpComponent {
   duplicateUserName() {
     this._DataService.userlogin().subscribe
       (res => {
+        res=[];
         this.alluserdata = res;
       });
     let appName = this.signForm.controls['username'].value;

@@ -1,4 +1,4 @@
-<header class="row justify-content-center">
+<!-- <header class="row justify-content-center">
     <div>
         <p>
             <mat-toolbar class="backgroundlight">
@@ -11,6 +11,41 @@
                     <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
                 </select>
             </mat-toolbar>
+
+            
         </p>
     </div>
-</header>
+   
+</header> -->
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav mode="side" opened="true">
+            <mat-list-item>
+                <mat-icon mat-list-icon class="chevron-button sidenave-button"  *ngIf="!isExpanded" (click)="isExpanded =!isExpanded"
+                    [ngClass]="{'rotate':isExpanded}">menu</mat-icon>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon class="chevron-button sidenave-button"  *ngIf="isExpanded" (click)="isExpanded =!isExpanded"
+                    [ngClass]="{'rotate':isExpanded}">close</mat-icon>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon class="">home</mat-icon>
+                <b *ngIf="isExpanded" style="cursor: pointer;" routerLink="/header">Dashboard</b>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon class="">info</mat-icon>
+                <b *ngIf="isExpanded" style="cursor: pointer;" routerLink="/intro">Info</b>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
+                <b *ngIf="isExpanded" style="cursor: pointer;" routerLink="/login">Login</b>
+            </mat-list-item>
+            <mat-list-item>
+
+                <mat-icon mat-list-icon>language</mat-icon>
+                <select *ngIf="isExpanded" style="font-size: initial;" #Languages (change)="onDropdownChange($event)"
+                    (change)="translate.use(Languages.value)">
+                    <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
+                </select>
+            </mat-list-item>
+        </mat-sidenav>
+    </mat-sidenav-container>
