@@ -53,19 +53,20 @@ textalign {
   padding-bottom: 0;
   padding-left: 0.75rem;
   border: none;
+  cursor: pointer;
 }
 .fixed-top{
   position: sticky;
   z-index: 2 !important;
 }
 .navbar-light .navbar-nav .nav-link{
-  font-weight: 600;
+  font-weight: 800;
   border-bottom: 3px solid white ;
   color:#5236AB;
 }
 .navbar-light .navbar-nav .nav-link.active {
   color: black !important;
-  font-weight: 600;
+  font-weight: 800;
    border-bottom: 3px solid transparent;
   border-image:linear-gradient(to right, #e31937 , #a82465, #5236ab);
   border-image-slice: 1;   
@@ -80,6 +81,7 @@ textalign {
 }
 .title{
   color:rgb(220 20 167);
-  text-align:center
+  text-align:center;
+  font-weight: 800;
 }
 

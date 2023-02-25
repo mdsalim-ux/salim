@@ -16,6 +16,7 @@ export class HeaderComponent {
   isExpanded:boolean=false
   supportedLanguages = ['en', 'hn'];
   dropdownindex: any;
+  menucollabse:boolean=true;
   constructor(public dialog: MatDialog, public router: Router, private location: Location,
     public LoaderService: LoaderService, public translate: TranslateService, private _notification: NotificationService) {
     router.events.subscribe((event: any) => {
