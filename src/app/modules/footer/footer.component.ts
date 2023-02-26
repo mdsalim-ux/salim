@@ -8,11 +8,11 @@ import { NotificationService } from 'src/app/comman/notification/notification.se
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  
+  intropage:boolean=false;
   constructor(public loader:LoaderService,private _notification:NotificationService) { }
 
 
-  
+
   downloadCV() {
     let link = document.createElement('a');
     link.setAttribute('type', 'hidden');

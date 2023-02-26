@@ -6,8 +6,6 @@ export class IRegister {
     userName!: string;
     email!: string;
     password!: string;
-    mobile!: string;
-    roleId!: number;
 }
 export class IRefreshToken {
     jwtToken!: "string";

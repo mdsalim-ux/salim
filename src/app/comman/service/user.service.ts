@@ -10,18 +10,14 @@ export class UserService {
   user : any;
   constructor(private http:HttpClient) { }
   login(user:ILogin){
-    return this.http.post<any>(environment.apiurl + 'User/login',user);
+    return this.http.post<any>('http://localhost:3000/UserData',user);
   }
   register(user:IRegister){
-    return this.http.post<any>(environment.apiurl + 'User/register',user);
+    return this.http.post<any>( 'User/register',user);
   }
   refreshToken(user:IRefreshToken){
-    return this.http.post<any>(environment.apiurl + 'User/refToken',user);
+    return this.http.post<any>( 'User/refToken',user);
   }
-  /*storeJwtToken(jwtToken: string) {
-    localStorage.setItem("JWT",jwtToken);
-  }*/
-
   getJwtToken(){
     let user = localStorage.getItem('user') as string;
     this.user = JSON.parse(user);
@@ -31,11 +27,6 @@ export class UserService {
     let user = localStorage.getItem('user') as string;
     this.user = JSON.parse(user);
     return this.user !=null?this.user.refreshToken:null;
-  }
-  getRoleName(){
-    let user = localStorage.getItem('user') as string;
-    this.user = JSON.parse(user);
-    return this.user !=null?this.user.roleName:null;
   }
   getUser(){
     let user = localStorage.getItem('user') as string;

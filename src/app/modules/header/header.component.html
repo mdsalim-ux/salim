@@ -56,7 +56,7 @@
 
     <nav style="background:#88d663" class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color ">
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding-right: calc(var(--bs-gutter-x) *2)">
             <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1">
                     <img class="image" src="assets/photo/profilephoto.png" alter="Profile Photo" />
@@ -64,7 +64,7 @@
             </ul>
             <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1">
-                    <a class="navbar-brand  fw-bold title" routerLink="/home">{{'My_Portfolio'|translate}}</a>
+                    <a class="navbar-brand  fw-bold title" routerLinkActive="active" routerLink="/home">{{'My_Portfolio'|translate}}</a>
                 </li>
             </ul>
             <button class="navbar-toggler" type="button" *ngIf="menucollapse" (click)="menucollapses()" (click)="menucollapse =!menucollapse" aria-expanded="false" aria-label="Toggle navigation">

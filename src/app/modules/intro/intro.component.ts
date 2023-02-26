@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./intro.component.css']
 })
 export class IntroComponent {
+  readMoreC1:boolean=false;
+  readMoreC2:boolean=false
+  readMoreC3:boolean=false
+
 
 }

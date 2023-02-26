@@ -9,7 +9,6 @@ import { NotificationService } from 'src/app/comman/notification/notification.se
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   constructor(public loader:LoaderService,private _notification:NotificationService) { }
 
   ngOnInit(): void {

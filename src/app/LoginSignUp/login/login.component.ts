@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
                             this.loginForm.reset()
                             this.router.navigate(['/work'])
                             this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
-                            let input = { 'title': 'Info', message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
+                            let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
                             this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
                                 return
                     
