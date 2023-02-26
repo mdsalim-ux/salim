@@ -47,13 +47,15 @@ textalign {
 .bg-color{
   background-color: white;
 }
-.lan{
+.dropdown{
   padding-top: 0;
   padding-right: 2.25rem;
   padding-bottom: 0;
   padding-left: 0.75rem;
   border: none;
   cursor: pointer;
+  font-size:small;
+  font-weight: 600;
 }
 .fixed-top{
   position: sticky;

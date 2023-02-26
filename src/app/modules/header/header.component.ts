@@ -14,9 +14,9 @@ import { NotificationService } from 'src/app/comman/notification/notification.se
 export class HeaderComponent {
   linkToShare = 'https://mdsalimprofile.web.app';
   isExpanded:boolean=false
-  supportedLanguages = ['en', 'hn'];
+  supportedLanguages = ['en', 'hn','ur'];
   dropdownindex: any;
-  menucollabse:boolean=true;
+  menucollapse:boolean=false;
   constructor(public dialog: MatDialog, public router: Router, private location: Location,
     public LoaderService: LoaderService, public translate: TranslateService, private _notification: NotificationService) {
     router.events.subscribe((event: any) => {
@@ -65,6 +65,10 @@ export class HeaderComponent {
       if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1) {
         this._notification.success(this.LoaderService.getTranslatedLanguages('Language_Change'), '');
         break;
+      }
+      if(this.dropdownindex.selectedIndex==2){
+        this._notification.success(this.LoaderService.getTranslatedLanguages('Language_Change'), '');
+        break
       }
     }
   }

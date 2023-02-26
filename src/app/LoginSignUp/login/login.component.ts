@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
     }
     loginValid(){
-        if (this.loginForm.value.phone.length==9 && this.loginForm.value.username.length!=0) {
+        if (this.loginForm.value.phone.length==9 && this.loginForm.value.username.length!=0 ||this.loginForm.valid) {
             this.loginIsInvalid=true;
         }
     }
