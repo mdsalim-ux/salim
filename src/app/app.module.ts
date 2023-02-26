@@ -25,6 +25,7 @@ import { LoaderComponent } from './comman/loader/loader/loader.component';
 import { LoginComponent } from './LoginSignUp/login/login.component';
 import { SignUpComponent } from './LoginSignUp/sign-up/sign-up.component';
 import { MainheaderComponent } from './LoginSignUp/mainheader/mainheader/main.component';
+import { FooterComponent } from './modules/footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
@@ -42,7 +43,8 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     LoaderComponent,
     LoginComponent,
     SignUpComponent,
-    MainheaderComponent
+    MainheaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

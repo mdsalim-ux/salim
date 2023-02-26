@@ -52,9 +52,9 @@
 
 
 </header> -->
-<header>
+<header >
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color ">
+    <nav style="background:#88d663" class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color ">
 
         <div class="container-fluid">
             <ul class="navbar-nav" style="flex-direction: inherit">
@@ -67,8 +67,11 @@
                     <a class="navbar-brand  fw-bold title" routerLink="/home">{{'My_Portfolio'|translate}}</a>
                 </li>
             </ul>
-            <button class="navbar-toggler" type="button" (click)="menucollapse =!menucollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" *ngIf="menucollapse" (click)="menucollapses()" (click)="menucollapse =!menucollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <mat-icon>menu</mat-icon>
+            </button>
+            <button class="navbar-toggler" type="button" *ngIf="!menucollapse" (click)="menucollapse =!menucollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <mat-icon>keyboard_backspace</mat-icon>
             </button>
 
             <div class=" navbar-collapse justify-content-end" >
@@ -113,7 +116,7 @@
                             </div>
                             <mat-icon>more_vert</mat-icon>
                         </button>
-                        <mat-icon>language</mat-icon>
+                        <mat-icon *ngIf="!menucollapse">language</mat-icon>
                         <select class="dropdown" *ngIf="!menucollapse" #Languages (change)="onDropdownChange($event)"
                             (change)="translate.use(Languages.value)">
                             <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>

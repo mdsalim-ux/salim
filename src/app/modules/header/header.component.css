@@ -55,6 +55,7 @@ textalign {
   border: none;
   cursor: pointer;
   font-size:small;
+  background: border-box;
   font-weight: 600;
 }
 .fixed-top{

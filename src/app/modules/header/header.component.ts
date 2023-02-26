@@ -27,10 +27,13 @@ export class HeaderComponent {
         this.LoaderService.hide();
       }
     })
+ 
     translate.setDefaultLang('en');
   }
   ngOnInit(): void {
     this.location.go('/');
+ 
+    
     this.selectedTabValue(event);
   }
   TabIndex: any;
@@ -54,6 +57,14 @@ export class HeaderComponent {
       this.router.navigate(['/work'])
     }
   }
+  menucollapses(){
+    if(this.menucollapse==true){
+      let input = {'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Best_View')), ''] }
+      this.LoaderService.AlertDialogBox(input, '450px').subscribe((data: any) => {
+          return
+      })
+    }
+  }
   onShareClick(event: any) {
     const url = `https://web.whatsapp.com/?url=${encodeURIComponent(this.linkToShare)}`;
     window.open(url, '_blank');
@@ -62,13 +73,9 @@ export class HeaderComponent {
   onDropdownChange(event: any) {
     for (let i = 0; i < event.currentTarget.length; i++) {
       this.dropdownindex = event.currentTarget;
-      if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1) {
+      if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1 || this.dropdownindex.selectedIndex==2) {
         this._notification.success(this.LoaderService.getTranslatedLanguages('Language_Change'), '');
         break;
-      }
-      if(this.dropdownindex.selectedIndex==2){
-        this._notification.success(this.LoaderService.getTranslatedLanguages('Language_Change'), '');
-        break
       }
     }
   }

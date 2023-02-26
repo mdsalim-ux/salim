@@ -10,7 +10,7 @@ import { LoaderService } from 'src/app/comman/loader/loader.service';
   styleUrls: ['./loader.component.css']
 })
 export class LoaderComponent implements OnInit {
-  color: ThemePalette = 'primary';
+  color: ThemePalette = 'accent';
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
   isLoading: Subject<boolean> = this.LoaderService.isLoading;
