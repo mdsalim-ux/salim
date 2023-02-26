@@ -53,75 +53,74 @@
 
 </header> -->
 <header>
+
     <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color ">
+
         <div class="container-fluid">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1">
                     <img class="image" src="assets/photo/profilephoto.png" alter="Profile Photo" />
                 </li>
             </ul>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1">
-                    <a class="navbar-brand  fw-bold title" href="/home">{{'My_Portfolio'|translate}}</a>
+                    <a class="navbar-brand  fw-bold title" routerLink="/home">{{'My_Portfolio'|translate}}</a>
                 </li>
             </ul>
-            <button class="navbar-toggler" type="button"  (click)="menucollabse =!menucollabse"
-                aria-controls="navhidshow" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" (click)="menucollapse =!menucollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <mat-icon>menu</mat-icon>
             </button>
-            <div class=" navbar-collapse justify-content-end" id="navhidshow">
-                <ul class="navbar-nav">
+
+            <div class=" navbar-collapse justify-content-end" >
+                <ul class="navbar-nav" style="flex-direction: inherit;padding-right: 0;">
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" routerLink="/home"
-                            routerLinkActive="active" *ngIf="menucollabse">{{'Home'|translate}}</a>
+                        <a class="nav-link navbar-brand" routerLink="/home" routerLinkActive="active"
+                            *ngIf="!menucollapse">{{'Home'|translate}}</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" routerLink="/intro"
-                            routerLinkActive="active" *ngIf="menucollabse">{{'Intro'|translate}}</a>
+                        <a class="nav-link navbar-brand" routerLink="/intro" routerLinkActive="active"
+                            *ngIf="!menucollapse">{{'Intro'|translate}}</a>
                     </li>
                     <!-- <li class="nav-item px-3">
                         <a class="nav-link navbar-brand" routerLink="/work"
                             routerLinkActive="active">{{'Workspace'|translate}}</a>
                     </li> -->
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" routerLink="/login"
-                            routerLinkActive="active" *ngIf="menucollabse">{{'Login'|translate}}</a>
-                    </li>
-                </ul>
-            </div>
-            <div class=" navbar-collapse justify-content-end " id="navhidshow">
-                <ul class="navbar-nav">
-                    <li class="px-1 pt-1 ">
-                        <select class="form-select form-select-sm lan mt-1" *ngIf="menucollabse" style="font-size:small" #Languages
-                            (change)="onDropdownChange($event)" (change)="translate.use(Languages.value)">
-                            <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
-                        </select>
-                    </li>
-                </ul>
-                <button mat-icon-button [matMenuTriggerFor]="menu" class="title"
-                     *ngIf="menucollabse">
-                    <div>
-                        <mat-menu #menu="matMenu" >
-                            <div class="title" >
-                                <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
-                                <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
-                                <!-- <button mat-menu-item routerLink="/work">{{'Workspace'|translate}}</button> -->
-                                <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
-                                <mat-menu #submenu="matMenu">
-                                    <div>
-                                        <button mat-menu-item
-                                            (click)="LinkedinProfile()">{{'Linkedin'|translate}}</button>
-                                        <button mat-menu-item
-                                            (click)="downloadCV()">{{'Download_CV'|translate}}</button>
-                                        <button mat-menu-item (click)="onShareClick($event)">{{'Share'|translate}}
-                                        </button>
+                        <a class="nav-link navbar-brand" routerLink="/login" routerLinkActive="active"
+                            *ngIf="!menucollapse">{{'Login'|translate}}</a>
+                    </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <ul class="navbar-nav navbar-collapse justify-content-end" style="flex-direction: inherit;padding-right: 0; ">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" class="title" *ngIf="!menucollapse">
+                            <div>
+                                <mat-menu #menu="matMenu">
+                                    <div class="title">
+                                        <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
+                                        <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
+                                        <!-- <button mat-menu-item routerLink="/work">{{'Workspace'|translate}}</button> -->
+                                        <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
+                                        <mat-menu #submenu="matMenu">
+                                            <div>
+                                                <button mat-menu-item
+                                                    (click)="LinkedinProfile()">{{'Linkedin'|translate}}</button>
+                                                <button mat-menu-item
+                                                    (click)="downloadCV()">{{'Download_CV'|translate}}</button>
+                                                <button mat-menu-item (click)="onShareClick($event)">{{'Share'|translate}}
+                                                </button>
+                                            </div>
+                                        </mat-menu>
                                     </div>
                                 </mat-menu>
                             </div>
-                        </mat-menu>
-                    </div>
-                    <mat-icon>more_vert</mat-icon>
-                </button>
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-icon>language</mat-icon>
+                        <select class="dropdown" *ngIf="!menucollapse" #Languages (change)="onDropdownChange($event)"
+                            (change)="translate.use(Languages.value)">
+                            <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
+                        </select>
+                    </ul>
+
+                </ul>
             </div>
         </div>
     </nav>

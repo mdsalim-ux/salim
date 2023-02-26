@@ -29,7 +29,7 @@
     "Pass_not_match": "Password does not match",
     "Male": "Male",
     "Female": "Female",
-    "Others": "Others",
+    "Others": "Other",
     "DOB": "Date of Birth",
     "MM/DD/YYYY": "MM/DD/YYYY",
     "Gender": "Gender",
@@ -46,5 +46,6 @@
     "My_Name":"Md Salim Alam",
     "Software_Engineer":"Software Engineer",
     "Summary":"Seeking a challenging career in the IT sector to get a position of responsibility, using my skills and efficiency to communicate my ideas & views, and commit myself to achieving organizational objectives with team effort and my positive attitude and performance",
-    "Read_More":"Read More"
+    "Read_More":"Read More",
+    "ur":"Urdu"
 }
