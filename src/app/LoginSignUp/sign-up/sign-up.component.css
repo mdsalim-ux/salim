@@ -2,10 +2,12 @@
     display: flux;
     justify-content: center;
     align-items: center;
+    height: 60vh;
+
 }
 
 .minimum-vh-90 {
-    min-height: 90vh !important;
+    min-height: 30vh !important;
 }
 
 .mat-toolbar.mat-primary {
@@ -54,7 +56,7 @@
     padding: 10px;
 }
 
-/* .outer {
-    height: 100vh;
-    background: linear-gradient(to top, #c9c9ff 50%, #6e6ef6 90%) no-repeat;
-} */
+.outer {
+    height: 60vh;
+    background: linear-gradient(to top, #a07006 50%, #11a754 90%) no-repeat;
+}

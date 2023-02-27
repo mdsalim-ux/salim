@@ -24,13 +24,12 @@ export class SignUpComponent {
     public loaderService: LoaderService, private _notification: NotificationService, 
     private EncrDecr: EncrDecrService,private router: Router, public translate: TranslateService) {
     translate.setDefaultLang('en');
-    this._DataService.userlogin().subscribe
-    (res => {
-      this.alluserdata = res;
-    });
   }
   ngOnInit(): void {
-   
+    // this._DataService.userlogin().subscribe
+    // (res => {
+    //   this.alluserdata = res;
+    // });
     this.signForm = this.formBuilder.group({
       gender: ['Male'],
       DOB:[''],
@@ -42,53 +41,59 @@ export class SignUpComponent {
     },
       { validators: passwordMatchValidator });
   }
-
-
-  signUp() {
-    if (this.DataValid == false && this.signForm.valid) {
-        var encrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.signForm.value.password);
-        this.signForm.value.password=encrypted,
-        this.signForm.value.phone=encrypted,
-        this.signForm.value.email=encrypted,
-        this.signForm.value.confirmpassword=encrypted,
-        console.log('Encrypted :' + encrypted);
-      this._DataService.addUserData(this.signForm.value).subscribe
-        (val => {    
-      }, err => {
-          this.router.navigate(['signup'])
-        });
-    }
+  signUp(){
     if (this.signForm.valid) {
-     
-     
       this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
       this.router.navigate(['/login'])
     }
-    else if (this.signForm.invalid && this.signForm.value.confirmpassword == '') {
-       this.signForm.reset()
-      this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
-    }
-    else if (this.signForm.invalid && this.signForm.value.confirmpassword == null) {
-      // this.signForm.reset()
-      this.router.navigate(['signup'])
-      this.DataValid = true;
-      return
-    }
   }
-  duplicateUserName() {
-    let duplicateName = this.signForm.controls['username'].value;
-    let logindata = this.alluserdata;
-    this.duplicateName = false;
-    if (logindata != undefined) {
-      for (let i = 0; i < logindata.length; i++) {
-        if (logindata[i].username == duplicateName) {
-          this.duplicateName = true;
-          this.signForm.controls['username'].setErrors({ 'incorrect': true });
-          return;
-        }
-      }
-    }
-  }
+  
+
+  // signUp() {
+  //   if (this.DataValid == false && this.signForm.valid) {
+  //       // var encrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.signForm.value.password);
+  //       // this.signForm.value.password=encrypted,
+  //       // this.signForm.value.phone=encrypted,
+  //       // this.signForm.value.email=encrypted,
+  //       // this.signForm.value.confirmpassword=encrypted,
+  //       // console.log('Encrypted :' + encrypted);
+  //     this._DataService.addUserData(this.signForm.value).subscribe
+  //       (val => {    
+  //     }, err => {
+  //         this.router.navigate(['signup'])
+  //       });
+  //   }
+  //   if (this.signForm.valid) {
+     
+     
+  //     this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
+  //     this.router.navigate(['/login'])
+  //   }
+  //   else if (this.signForm.invalid && this.signForm.value.confirmpassword == '') {
+  //      this.signForm.reset()
+  //     this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
+  //   }
+  //   else if (this.signForm.invalid && this.signForm.value.confirmpassword == null) {
+  //     // this.signForm.reset()
+  //     this.router.navigate(['signup'])
+  //     this.DataValid = true;
+  //     return
+  //   }
+  // }
+  // duplicateUserName() {
+  //   let duplicateName = this.signForm.controls['username'].value;
+  //   let logindata = this.alluserdata;
+  //   this.duplicateName = false;
+  //   if (logindata != undefined) {
+  //     for (let i = 0; i < logindata.length; i++) {
+  //       if (logindata[i].username == duplicateName) {
+  //         this.duplicateName = true;
+  //         this.signForm.controls['username'].setErrors({ 'incorrect': true });
+  //         return;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 

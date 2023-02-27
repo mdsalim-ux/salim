@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +28,7 @@ import { MainheaderComponent } from './LoginSignUp/mainheader/mainheader/main.co
 import { FooterComponent } from './modules/footer/footer.component';
 import { MenuComponent } from './modules/menu/menu.component';
 import { EncrDecrService } from './comman/encr-decr-service.service';
+import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
@@ -61,12 +62,14 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     NotificationModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxHideOnScrollModule,
     ToastrModule.forRoot({
     }),
 
   ],
   providers: [UserService,EncrDecrService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
 export function TranslateLoaderFactory(httpClient: HttpClient) {

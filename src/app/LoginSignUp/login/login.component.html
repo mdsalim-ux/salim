@@ -1,7 +1,6 @@
-<div class="outer">
-    <div class=" row justify-content-center">
+    <div class=" row justify-content-center container-fluid">
         <div class="col-sm-5">
-            <mat-toolbar color="primary">{{'Login'|translate}}</mat-toolbar>
+            <mat-toolbar color="primary"style="display: initial">{{'Login'|translate}}</mat-toolbar>
             <mat-card>
                 <form (ngSubmit)="login()" name="loginForm" [formGroup]="loginForm">
                     <div>&nbsp;
@@ -43,7 +42,7 @@
                                      <!-- <a routerLink="/signup">{{'Create_Account'|translate}}</a> -->
                                     <span class="example-spacer"></span>
                                     <button mat-raised-button color="accent" style="text-align: right;"
-                                        (click)="login()" (click)="userNameExist()">{{'Login'|translate}}</button>
+                                        (click)="login()">{{'Login'|translate}}</button>
                                 </mat-toolbar>
                             </p>
                         </div>
@@ -52,4 +51,3 @@
             </mat-card>
         </div>
     </div>
-</div>

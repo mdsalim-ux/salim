@@ -10,7 +10,7 @@ export class UserService {
   user : any;
   constructor(private http:HttpClient) { }
   login(user:ILogin){
-    return this.http.post<any>('http://localhost:3000/UserData',user);
+    return this.http.post<any>('',user);
   }
   register(user:IRegister){
     return this.http.post<any>( 'User/register',user);
@@ -39,4 +39,5 @@ export class UserService {
   storeJwtToken(jwtToken:string){
     localStorage.setItem("JWT_TOKEN",jwtToken)
   }
+  
 }

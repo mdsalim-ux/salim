@@ -11,7 +11,9 @@ export class FooterComponent {
   intropage:boolean=false;
   constructor(public loader:LoaderService,private _notification:NotificationService) { }
 
-
+  getArray(n: number) {
+    return new Array(n);
+  }
 
   downloadCV() {
     let link = document.createElement('a');

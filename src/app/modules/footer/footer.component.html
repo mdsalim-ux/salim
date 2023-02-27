@@ -1,11 +1,20 @@
-<div class="footer px-5">
-    <div class="row">
-        <div class="col-12" >
-                <mat-chip-option selected color="warn" (click)="downloadCV()">{{'Download_CV'|translate}}</mat-chip-option>
+<nav ngxHideOnScroll [classNameWhenHidden]="'nav--hidden'">
+</nav>
+<h1 style="margin-top: 100px;">
+    <a href="https://www.npmjs.com/package/ngx-hide-on-scroll"></a>
+</h1>
+<p *ngFor="let item of getArray(250)">
+</p>
+<div class="fixed-footer" ngxHideOnScroll [propertyUsedToHide]="'transform'" [valueWhenHidden]="'translateY(100%)'"
+    [valueWhenShown]="'translateY(0%)'">
+    <div class=" px-5">
+        <div class="row">
+            <div class="col-12">
+                <mat-chip-option selected color="warn"
+                    (click)="downloadCV()">{{'Download_CV'|translate}}</mat-chip-option>
                 <mat-chip-option selected (click)="LinkedinProfile()">{{'Linkedin'|translate}}</mat-chip-option>
-                <mat-chip-option color="accent"  *ngIf="!intropage" (click)="intropage =!intropage" routerLink="/intro">{{'Read_More'|translate}}</mat-chip-option>
-
-                <div class="col-4">
+                <mat-chip-option color="accent" *ngIf="!intropage" (click)="intropage =!intropage"
+                    routerLink="/intro">{{'Read_More'|translate}}</mat-chip-option>
+            </div>
         </div>
     </div>
-</div>

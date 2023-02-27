@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
     LoginData: any;
     constructor(public _DataService: UserdataService, public LoaderService: LoaderService,
         private _notification: NotificationService, private EncrDecr: EncrDecrService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
-            this._DataService.userlogin().subscribe
-            (res => {this.LoginData=res})
-        }
+    }
 
     ngOnInit(): void {
+        // this._DataService.userlogin().subscribe
+        //     (res => { this.LoginData = res })
         this.loginForm = this.formBuilder.group({
             // phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],
             password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         this.otp = ('000000' + randomNum).slice(-6);
 
     }
+
     loginValid() {
         if (this.loginForm.value.phone.length == 9 && this.loginForm.value.username.length != 0 || this.loginForm.valid) {
             this.loginIsInvalid = true;
@@ -45,43 +46,50 @@ export class LoginComponent implements OnInit {
     }
     login() {
         if (this.loginForm.valid) {
-                    let res=this.LoginData;
-                    for (let i = 0; i < res.length; i++) {
-                        var encrypted = this.EncrDecr.set('123456$#@$^@1ERF', res[i].phone);
-                        res[i].phone = encrypted,
-                        this.loginForm.value.phone = encrypted,
-                        res[i].username = res[i].username
-                    }
-                    const users = res.find((a: any) => {
-                        return a.username === this.loginForm.value.username
-                    });
-                    if (users) {
-                        if (this.loginForm.valid) {
-                            this.loginForm.reset()
-                            this.router.navigate(['/work'])
-                            this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
-                            let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
-                            this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
-                                return
-
-                            })
-                        }
-
-                    }
+         this.loginForm.reset()
+        this.router.navigate(['/work'])
+        this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
         }
     }
-    userNameExist() {
-        let usernameexists = this.loginForm.controls['username'].value;
-        let loginData = this.LoginData;
-        this.loginIsInvalid = false;
-        if (loginData != undefined) {
-          for (let i = 0; i < loginData.length; i++) {
-            if (loginData[i].username.trim() != usernameexists && usernameexists !='') {
-              this.loginIsInvalid = true;
-              this.loginForm.controls['username'].setErrors({ 'incorrect': true });
-              return;
-            }
-          }
-        }
-      }
+    // login() {
+    //     if (this.loginForm.valid) {
+    //         let res = this.LoginData;
+    //         for (let i = 0; i < res.length; i++) {
+    //             var encrypted = this.EncrDecr.set('123456$#@$^@1ERF', res[i].phone);
+    //             res[i].phone = encrypted,
+    //                 this.loginForm.value.phone = encrypted,
+    //                 res[i].username = res[i].username
+    //         }
+    //         const users = res.find((a: any) => {
+    //             return a.username === this.loginForm.value.username
+    //         });
+    //         if (users) {
+    //             if (this.loginForm.valid) {
+    //                 this.loginForm.reset()
+    //                 this.router.navigate(['/work'])
+    //                 this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
+    //                 let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
+    //                 this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
+    //                     return
+
+    //                 })
+    //             }
+
+    //         }
+    //     }
+    // }
+    // userNameExist() {
+    //     let usernameexists = this.loginForm.controls['username'].value;
+    //     let loginData = this.LoginData;
+    //     this.loginIsInvalid = false;
+    //     if (loginData != undefined) {
+    //         for (let i = 0; i < loginData.length; i++) {
+    //             if (loginData[i].username.trim() != usernameexists && usernameexists != '') {
+    //                 this.loginIsInvalid = true;
+    //                 this.loginForm.controls['username'].setErrors({ 'incorrect': true });
+    //                 return;
+    //             }
+    //         }
+    //     }
+    // }
 }
