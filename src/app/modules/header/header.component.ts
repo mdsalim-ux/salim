@@ -27,12 +27,12 @@ export class HeaderComponent {
         this.LoaderService.hide();
       }
     })
- 
     translate.setDefaultLang('en');
   }
   ngOnInit(): void {
     this.location.go('/');
- 
+    this.router.navigate(['/footer'])
+
     
     this.selectedTabValue(event);
   }

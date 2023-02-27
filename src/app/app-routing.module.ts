@@ -7,6 +7,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { IntroComponent } from './modules/intro/intro.component';
 import { WorkComponent } from './modules/work/work.component';
 import { MainheaderComponent } from './LoginSignUp/mainheader/mainheader/main.component';
+import { FooterComponent } from './modules/footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/header', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "intro", component: IntroComponent },
   { path: "work", component: WorkComponent },
+  { path: "footer", component: FooterComponent },
 ];
 
 @NgModule({

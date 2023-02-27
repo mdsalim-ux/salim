@@ -50,6 +50,9 @@
     font-size: initial;
     background-color: white;
 }
+.mat-form-field {
+    padding: 10px;
+}
 
 /* .outer {
     height: 100vh;

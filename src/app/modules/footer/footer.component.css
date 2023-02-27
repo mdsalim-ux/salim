@@ -3,7 +3,9 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #571b61;
+     background-color: #571b61;
     color: white;
-    text-align: center;
+    text-align: center; 
+    transform-origin: center right;
+    transform: rotate(+90deg);
   }

@@ -1,5 +1,14 @@
+
 {
   "Users": [
-
+    {
+      "gender": "1",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "username": "Md Salim",
+      "confirmpassword": "",
+      "id": 1
+    }
   ]
 }

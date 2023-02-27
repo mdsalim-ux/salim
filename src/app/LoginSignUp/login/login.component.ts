@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
         this.loginIsInvalid = false;
         if (loginData != undefined) {
           for (let i = 0; i < loginData.length; i++) {
-            if (loginData[i].username.trim() != usernameexists.trim()) {
+            if (loginData[i].username.trim() != usernameexists && usernameexists !='') {
               this.loginIsInvalid = true;
               this.loginForm.controls['username'].setErrors({ 'incorrect': true });
               return;
