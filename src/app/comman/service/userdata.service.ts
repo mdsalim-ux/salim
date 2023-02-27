@@ -9,9 +9,9 @@ export class UserdataService {
 
   constructor(private _http: HttpClient) { }
   addUserData(data: any): Observable<any> {
-    return this._http.post('http://localhost:3000/UserData', data)
+    return this._http.post('http://localhost:3000/Users', data)
   }
   userlogin(): Observable<any> {
-    return this._http.get('http://localhost:3000/UserData')
+    return this._http.get('http://localhost:3000/Users')
   }
 }
