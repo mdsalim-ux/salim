@@ -1,6 +1,6 @@
 {
     "ur":"اردو",
-    "My_Portfolio": "میرا پورٹ فولیو",
+    "My_Portfolio": "میرا پورٹ فولیو (ﷲ)",
     "Home": "گھر",
     "Intro": "تجربہ",
     "Workspace": "کام کی جگہ",
@@ -85,5 +85,7 @@
     "R19":"➍ Extensively worked with IT Support issues to log on errors and exceptions throughout the codes",
     "R20":"➎ Excellent analytical, communication, and problem-solving skills, strong teamwork orientation, dedicated to quality output for the team or to individual assignments as required by the work environment. Self-Starter, willing to learn new technologies, ability to learn fast, and determined to achieve",
     "R21":"➐ Experience working with Microsoft Enterprise Library to connect to SQL server database",
-    "Select_DOB":"Please select date of Birth"
+    "Select_DOB":"Please select date of Birth",
+    "Talisma":"Talisma Corporation Private Limited"
+
 }
