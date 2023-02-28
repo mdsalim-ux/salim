@@ -1,28 +1,66 @@
-
 <div class="container">
     <div class="row">
         <div class="col-md-8">
             <p class="fw-bold fs-2 text-center title">{{'My_Name'|translate}}</p>
-            <b class="fw-bold text-center title">{{'Software_Engineer'|translate}}</b><br> <br>
-            <b class="text-center middle">{{'Summary'|translate}}</b><br> <br>
-            <p class="fw-bold title" >{{'Skills'|translate}}</p>
-            <b>{{'Angular'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="90"></mat-progress-bar>
-            <b>{{'HTML_CSS'|translate}}</b><mat-progress-bar color="primary"mode="buffer" value="90"></mat-progress-bar>
-            <b>{{'.NET'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
-            <b>{{'C#'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
-            <b>{{'SQL'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
-            <b>{{'JavaScript'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
-            <b>{{'MVC'|translate}}</b><mat-progress-bar  color="primary" mode="buffer" value="60"></mat-progress-bar>
-            <b>{{'Jquery'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
-            <b>{{'ASP.NET'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
-            <b>{{'ADO.NET'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
-            <br><p class="fw-bold title" >{{'Unkown Languague'|translate}}</p>
+            <b class="fw-bold text-center title ">{{'Software_Engineer'|translate}}</b><br> <br>
+            <b class="text-center size-color ">{{'Summary'|translate}}</b><br> <br>
+            <p class="fw-bold title">{{'Skills'|translate}}</p>
+            <b class="fw-bold text-center size-color">{{'Angular'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="90"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'HTML_CSS'|translate}}</b><mat-progress-bar color="primary" mode="buffer"
+                value="90"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'NET'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'C'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'SQL'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'JavaScript'|translate}}</b><mat-progress-bar color="accent" mode="buffer"
+                value="80"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'MVC'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'Jquery'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'ASP'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
+            <b class="fw-bold text-center size-color">{{'ADO'|translate}}</b><mat-progress-bar color="primary" mode="buffer"
+                value="60"></mat-progress-bar><br>
+            <b class="fw-bold text-center title">{{'Education'|translate}}</b><br><br>
+            <mat-chip-option color="primary"  (click)="educationview =!educationview">{{'Read_More'|translate}}</mat-chip-option>
+            <mat-progress-bar color="accent" *ngIf="educationview"mode="buffer" value="100"></mat-progress-bar>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'Secab_insitute'|translate}}</b><br>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'BE_Degree'|translate}}</b><br>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'ED_Date_1'|translate}}</b>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'S_location2'|translate}}</b><br>
+            <div class="row" *ngIf="educationview">
+                <div class="col-md-10" *ngIf="educationview">
+                    <b class="fw-bold text-center size-color"*ngIf="educationview">{{'FC'|translate}}</b><br>
+                    <b class="fw-bold text-center size-color"*ngIf="educationview">{{'Marks_2'|translate}}</b>
+                </div>
+            </div><br>
+            <mat-progress-bar color="primary" mode="buffer" value="100" *ngIf="educationview"></mat-progress-bar>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'Malik_Sandal'|translate}}</b><br>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'Dipl_Degree'|translate}}</b><br>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'ED_Date_2'|translate}}</b>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'S_location2'|translate}}</b><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <b class="fw-bold text-center size-color" *ngIf="educationview">{{'FC'|translate}}</b><br>
+                    <b class="fw-bold text-center size-color" *ngIf="educationview">{{'Marks_3'|translate}}</b>
+                </div>
+            </div><br>
+            <mat-progress-bar color="primary" mode="buffer" *ngIf="educationview" value="100"></mat-progress-bar>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'10TH'|translate}}</b><br>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'School_10th'|translate}}</b><br>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'ED_Date_3'|translate}}</b>
+            <b class="fw-bold text-center size-color"*ngIf="educationview">{{'S_location1'|translate}}</b><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <b class="fw-bold text-center size-color" *ngIf="educationview">{{'FC'|translate}}</b><br>
+                    <b class="fw-bold text-center size-color" *ngIf="educationview">{{'Marks_1'|translate}}</b>
+                </div>
+            </div>
+            <br>
+            <p class="fw-bold title" *ngIf="educationview">{{'LANGUAGES'|translate}}</p>
             <section class="example-section">
-                <mat-checkbox class="example-margin" [checked]=true>{{'English'|translate}}</mat-checkbox>
-                <mat-checkbox class="example-margin" [checked]=true>{{'Hindi'|translate}}</mat-checkbox>
-                <mat-checkbox class="example-margin" [checked]=true>{{'Urdu'|translate}}</mat-checkbox>
+                <mat-checkbox class="example-margin" *ngIf="educationview" [checked]=true>{{'en'|translate}}</mat-checkbox>
+                <mat-checkbox class="example-margin" *ngIf="educationview" [checked]=true>{{'hn'|translate}}</mat-checkbox>
+                <mat-checkbox class="example-margin" *ngIf="educationview" [checked]=true>{{'ur'|translate}}</mat-checkbox>
             </section>
         </div>
-        
+
     </div>
 </div>

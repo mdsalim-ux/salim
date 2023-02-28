@@ -1,9 +1,9 @@
-    <div class=" row justify-content-center container-fluid">
-        <div class="col-sm-5">
+<div class=" row justify-content-center container-fluid">
+    <div class="col-sm-5">
             <mat-toolbar color="primary"style="display: initial">{{'Login'|translate}}</mat-toolbar>
             <mat-card>
-                <form (ngSubmit)="login()" name="loginForm" [formGroup]="loginForm">
-                    <div>&nbsp;
+                <form (ngSubmit)="login()" style="text-align: center;"name="loginForm" [formGroup]="loginForm">
+                    <div>
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
                             <mat-label>{{'Username'|translate}}</mat-label>
@@ -12,7 +12,7 @@
                             <mat-error *ngIf="loginForm.controls['username'].invalid  && !loginIsInvalid">{{'User_Valid'|translate}}
                             </mat-error>
                             <mat-error *ngIf="loginIsInvalid">{{'Invalid_Users'|translate}}</mat-error>
-                        </mat-form-field>&nbsp;&nbsp;&nbsp;
+                        </mat-form-field><br>
                         <mat-form-field appearance="outline">
                             <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
                             <mat-label>{{'Password_Val'|translate}}</mat-label>
@@ -35,19 +35,22 @@
                         <a class="forgetpass" routerLink="/signup">{{'Forget_Pass'|translate}}</a>
                     </div> -->
                     <br>
-                    <header class="row justify-content-center">
+                    <!-- <header class="row justify-content-center"> -->
                         <div>
-                            <p>
-                                <mat-toolbar class="backgroundlight">
+                            <p style="text-align: center;">
+                                <!-- <mat-toolbar class="backgroundlight"> -->
                                      <!-- <a routerLink="/signup">{{'Create_Account'|translate}}</a> -->
-                                    <span class="example-spacer"></span>
-                                    <button mat-raised-button color="accent" style="text-align: right;"
+                                    <!-- <span class="example-spacer"></span> -->
+                                    <button mat-raised-button color="accent" 
                                         (click)="login()">{{'Login'|translate}}</button>
-                                </mat-toolbar>
+                                <!-- </mat-toolbar> -->
                             </p>
                         </div>
-                    </header>
+                    <!-- </header> -->
                 </form>
             </mat-card>
-        </div>
-    </div>
+
+
+                </div>
+            </div>
+   

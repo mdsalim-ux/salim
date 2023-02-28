@@ -31,7 +31,7 @@ export class SignUpComponent {
     //   this.alluserdata = res;
     // });
     this.signForm = this.formBuilder.group({
-      gender: ['Male'],
+     // gender: ['Male'],
       DOB:[''],
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],

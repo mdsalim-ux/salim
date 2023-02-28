@@ -35,9 +35,7 @@
 .cus-shadow{
     box-shadow: 0 2px 3px -1px rgb(0 0 0 / 10%);
 }
-.headerlogo{
-    width: 200px;
-}
+
 .navbar-light .navbar-nav .nav-link:after {
     content: '';
     display: block;
@@ -85,11 +83,15 @@
 
 }
 .title{
-    color:rgb(220 20 167);
+    color:rgb(196 14 196);
     font-size: larger;
     font-size: medium;
 
 }
 .container{
     margin: 10% auto;
+}
+.size-color{
+    font-size: larger;
+    color: #0c0c0d;
 }

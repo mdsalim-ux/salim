@@ -50,42 +50,69 @@
     "Read_More":"مزید پڑھ",
     "Best_View":"بہترین منظر کے لیے، براہ کرم ڈیسک ٹاپ ویو استعمال کریں۔",
     "Ok":"ٹھیک ہے",
-    "R1":"➊ Implemented WEB API to Object to connect to SQL server database from Repositories classes for retrieving, manipulating, querying,and storing data from the database",
-    "R2":"➋ Utilized GIT LAB for source control",
-    "R3":"➌ Extensive experience in designing and developing applications using Microsoft Technologies and .NET Framework 4.0",
-    "R4":"➍ Extensively worked with IT Support issues to log on errors and exceptions throughout the codes",
-    "R5":"➎ Excellent analytical, communication, and problem-solving skills, strong teamwork orientation,dedication to quality output for the team or to individual assignments as required",
-    "R6":"➏ Experience working with Microsoft Enterprise Library to connect to SQL server database",
-    "R7":"➐ Project has been implemented using Agile Methodology",
-    "Dot_Net_Developer":"Dot Net Developer",
-    "Trainee_Developer":"Trainee Developer",
-    "Estimation_Environment":"Estimation Environment",
-    "Chat_bot":"Chat Bot",
-    "Angular":"Angular",
-    "HTML_CSS":"HTML,CSS,Bootstrap",
-    "MVC":"MVC",
-    "ASP":"ASP.NET",
-    "ADO":"ADO.NET",
-    "SQL":"SQL",
-    "Jquery":"Jquery",
-    "JavaScript":"JavaScript",
-    "Mill_Compnay":"Millennium IMS Pvt Ltd Client (Anthology Inc)",
-    "Higher_Education":"Higher Education",
-    "R8":"➊ Involved in preparing Technical Specification documents and regression test cases",
-    "R9":"➋ Repositories classes for retrieving, manipulating, querying, and storing data from the database",
-    "R10":"➌ Utilized TFS for source control",
-    "R11":"➍ Extensively worked with IT Support issues to log on errors and exceptions throughout the codes",
-    "R12":"➎ Utilized GIT for source control",
-    "R13":"➏ Project has been implemented using Agile Methodology",
-    "R14":"➐ Extensive experience in designing and developing applications using Microsoft Technologies and.NET Framework 4.5",
-    "R15":"➑ Experience working with Microsoft Enterprise Library to connect to SQL server database",
-    "R16":"➊ Implemented ADO.NET Framework to Object to connect to SQL server database from Repositories classes for retrieving, manipulating, querying, and storing data from the database.",
-    "R17":"➋ Utilized TFS for source control",
-    "R18":"➌ Extensive experience in designing and developing applications using Microsoft Technologies and.NET Framework 4.5",
-    "R19":"➍ Extensively worked with IT Support issues to log on errors and exceptions throughout the codes",
-    "R20":"➎ Excellent analytical, communication, and problem-solving skills, strong teamwork orientation, dedicated to quality output for the team or to individual assignments as required by the work environment. Self-Starter, willing to learn new technologies, ability to learn fast, and determined to achieve",
-    "R21":"➐ Experience working with Microsoft Enterprise Library to connect to SQL server database",
-    "Select_DOB":"Please select date of Birth",
-    "Talisma":"Talisma Corporation Private Limited"
+    "R1":"➊ ڈیٹا بیس سے ڈیٹا کی بازیافت، ہیرا پھیری، استفسار، اور ذخیرہ کرنے کے لیے ریپوزٹری لیز سے sql سرور ڈیٹا بیس کو objet کرنے کے لیے ویب API کا نفاذ",
+    "R2":"➋ کھٹے کنٹرول کے لیے GIT LAB کا استعمال کیا۔",
+    "R3":"➌ Mirosoft Technologies اور .NET Framework 4.0 کا استعمال کرتے ہوئے ایپلی کیشنز کو ڈیزائن اور تیار کرنے کا وسیع تجربہ",
+    "R4":"➍ آئی ٹی سپورٹ کے مسائل کے ساتھ بڑے پیمانے پر کام کیا گیا ہے تاکہ تمام اوڈس میں غلطیوں اور استثنیٰ کو لاگ ان کیا جا سکے۔",
+    "R5":"➎ بہترین تجزیاتی، آگاہی، اور مسئلہ حل کرنے کی مہارت، مضبوط ٹیم ورک واقفیت، ٹیم کے لیے معیاری پیداوار یا ضرورت کے مطابق انفرادی اسائنمنٹس کے لیے وقف",
+    "R6":"➏ ایس کیو ایل سرور ڈیٹا بیس پر آن نیٹ کرنے کے لیے میروسافٹ انٹرپرائز لائبریری کے ساتھ کام کرنے کا تجربہ کریں۔",
+    "R7":"➐ پراجیکٹ کو چست طریقہ کار کا استعمال کرتے ہوئے لاگو کیا گیا ہے۔",
+    "Dot_Net_Developer":"ڈاٹ نیٹ ڈویلپر",
+    "Trainee_Developer":"ٹرینی ڈویلپر",
+    "Estimation_Environment":"تخمینہ ماحول",
+    "Chat_bot":"چیٹ بوٹ",
+    "Angular":"کونیی",
+    "HTML_CSS":"ایچ ٹی ایم ایل، ایس ایس، بوٹسٹریپ",
+    "MVC":"ایم وی سی",
+    "ASP":"اے ایس پی. نیٹ",
+    "ADO":"اےڈیاے.نیٹ",
+    "SQL":"ایس کیو ایل",
+    "NET":".نیٹ",
+    "C":"#سی",
+    "Jquery":"جےاستفسار",
+    "JavaScript":"جاوا اسکرپٹ",
+    "Mill_Compnay":"(انتھولوجی ان)ملینیمآئی ایم ایسپی ویٹیایل ٹیڈیکلائنٹ",
+    "Higher_Eduation":"اعلی تعلیم",
+    "R8":"➊ ٹیکنیکل اسپیفیشن ڈومینٹس اور ریگریشن ٹیسٹ کیسز کی تیاری میں شامل",
+    "R9":"➋ ڈیٹا بیس سے ڈیٹا کی بازیافت، ہیرا پھیری، استفسار اور ذخیرہ کرنے کے لیے ریپوزٹری کلاسز",
+    "R10":"➌ سوور کنٹرول کے لیے TFS استعمال کیا۔",
+    "R11":"➍ تمام کوڈز میں غلطیوں اور استثنیٰ کو لاگ ان کرنے کے لیے آئی ٹی سپورٹ کے مسائل کے ساتھ بڑے پیمانے پر کام کیا",
+    "R12":"➎ سوور کنٹرول کے لیے GIT کا استعمال کیا۔",
+    "R13":"➏ پراجیکٹ کو چست طریقہ کار کا استعمال کرتے ہوئے لاگو کیا گیا ہے۔",
+    "R14":"➐ Mirosoft Technologies اور.NET Framework 4.5 کا استعمال کرتے ہوئے ایپلی کیشنز کو ڈیزائن اور تیار کرنے میں وسیع تجربہ",
+    "R15":"➑ ایس کیو ایل سرور ڈیٹا بیس پر آن نیٹ کرنے کے لیے میروسافٹ انٹرپرائز لائبریری کے ساتھ کام کرنے کا تجربہ کریں۔",
+    "R16":"➊ ڈیٹا بیس سے ڈیٹا کی بازیافت، ہیرا پھیری، استفسار اور ذخیرہ کرنے کے لیے ریپوزٹری کلاسز سے ایس کیو ایل سرور ڈیٹا بیس سے رابطہ قائم کرنے کے لیے ADO.NET فریم ورک کو لاگو کیا گیا۔",
+    "R17":"➋ کھٹے کنٹرول کے لیے TFS کا استعمال کیا۔",
+    "R18":"➌ Mirosoft Technologies اور.NET Framework 4.5 کا استعمال کرتے ہوئے ایپلی کیشنز کو ڈیزائن اور تیار کرنے میں وسیع تجربہ",
+    "R19":"➍ تمام کوڈز میں غلطیوں اور استثنیٰ کو لاگ ان کرنے کے لیے آئی ٹی سپورٹ کے مسائل کے ساتھ بڑے پیمانے پر کام کیا",
+    "R20":"➎ بہترین تجزیاتی، امیونیشن، اور مسئلہ حل کرنے کی مہارت، مضبوط ٹیم ورک واقفیت، ٹیم کے لیے معیاری آؤٹ پٹ یا کام کے ماحول کے مطابق انفرادی اسائنمنٹس کے لیے وقف۔ سیلف اسٹارٹر، نئی ٹیکنالوجیز سیکھنے کے لیے تیار، تیزی سے سیکھنے کی صلاحیت، اور حاصل کرنے کے لیے پرعزم",
+    "R21":"➐ ایس کیو ایل سرور ڈیٹا بیس پر آن نیٹ کرنے کے لیے میروسافٹ انٹرپرائز لائبریری کے ساتھ کام کرنے کا تجربہ کریں۔",
+    "Selet_DOB":"برائے مہربانی تاریخ پیدائش کا تعین کریں۔",
+    "Talisma":"طلسمہ آرپوریشن پرائیویٹ لمیٹڈ",
+    "Company":"💼 کمپنی : ",
+    "Date1":"📅 04/2022 - جاری ہے۔",
+    "Date2":"📅 12/2021 - 03/2022",
+    "Date3":"📅 02/2021 - 09/2021",
+    "C_location":"📍بنگلور",
+    "Project":"📰 پروجیکٹ : ",
+    "Education":"📖 تعلیم",
+    "Secab_insitute":"انسٹی ٹیوٹ آف انجینئرنگ اینڈ ٹیکنالوجی سیٹ کریں۔",
+    "BE_Degree":"ای ای ای میں انجینئرنگ کی ڈگری",
+    "FC":"پہلا درجہ",
+    "Marks_1":"مارکس:% 64",
+    "Marks_2":"مارکس:% 75",
+    "Marks_3":"مارکس:% 63",
+    "Skills":"📝 ہنر",
+    "ED_Date_1":"📅 06/2015 - 07/2018",
+    "ED_Date_2":"📅 04/2012 - 05/2015",
+    "ED_Date_3":"📅 02/2011 - 03/2012",
+    "Malik_Sandal":"مالک صندل پولیٹہانی بیجاپور",
+    "Dipl_Degree":"الیکٹریکل اور الیکٹرانکس میں ڈپلومہ",
+    "10TH":"10ویں",
+    "S_location2":"📍بیجاپور، کرناٹک",
+    "S_location1":"📍کشن گنج، بہار",
+    "LANGUAGES":"◍ زبان",
+    "Shool_10th":"انٹر ہائی اسکول کشن گنج",
+    "CGI_India":"سی جی انڈیا"
 
 }

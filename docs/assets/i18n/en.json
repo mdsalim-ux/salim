@@ -1,7 +1,7 @@
 {
     "My_Portfolio": "My Portfolio",
     "Home": "Home",
-    "Intro": "Experience",
+    "Intro": "Experiene",
     "Workspace": "Workspace",
     "About_Me": "About Me",
     "Download_CV": "Download CV",
@@ -92,5 +92,28 @@
     "Date2":"📅 12/2021 - 03/2022",
     "Date3":"📅 02/2021 - 09/2021",
     "C_location":"📍Bangalore",
-    "Project":"📰 Project : "
+    "Project":"📰 Project : ",
+    "Education":"📖 Education",
+    "Secab_insitute":"Secab Institute of Engineering & Technology",
+    "BE_Degree":"Bachelor of Engineering in EEE",
+    "FC":"FIRST CLASS",
+    "Marks_1":"MARKS: 64%",
+    "Marks_2":"MARKS: 75%",
+    "Marks_3":"MARKS: 63%",
+    "Skills":"📝 Skills",
+    "ED_Date_1":"📅 06/2015 - 07/2018",
+    "ED_Date_2":"📅 04/2012 - 05/2015",
+    "ED_Date_3":"📅 02/2011 - 03/2012",
+    "Malik_Sandal":"Malik Sandal Polytechnic Bijapur",
+    "Dipl_Degree":"Diploma in EEE",
+    "10TH":"10TH",
+    "S_location2":"📍Bijapur,Karnataka",
+    "S_location1":"📍Kishanganj, Bihar",
+    "LANGUAGES":"◍ LANGUAGES",
+    "School_10th":"Inter High School Kishanganj",
+    "CGI_India":"CGI India",
+    "C":"C#"
+
+
+
 }
