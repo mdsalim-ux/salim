@@ -43,7 +43,7 @@
     "Share":"Share",
     "Invalid_Users": "This username does not exist, Please use the correct name",
     "Downloaded_Resume":"Resume downloaded successfully",
-    "My_Name":"Md Salim Alam",
+    "My_Name":"MD SALIM ALAM",
     "Software_Engineer":"Software Engineer",
     "Summary":"Seeking a challenging career in the IT sector to get a position of responsibility, using my skills and efficiency to communicate my ideas & views, and commit myself to achieving organizational objectives with team effort and my positive attitude and performance",
     "Read_More":"Read More",
@@ -85,5 +85,12 @@
     "R19":"➍ Extensively worked with IT Support issues to log on errors and exceptions throughout the codes",
     "R20":"➎ Excellent analytical, communication, and problem-solving skills, strong teamwork orientation, dedicated to quality output for the team or to individual assignments as required by the work environment. Self-Starter, willing to learn new technologies, ability to learn fast, and determined to achieve",
     "R21":"➐ Experience working with Microsoft Enterprise Library to connect to SQL server database",
-    "Select_DOB":"Please select date of Birth"
+    "Select_DOB":"Please select date of Birth",
+    "Talisma":"Talisma Corporation Private Limited",
+    "Company":"💼 Company : ",
+    "Date1":"📅 04/2022 - Ongoing",
+    "Date2":"📅 12/2021 - 03/2022",
+    "Date3":"📅 02/2021 - 09/2021",
+    "C_location":"📍Bangalore",
+    "Project":"📰 Project : "
 }
