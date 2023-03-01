@@ -61,7 +61,7 @@
             </ul>
             <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1">
-                    <a class="navbar-brand  fw-bold title" routerLinkActive="active" routerLink="/home">{{'My_Portfolio'|translate}}</a>
+                    <a class="navbar-brand   title"  routerLinkActive="active" routerLink="/home">{{'My_Portfolio'|translate}}</a>
                 </li>
             </ul>
             <button class="navbar-toggler" type="button" *ngIf="menucollapse" (click)="menucollapses()" (click)="menucollapse =!menucollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,11 +85,11 @@
                             routerLinkActive="active">{{'Workspace'|translate}}</a>
                     </li> -->
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" routerLink="/login" routerLinkActive="active"
+                        <a class="nav-link navbar-brand" style="cursor: pointer;" (click)="openDialogLogin()" routerLinkActive="active"
                             *ngIf="!menucollapse">{{'Login'|translate}}</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" routerLink="/signup" routerLinkActive="active"
+                        <a class="nav-link navbar-brand" style="cursor: pointer;" (click)="openDialogSignUp()" routerLinkActive="active"
                         *ngIf="!menucollapse">{{'Create_Account'|translate}}</a>
                     </li>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

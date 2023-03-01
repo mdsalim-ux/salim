@@ -8,6 +8,8 @@ import { NotificationService } from 'src/app/comman/notification/notification.se
 import { UserdataService } from 'src/app/comman/service/userdata.service';
 import * as CryptoJS from 'crypto-js';
 import { EncrDecrService } from 'src/app/comman/encr-decr-service.service';
+import { HeaderComponent } from 'src/app/modules/header/header.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,7 +24,7 @@ export class SignUpComponent {
   duplicateName: boolean = false;
   constructor(private formBuilder: FormBuilder, public _DataService: UserdataService,
     public loaderService: LoaderService, private _notification: NotificationService, 
-    private EncrDecr: EncrDecrService,private router: Router, public translate: TranslateService) {
+    private EncrDecr: EncrDecrService,private router: Router, private dialogRef:MatDialogRef<HeaderComponent>,public translate: TranslateService) {
     translate.setDefaultLang('en');
   }
   ngOnInit(): void {
@@ -43,9 +45,13 @@ export class SignUpComponent {
   }
   signUp(){
     if (this.signForm.valid) {
+      this.dialogRef.close(true);
       this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
       this.router.navigate(['/login'])
     }
+    if(this.signForm.invalid){
+      return
+  }
   }
   
 

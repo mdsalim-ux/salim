@@ -1,64 +1,55 @@
-
-<div class="row justify-content-center container-fluid">
-    <div class="col-sm-5">
-            <mat-toolbar color="primary" style="display: initial">{{'Create_Account'|translate}}</mat-toolbar>
-            <mat-card>
-                <form (ngSubmit)="signUp()" style="text-align: center;" name="signForm" novalidate [formGroup]="signForm">
-                    <div>
-                        <mat-form-field appearance="outline">
-                            <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
-                            <mat-label>{{'Username'|translate}}</mat-label>
-                            <input type="text" matInput formControlName="username"
-                                placeholder="{{'Username'|translate}}" required>
-                            <mat-error
-                                *ngIf="signForm.controls['username'].invalid && !duplicateName">{{'User_Name_Val'|translate}}</mat-error>
-                            <mat-error *ngIf="duplicateName">{{'User_already_exits'|translate}}</mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-icon matPrefix style="color:blueviolet">email</mat-icon>
-                            <mat-label>{{'Email_Id'|translate}}</mat-label>
-                            <input type="email" matInput formControlName="email" placeholder="{{'Email_Id'|translate}}"
-                                required>
-                            <mat-error *ngIf="signForm.controls['email'].invalid">{{'Email_Val'|translate}}</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field appearance="outline">
-                            <mat-label>{{'DOB'|translate}}</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="DOB" readonly required>
-                            <mat-hint>{{'MM/DD/YYYY'|translate}}</mat-hint>
-                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                            <mat-error
-                                *ngIf="signForm.controls['DOB'].invalid">{{'Select_DOB'|translate}}</mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-icon matPrefix style="color:blueviolet">phone</mat-icon>
-                            <mat-label>{{'Mobile_No'|translate}}</mat-label>
-                            <input type="phone" matInput formControlName="phone" placeholder="{{'Mobile_No'|translate}}"
-                                required>
-                            <mat-error *ngIf="signForm.controls['phone'].invalid">{{'Mobile_Val'|translate}}</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div>
-                        <mat-form-field appearance="outline">
-                            <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
-                            <mat-label>{{'Password_Val'|translate}}</mat-label>
-                            <input type="password" matInput formControlName="password"
-                                placeholder="{{'Password_Val'|translate}}" required>
-                            <mat-error
-                                *ngIf="signForm.controls['password'].invalid">{{'Password_Confirm_Val'|translate}}</mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-icon matPrefix style="color:blueviolet">lock_open</mat-icon>
-                            <mat-label>{{'Confirm_Password'|translate}}</mat-label>
-                            <input type="text" formControlName="confirmpassword" matInput
-                                placeholder="{{'Confirm_Password'|translate}}" required>
-                            <mat-error
-                                *ngIf="signForm.controls['confirmpassword'].invalid">{{'Pass_not_match'|translate}}</mat-error>
-                        </mat-form-field>
-                    </div>
-                    <!-- <div class="row">
+<mat-dialog-content class="mat-typography">
+    <mat-toolbar >{{'Create_Account'|translate}}</mat-toolbar><br>
+        <form (ngSubmit)="signUp()" style="text-align: center;" name="signForm" novalidate [formGroup]="signForm">
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
+                    <mat-label>{{'Username'|translate}}</mat-label>
+                    <input type="text" matInput formControlName="username" placeholder="{{'Username'|translate}}"
+                        required>
+                    <mat-error
+                        *ngIf="signForm.controls['username'].invalid && !duplicateName">{{'User_Name_Val'|translate}}</mat-error>
+                    <mat-error *ngIf="duplicateName">{{'User_already_exits'|translate}}</mat-error>
+                </mat-form-field>&nbsp;&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix style="color:blueviolet">email</mat-icon>
+                    <mat-label>{{'Email_Id'|translate}}</mat-label>
+                    <input type="email" matInput formControlName="email" placeholder="{{'Email_Id'|translate}}"
+                        required>
+                    <mat-error *ngIf="signForm.controls['email'].invalid">{{'Email_Val'|translate}}</mat-error>
+                </mat-form-field><br>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{'DOB'|translate}}</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="DOB" readonly required>
+                    <mat-hint>{{'MM/DD/YYYY'|translate}}</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="signForm.controls['DOB'].invalid">{{'Select_DOB'|translate}}</mat-error>
+                </mat-form-field>&nbsp;&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix style="color:blueviolet">phone</mat-icon>
+                    <mat-label>{{'Mobile_No'|translate}}</mat-label>
+                    <input type="phone" matInput formControlName="phone" placeholder="{{'Mobile_No'|translate}}"
+                        required>
+                    <mat-error *ngIf="signForm.controls['phone'].invalid">{{'Mobile_Val'|translate}}</mat-error>
+                </mat-form-field><br>
+         
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
+                    <mat-label>{{'Password_Val'|translate}}</mat-label>
+                    <input type="password" matInput formControlName="password"
+                        placeholder="{{'Password_Val'|translate}}" required>
+                    <mat-error
+                        *ngIf="signForm.controls['password'].invalid">{{'Password_Confirm_Val'|translate}}</mat-error>
+                </mat-form-field>&nbsp;&nbsp;
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix style="color:blueviolet">lock_open</mat-icon>
+                    <mat-label>{{'Confirm_Password'|translate}}</mat-label>
+                    <input type="text" formControlName="confirmpassword" matInput
+                        placeholder="{{'Confirm_Password'|translate}}" required>
+                    <mat-error
+                        *ngIf="signForm.controls['confirmpassword'].invalid">{{'Pass_not_match'|translate}}</mat-error>
+                </mat-form-field>
+            <!-- <div class="row">
                         <h4>{{'Gender'|translate}}</h4>
                         <mat-radio-group formControlName="gender">
                             <mat-radio-button value="Male">{{'Male'|translate}}</mat-radio-button>
@@ -66,23 +57,10 @@
                             <mat-radio-button value="Other">{{'Others'|translate}}</mat-radio-button>
                         </mat-radio-group>
                     </div> -->
-                    <!-- <header class="justify-content-center"> -->
-                        <div>
-                            <p    class="backgroundlight">
-                                <!-- <mat-toolbar  class="backgroundlight"> -->
-                                    <a routerLink="/login">{{'Already_Account'|translate}}</a>
-                                    <!-- <span class="example-spacer"></span> -->
-                                </p>
-
-                                    <p style="text-align: center;" >
-                                        <button mat-raised-button color="accent"
-                                        (click)="signUp()" >{{'Create_Account'|translate}}</button>
-                                    </p>
-                                    
-                                <!-- </mat-toolbar> -->
-                        </div>
-                    <!-- </header> -->
-                </form>
-            </mat-card>
-                </div>
-            </div>
+            <!-- <header class="justify-content-center"> -->
+        </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button color="primary" mat-dialog-close>{{'Cancel'|translate}}</button>
+    <button mat-raised-button color="accent"(click)="signUp()">{{'Create_Account'|translate}}</button>
+</mat-dialog-actions>

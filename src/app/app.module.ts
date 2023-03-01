@@ -29,6 +29,7 @@ import { FooterComponent } from './modules/footer/footer.component';
 import { MenuComponent } from './modules/menu/menu.component';
 import { EncrDecrService } from './comman/encr-decr-service.service';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
+import { DailogboxComponent } from './comman/dailogbox/crudOperation.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
@@ -48,7 +49,8 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     SignUpComponent,
     MainheaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    DailogboxComponent
   ],
   imports: [
     BrowserModule,

@@ -56,20 +56,20 @@ textalign {
   cursor: pointer;
   font-size:small;
   background: border-box;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 .fixed-top{
   position: sticky;
   z-index: 2 !important;
 }
 .navbar-light .navbar-nav .nav-link{
-  font-weight: 800;
+  /* font-weight: 800; */
   border-bottom: 3px solid white ;
   color:#5236AB;
 }
 .navbar-light .navbar-nav .nav-link.active {
   color: black !important;
-  font-weight: 800;
+  /* font-weight: 800; */
    border-bottom: 3px solid transparent;
   border-image:linear-gradient(to right, #e31937 , #a82465, #5236ab);
   border-image-slice: 1;   
@@ -85,7 +85,7 @@ textalign {
 .title{
   color:rgb(220 20 167);
   text-align:center;
-  font-weight: 800;
+  /* font-weight: 800; */
 }
 
 .example-form {

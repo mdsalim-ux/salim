@@ -6,6 +6,8 @@ import { NotificationService } from '../../comman/notification/notification.serv
 import { LoaderService } from '../../comman/loader/loader.service';
 import { UserdataService } from 'src/app/comman/service/userdata.service';
 import { EncrDecrService } from 'src/app/comman/encr-decr-service.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { HeaderComponent } from 'src/app/modules/header/header.component';
 
 @Component({
     selector: 'app-login',
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
     loginIsInvalid: boolean = false;
     LoginData: any;
     constructor(public _DataService: UserdataService, public LoaderService: LoaderService,
-        private _notification: NotificationService, private EncrDecr: EncrDecrService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
+        private _notification: NotificationService,private dialogRef:MatDialogRef<HeaderComponent>, private EncrDecr: EncrDecrService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     }
 
     ngOnInit(): void {
@@ -47,10 +49,15 @@ export class LoginComponent implements OnInit {
     login() {
         if (this.loginForm.valid) {
          this.loginForm.reset()
+         this.dialogRef.close(true);
         this.router.navigate(['/work'])
         this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
         }
+       
     }
+    // signUp(){
+    //     this.dialogRef.
+    // }
     // login() {
     //     if (this.loginForm.valid) {
     //         let res = this.LoginData;

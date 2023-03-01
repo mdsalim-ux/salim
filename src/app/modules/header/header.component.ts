@@ -5,6 +5,8 @@ import { LoaderService } from 'src/app/comman/loader/loader.service';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/comman/notification/notification.service';
+import { LoginComponent } from 'src/app/LoginSignUp/login/login.component';
+import { SignUpComponent } from 'src/app/LoginSignUp/sign-up/sign-up.component';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +18,8 @@ export class HeaderComponent {
   isExpanded:boolean=false
   supportedLanguages = ['en', 'hn','ur'];
   dropdownindex: any;
+  TabIndex: any;
+  event: any;
   menucollapse:boolean=false;
   constructor(public dialog: MatDialog, public router: Router, private location: Location,
     public LoaderService: LoaderService, public translate: TranslateService, private _notification: NotificationService) {
@@ -36,8 +40,20 @@ export class HeaderComponent {
     
     this.selectedTabValue(event);
   }
-  TabIndex: any;
-  event: any;
+  openDialogLogin() {
+    const dialogRef = this.dialog.open(LoginComponent,{
+      disableClose: true
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  openDialogSignUp() {
+    const dialogRef = this.dialog.open(SignUpComponent,{
+      disableClose: true
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
   // tab change calling component
   selectedTabValue(event: any) {
     // on refresh tab change issue

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DailogboxComponent } from 'src/app/comman/dailogbox/crudOperation.component';
 import { User } from 'src/app/enum/user';
 
 @Component({
@@ -7,6 +9,16 @@ import { User } from 'src/app/enum/user';
   styleUrls: ['./work.component.css']
 })
 export class WorkComponent {
-  CodingLang = ['Angular', 'ASP.NET', 'C#', 'SQL', 'JavaScript', 'HTML', 'JSON', 'Jquery']
-  userModel = new User('Md Salim Alam', 'salim@gmail.com', '', '', '', true)
+
+
+constructor(public dialog: MatDialog) {}
+
+openDialog() {
+  const dialogRef = this.dialog.open(DailogboxComponent,{
+    disableClose: true
+  }
+ );
+  dialogRef.afterClosed().subscribe(result => {
+  });
+}
 }
