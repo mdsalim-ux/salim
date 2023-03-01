@@ -1,56 +1,56 @@
-<div class="container">
+<div class="container" style="font-family:cursive">
     <div class="row">
         <div class="col-md-8">
             <p class=" fs-2  title">{{'My_Name'|translate}}</p>
-            <b class="  title ">{{'Software_Engineer'|translate}}</b><br> <br>
-            <b class=" size-color ">{{'Summary'|translate}}</b><br> <br>
+            <p class="  title ">{{'Software_Engineer'|translate}}</p><br> <br>
+            <p class=" size-color ">{{'Summary'|translate}}</p><br> <br>
             <p class=" title">{{'Skills'|translate}}</p>
-            <b class="  size-color">{{'Angular'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="90"></mat-progress-bar>
-            <b class="  size-color">{{'HTML_CSS'|translate}}</b><mat-progress-bar color="primary" mode="buffer"
+            <p class="  size-color">{{'Angular'|translate}}</p><mat-progress-bar color="primary" mode="buffer" value="90"></mat-progress-bar>
+            <p class="  size-color">{{'HTML_CSS'|translate}}</p><mat-progress-bar color="primary" mode="buffer"
                 value="90"></mat-progress-bar>
-            <b class="  size-color">{{'NET'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
-            <b class="  size-color">{{'C'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
-            <b class="  size-color">{{'SQL'|translate}}</b><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
-            <b class="  size-color">{{'JavaScript'|translate}}</b><mat-progress-bar color="accent" mode="buffer"
+            <p class="  size-color">{{'NET'|translate}}</p><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
+            <p class="  size-color">{{'C'|translate}}</p><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
+            <p class="  size-color">{{'SQL'|translate}}</p><mat-progress-bar color="accent" mode="buffer" value="80"></mat-progress-bar>
+            <p class="  size-color">{{'JavaScript'|translate}}</p><mat-progress-bar color="accent" mode="buffer"
                 value="80"></mat-progress-bar>
-            <b class="  size-color">{{'MVC'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
-            <b class="  size-color">{{'Jquery'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
-            <b class="  size-color">{{'ASP'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
-            <b class="  size-color">{{'ADO'|translate}}</b><mat-progress-bar color="primary" mode="buffer"
+            <p class="  size-color">{{'MVC'|translate}}</p><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
+            <p class="  size-color">{{'Jquery'|translate}}</p><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
+            <p class="  size-color">{{'ASP'|translate}}</p><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
+            <p class="  size-color">{{'ADO'|translate}}</p><mat-progress-bar color="primary" mode="buffer"
                 value="60"></mat-progress-bar><br>
-            <b class="  title">{{'Education'|translate}}</b><br><br>
-            <mat-chip-option color="primary"  (click)="educationview =!educationview">{{'Read_More'|translate}}</mat-chip-option>
+            <p class="  title">{{'Education'|translate}}</p><br><br>
+            <mat-chip-option color="primary"  style="font-family:cursive" (click)="educationview =!educationview">{{'Read_More'|translate}}</mat-chip-option>
             <mat-progress-bar color="accent" *ngIf="educationview"mode="buffer" value="100"></mat-progress-bar>
-            <b class="  size-color"*ngIf="educationview">{{'Secab_insitute'|translate}}</b><br>
-            <b class="  size-color"*ngIf="educationview">{{'BE_Degree'|translate}}</b><br>
-            <b class="  size-color"*ngIf="educationview">{{'ED_Date_1'|translate}}</b>
-            <b class="  size-color"*ngIf="educationview">{{'S_location2'|translate}}</b><br>
+            <p class="  size-color"*ngIf="educationview">{{'Secab_insitute'|translate}}</p><br>
+            <p class="  size-color"*ngIf="educationview">{{'BE_Degree'|translate}}</p><br>
+            <p class="  size-color"*ngIf="educationview">{{'ED_Date_1'|translate}}</p>
+            <p class="  size-color"*ngIf="educationview">{{'S_location2'|translate}}</p><br>
             <div class="row" *ngIf="educationview">
                 <div class="col-md-10" *ngIf="educationview">
-                    <b class="  size-color"*ngIf="educationview">{{'FC'|translate}}</b><br>
-                    <b class="  size-color"*ngIf="educationview">{{'Marks_2'|translate}}</b>
+                    <p class="  size-color"*ngIf="educationview">{{'FC'|translate}}</p><br>
+                    <p class="  size-color"*ngIf="educationview">{{'Marks_2'|translate}}</p>
                 </div>
             </div><br>
             <mat-progress-bar color="primary" mode="buffer" value="100" *ngIf="educationview"></mat-progress-bar>
-            <b class="  size-color"*ngIf="educationview">{{'Malik_Sandal'|translate}}</b><br>
-            <b class="  size-color"*ngIf="educationview">{{'Dipl_Degree'|translate}}</b><br>
-            <b class="  size-color"*ngIf="educationview">{{'ED_Date_2'|translate}}</b>
-            <b class="  size-color"*ngIf="educationview">{{'S_location2'|translate}}</b><br>
+            <p class="  size-color"*ngIf="educationview">{{'Malik_Sandal'|translate}}</p><br>
+            <p class="  size-color"*ngIf="educationview">{{'Dipl_Degree'|translate}}</p><br>
+            <p class="  size-color"*ngIf="educationview">{{'ED_Date_2'|translate}}</p>
+            <p class="  size-color"*ngIf="educationview">{{'S_location2'|translate}}</p><br>
             <div class="row">
                 <div class="col-md-6">
-                    <b class="  size-color" *ngIf="educationview">{{'FC'|translate}}</b><br>
-                    <b class="  size-color" *ngIf="educationview">{{'Marks_3'|translate}}</b>
+                    <p class="  size-color" *ngIf="educationview">{{'FC'|translate}}</p><br>
+                    <p class="  size-color" *ngIf="educationview">{{'Marks_3'|translate}}</p>
                 </div>
             </div><br>
             <mat-progress-bar color="primary" mode="buffer" *ngIf="educationview" value="100"></mat-progress-bar>
-            <b class="  size-color"*ngIf="educationview">{{'10TH'|translate}}</b><br>
-            <b class="  size-color"*ngIf="educationview">{{'School_10th'|translate}}</b><br>
-            <b class="  size-color"*ngIf="educationview">{{'ED_Date_3'|translate}}</b>
-            <b class="  size-color"*ngIf="educationview">{{'S_location1'|translate}}</b><br>
+            <p class="  size-color"*ngIf="educationview">{{'10TH'|translate}}</p><br>
+            <p class="  size-color"*ngIf="educationview">{{'School_10th'|translate}}</p><br>
+            <p class="  size-color"*ngIf="educationview">{{'ED_Date_3'|translate}}</p>
+            <p class="  size-color"*ngIf="educationview">{{'S_location1'|translate}}</p><br>
             <div class="row">
                 <div class="col-md-6">
-                    <b class="  size-color" *ngIf="educationview">{{'FC'|translate}}</b><br>
-                    <b class="  size-color" *ngIf="educationview">{{'Marks_1'|translate}}</b>
+                    <p class="  size-color" *ngIf="educationview">{{'FC'|translate}}</p><br>
+                    <p class="  size-color" *ngIf="educationview">{{'Marks_1'|translate}}</p>
                 </div>
             </div>
             <br>
