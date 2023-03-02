@@ -52,11 +52,15 @@
 
 
 </header> -->
-<div style="font-family:cursive">
-
 
     <nav  class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color ">
         <div class="container-fluid" style="padding-right: calc(var(--bs-gutter-x) *2)">
+            <ul class="navbar-nav" style="flex-direction: inherit">
+                <li class="px-1 pt-1 fontheader">
+                    <mat-icon  (click)="menucollapses()" (click)="menucollapse =!menucollapse">menu</mat-icon>
+                <!-- <mat-icon *ngIf="!menucollapse" (click)="menucollapse =!menucollapse">keyboard_backspace</mat-icon> -->
+                </li>
+            </ul>
             <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1">
                     <img class="image" src="assets/photo/profilephoto.png" alter="Profile Photo" />
@@ -64,39 +68,32 @@
             </ul>
             <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1">
-                    <a class="navbar-brand   title"  routerLinkActive="active" routerLink="/home">{{'My_Portfolio'|translate}}</a>
+                    <a class="navbar-brand   title" routerLinkActive="active" routerLink="/home">{{'My_Portfolio'|translate}}</a>
                 </li>
             </ul>
-            <button class="navbar-toggler" type="button" *ngIf="menucollapse" (click)="menucollapses()" (click)="menucollapse =!menucollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <button class="navbar-toggler" type="button" *ngIf="!menucollapse" (click)="menucollapse =!menucollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <mat-icon>keyboard_backspace</mat-icon>
-            </button>
-            <div class=" navbar-collapse justify-content-end" >
+            <div class=" navbar-collapse justify-content-end " >
                 <ul class="navbar-nav" style="flex-direction: inherit;padding-right: 0;">
-                    <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" routerLink="/home" routerLinkActive="active"
+                    <li class="nav-item px-2">
+                        <a class="nav-link navbar-brand fontheader" routerLink="/home" routerLinkActive="active"
                             *ngIf="!menucollapse">{{'Home'|translate}}</a>
                     </li>
-                    <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" routerLink="/intro" routerLinkActive="active"
+                    <li class="nav-item px-2">
+                        <a class="nav-link navbar-brand fontheader" routerLink="/intro" routerLinkActive="active"
                             *ngIf="!menucollapse">{{'Intro'|translate}}</a>
                     </li>
-                    <!-- <li class="nav-item px-3">
+                    <!-- <li class="nav-item px-2">
                         <a class="nav-link navbar-brand" routerLink="/work"
                             routerLinkActive="active">{{'Workspace'|translate}}</a>
                     </li> -->
-                    <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" style="cursor: pointer;" (click)="openDialogLogin()" routerLinkActive="active"
+                    <li class="nav-item px-2">
+                        <a class="nav-link navbar-brand fontheader" style="cursor: pointer;" (click)="openDialogLogin()" routerLinkActive="active"
                             *ngIf="!menucollapse">{{'Login'|translate}}</a>
                     </li>
-                    <li class="nav-item px-3">
-                        <a class="nav-link navbar-brand" style="cursor: pointer;" (click)="openDialogSignUp()" routerLinkActive="active"
+                    <li class="nav-item px-2">
+                        <a class="nav-link navbar-brand fontheader" style="cursor: pointer;" (click)="openDialogSignUp()" routerLinkActive="active"
                         *ngIf="!menucollapse">{{'Create_Account'|translate}}</a>
                     </li>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <ul class="navbar-nav navbar-collapse justify-content-end" style="flex-direction: inherit;padding-right: 0; ">
+                    <ul class="navbar-nav navbar-collapse justify-content-center" style="flex-direction: inherit;padding-right: 0; ">
                         <button mat-icon-button [matMenuTriggerFor]="menu" class="title" *ngIf="!menucollapse">
                             <div>
                                 <mat-menu #menu="matMenu">
@@ -126,9 +123,7 @@
                             <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
                         </select>
                     </ul>
-
                 </ul>
             </div>
         </div>
     </nav>
-</div>

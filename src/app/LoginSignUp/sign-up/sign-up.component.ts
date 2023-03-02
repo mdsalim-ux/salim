@@ -44,14 +44,15 @@ export class SignUpComponent {
       { validators: passwordMatchValidator });
   }
   signUp(){
+    this.signForm.markAllAsTouched();
     if (this.signForm.valid) {
       this.dialogRef.close(true);
       this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
       this.router.navigate(['/login'])
     }
-    if(this.signForm.invalid){
-      return
-  }
+    // if(this.signForm.invalid){
+    //   return
+  //}
   }
   
 

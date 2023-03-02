@@ -11,10 +11,10 @@
     <div class=" px-5">
         <div class="row">
             <div class="col-14">
-                <mat-chip-option selected color="warn" style="font-family:cursive"
+                <mat-chip-option selected color="warn" 
                     (click)="downloadCV()">{{'Download_CV'|translate}}</mat-chip-option>
-                <mat-chip-option selected style="font-family:cursive" (click)="LinkedinProfile()">{{'Linkedin'|translate}}</mat-chip-option>
-                <mat-chip-option style="font-family:cursive" color="accent" *ngIf="!intropage" (click)="intropage =!intropage"
+                <mat-chip-option selected  (click)="LinkedinProfile()">{{'Linkedin'|translate}}</mat-chip-option>
+                <mat-chip-option  color="accent" *ngIf="!intropage" (click)="intropage =!intropage"
                     routerLink="/intro">{{'Read_More'|translate}}</mat-chip-option>
             </div>
         </div>

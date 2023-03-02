@@ -47,13 +47,14 @@ export class LoginComponent implements OnInit {
         }
     }
     login() {
+        this.loginForm.markAllAsTouched();
         if (this.loginForm.valid) {
          this.loginForm.reset()
          this.dialogRef.close(true);
         this.router.navigate(['/work'])
         this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
         }
-       
+
     }
     // signUp(){
     //     this.dialogRef.

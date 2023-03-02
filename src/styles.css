@@ -14,3 +14,8 @@ body {
 ul li p {
     font-weight: bold;
 }
+.cancelIcon{
+    position: absolute; right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
