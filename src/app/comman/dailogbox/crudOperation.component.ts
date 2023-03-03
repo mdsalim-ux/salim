@@ -38,7 +38,9 @@ export class DailogboxComponent implements OnInit {
       })
   }
   onSubmit(action:any) {
+    this.UserForm.markAllAsTouched();
     if (this.UserForm.valid) {
+      
       this.dialogRef.close(true);      
       let UserFormData=[];
       UserFormData.push({...this.LoginData})
