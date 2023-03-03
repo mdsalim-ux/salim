@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
             // phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],
             password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
             username: ['', [Validators.required, Validators.pattern("^[a-zA-Z\\s]*$")]],
+
             //otp: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(8), Validators.pattern(/^[0-6]\d*$/)]],
         });
     }
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.valid) {
          this.loginForm.reset()
          this.dialogRef.close(true);
-        this.router.navigate(['/work'])
+        this.router.navigate(['/main'])
         this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
         }
 

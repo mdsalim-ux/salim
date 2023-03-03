@@ -14,7 +14,7 @@ import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlertboxModule } from './comman/dialogbox/alertbox/alertbox.module';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlertboxComponent } from './comman/dialogbox/alertbox/alertbox.component';
 import { InjectionToken } from '@angular/core';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
@@ -30,6 +30,8 @@ import { MenuComponent } from './modules/menu/menu.component';
 import { EncrDecrService } from './comman/encr-decr-service.service';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { DailogboxComponent } from './comman/dailogbox/crudOperation.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { EditAgGridComponent } from './comman/edit-ag-grid/edit-ag-grid.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
@@ -50,7 +52,9 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     MainheaderComponent,
     FooterComponent,
     MenuComponent,
-    DailogboxComponent
+    DailogboxComponent,
+    EditAgGridComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -67,11 +71,14 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     NgxHideOnScrollModule,
     ToastrModule.forRoot({
     }),
-
+    AgGridModule,
   ],
-  providers: [UserService,EncrDecrService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [UserService,EncrDecrService, 
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas:[]
 })
 export class AppModule { }
 export function TranslateLoaderFactory(httpClient: HttpClient) {

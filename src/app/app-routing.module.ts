@@ -8,6 +8,7 @@ import { IntroComponent } from './modules/intro/intro.component';
 import { WorkComponent } from './modules/work/work.component';
 import { MainheaderComponent } from './LoginSignUp/mainheader/mainheader/main.component';
 import { FooterComponent } from './modules/footer/footer.component';
+import { DailogboxComponent } from './comman/dailogbox/crudOperation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/header', pathMatch: 'full' },
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: "intro", component: IntroComponent },
   { path: "work", component: WorkComponent },
   { path: "footer", component: FooterComponent },
+  { path: "crud", component: DailogboxComponent },
+
 ];
 
 @NgModule({

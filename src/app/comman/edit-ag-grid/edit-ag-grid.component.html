@@ -1,0 +1,32 @@
+<mat-icon class="cancelIcon" mat-dialog-close>close</mat-icon><br>
+<h2 mat-dialog-title>{{'Edit'|translate}}</h2><br>
+<mat-dialog-content class="mat-typography">
+  <form (ngSubmit)="OnSubmit('Edit')" style="text-align: center;" name="editUserForm" [formGroup]="editUserForm">
+    <mat-form-field appearance="outline">
+      <input type="email" formControlName="email" matInput required [(ngModel)]="data.email">
+      <mat-error *ngIf="editUserForm.controls['email'].invalid">{{'Email_Val'|translate}}
+      </mat-error>
+    </mat-form-field>&nbsp;&nbsp;
+    <mat-form-field appearance="outline">
+      <input type="phone" formControlName="phone" matInput required [(ngModel)]="data.phone">
+      <mat-error *ngIf="editUserForm.controls['phone'].invalid" [(ngModel)]="data.phone">{{'Mobile_Val'|translate}}
+      </mat-error>
+    </mat-form-field><br>
+    <mat-form-field appearance="outline">
+      <mat-select formControlName="skills" name="" [(ngModel)]="data.skills">
+        <mat-option *ngFor="let Coding of CodingLang" [value]="Coding">
+          {{Coding}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>&nbsp;&nbsp;
+    <mat-form-field appearance="outline">
+      <input type="username" formControlName="username" [(ngModel)]="data.username" matInput required>
+      <mat-error *ngIf="editUserForm.controls['username'].invalid">{{'User_Name_Val'|translate}}
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" mat-dialog-close>{{'Cancel'|translate}}</button>
+  <button mat-button color="accent" (click)="OnSubmit('Edit')" cdkFocusInitial>{{'Ok'|translate}}</button>
+</mat-dialog-actions>

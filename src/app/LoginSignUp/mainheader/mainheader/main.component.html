@@ -17,7 +17,7 @@
     </div>
    
 </header> -->
-    <mat-sidenav-container>
+    <!-- <mat-sidenav-container>
         <mat-sidenav #sidenav mode="side" opened="true">
             <mat-list-item>
                 <mat-icon mat-list-icon class="chevron-button sidenave-button"  *ngIf="!isExpanded" (click)="isExpanded =!isExpanded"
@@ -48,4 +48,16 @@
                 </select>
             </mat-list-item>
         </mat-sidenav>
-    </mat-sidenav-container>
+    </mat-sidenav-container> -->
+
+
+    <header class="row justify-content-center">
+        <div>
+            <p>
+                <mat-toolbar class="backgroundlight">
+                    <span class="example-spacer"></span>
+                    <button mat-raised-button color="primary" routerLink="/work">{{'Crud Operation'|translate}}</button>
+                </mat-toolbar>
+            </p>
+        </div>
+    </header>

@@ -1,23 +1,101 @@
 {
-  "Users": [
+  "AgGirdData": [
     {
-      "gender": "1",
-      "email": "",
-      "phone": "",
-      "password": "",
       "username": "Md Salim",
-      "confirmpassword": "",
-      "id": 1
+      "phone": "897152547",
+      "email": "mdsalim@gmail.com",
+      "skills": "JavaScript",
+      "id": 18
     },
     {
-      "gender": "Male",
-      "DOB": "2023-02-13T18:30:00.000Z",
-      "email": "8971525470@gmail.com",
+      "username": "Md Salim",
+      "phone": "897152547",
+      "email": "mdsalim@gmail.com",
+      "skills": "Jquery",
+      "id": 19
+    },
+    {
+      "username": "Mouse",
+      "phone": "677576775",
+      "email": "mdsalim@gmail.com",
+      "skills": "JavaScript",
+      "id": 21
+    },
+    {
+      "username": "Md SalimSSSKH",
+      "phone": "0897152547",
+      "email": "mdsalim@gmail.com",
+      "skills": "HTML",
+      "id": 23
+    },
+    {
+      "username": "SSSSSSS",
+      "phone": "0677576775",
+      "email": "mdsalim@gmail.com",
+      "skills": "",
+      "id": 24
+    },
+    {
+      "username": "SalimAlam",
+      "phone": "0767657567",
+      "email": "mdsalim@gmail.com",
+      "skills": "SQL",
+      "id": 25
+    },
+    {
+      "username": "SalimAlamD",
+      "phone": "0767657567",
+      "email": "mdsalim@gmail.com",
+      "skills": "JavaScript",
+      "id": 26
+    },
+    {
+      "username": "Md SalimBoss",
       "phone": "8971525470",
-      "password": "Sa12345678@",
-      "username": "Md SalimA",
-      "confirmpassword": "Sa12345678@",
-      "id": 2
+      "email": "mdsalim@gmail.com",
+      "skills": "Angular",
+      "id": 27
+    },
+    {
+      "username": "Md Salim",
+      "phone": "8971525470",
+      "email": "mdsalim@gmail.com",
+      "skills": "JavaScript",
+      "id": 29
+    },
+    {
+      "username": "Md SalimSSSKH",
+      "phone": "0897152547",
+      "email": "mdsalim@gmail.com",
+      "skills": "HTML",
+      "id": 30
+    }
+  ],
+  "Users": [],
+  "Technology": [
+    {
+      "name": "Angular"
+    },
+    {
+      "name": "ASP.NET"
+    },
+    {
+      "name": "C#"
+    },
+    {
+      "name": "SQL"
+    },
+    {
+      "name": "JavaScript"
+    },
+    {
+      "name": "HTML"
+    },
+    {
+      "name": "JSON"
+    },
+    {
+      "name": "Jquery"
     }
   ]
 }

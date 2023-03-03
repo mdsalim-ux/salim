@@ -1,32 +1,32 @@
 
 <mat-icon class="cancelIcon" mat-dialog-close>close</mat-icon><br>
-<h2 mat-dialog-title>AG Grid</h2>
+<h2 mat-dialog-title>AG Grid</h2><br>
 <mat-dialog-content class="mat-typography">
-        <form (ngSubmit)="onSubmit()" style="text-align: center;"name="UserForm" [formGroup]="UserForm">
+        <form (ngSubmit)="onSubmit('add')" style="text-align: center;"name="UserForm" [formGroup]="UserForm">
                 <mat-form-field appearance="outline">
                     <mat-label>{{'Username'|translate}}</mat-label>
-                    <input type="username" formControlName="username" matInput placeholder="{{'username'|translate}}" required>
+                    <input type="username" formControlName="username" matInput placeholder="{{'Username'|translate}}" required>
                     <mat-error
-                        *ngIf="UserForm.controls['username'].invalid">{{'Username'|translate}}
+                        *ngIf="UserForm.controls['username'].invalid">{{'User_Name_Val'|translate}}
                     </mat-error>
                 </mat-form-field>&nbsp;&nbsp;
                 <mat-form-field appearance="outline">
-                    <mat-label>{{'email'|translate}}</mat-label>
-                    <input type="email" formControlName="email" matInput placeholder="{{'email'|translate}}" required>
+                    <mat-label>{{'Email_Id'|translate}}</mat-label>
+                    <input type="email" formControlName="email" matInput placeholder="{{'Email_Id'|translate}}" required>
                     <mat-error
-                        *ngIf="UserForm.controls['email'].invalid">{{'email'|translate}}
+                        *ngIf="UserForm.controls['email'].invalid">{{'Email_Val'|translate}}
                     </mat-error>
                 </mat-form-field><br>
                 <mat-form-field appearance="outline">
-                    <mat-label>{{'phone'|translate}}</mat-label>
-                    <input type="phone" formControlName="phone" matInput placeholder="{{'phone'|translate}}" required>
+                    <mat-label>{{'Mobile_No'|translate}}</mat-label>
+                    <input type="phone" formControlName="phone" matInput placeholder="{{'Mobile_No'|translate}}" required>
                     <mat-error
-                        *ngIf="UserForm.controls['phone'].invalid">{{'phone'|translate}}
+                        *ngIf="UserForm.controls['phone'].invalid">{{'Mobile_Val'|translate}}
                     </mat-error>
                 </mat-form-field>&nbsp;&nbsp;
                 <mat-form-field appearance="outline">
                     <mat-label>{{'Skills'|translate}}</mat-label>
-                    <mat-select  name="food">
+                    <mat-select  formControlName="skills" name="">
                       <mat-option *ngFor="let Coding of CodingLang" [value]="Coding">
                         {{Coding}}
                       </mat-option>
@@ -40,5 +40,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button color="primary" mat-dialog-close>Cancel</button>
-  <button mat-button color="accent"(click)="onSubmit()" cdkFocusInitial>Submit</button>
+  <button mat-button color="accent" (click)="onSubmit('add')" cdkFocusInitial>Submit</button>
 </mat-dialog-actions>
