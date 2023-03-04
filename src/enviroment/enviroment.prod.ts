@@ -1,5 +1,6 @@
 export const environment ={
     production:true,
-    apiurl:'www.example.com/',
+    apiUrl:'http://localhost:3000',
+    hostUrl:'https://mdsalimprofile.web.app/',
     timout:30,
 }

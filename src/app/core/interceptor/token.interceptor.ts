@@ -96,9 +96,9 @@ export class TokenInterceptor implements HttpInterceptor {
     }
 
     let cloneReq;
-    /*if(request.url.includes('SSO/api/user')){
+    if(request.url.includes('header/api')){
        cloneReq = request.clone({  withCredentials: true }); 
-    }*/
+    }
     cloneReq = request.clone({ headers });
 
 
