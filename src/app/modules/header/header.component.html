@@ -93,9 +93,17 @@
                         <a class="nav-link navbar-brand fontheader" style="cursor: pointer;" (click)="openDialogSignUp()" routerLinkActive="active"
                         *ngIf="!menucollapse">{{'Create_Account'|translate}}</a>
                     </li>
-                    <ul class="navbar-nav navbar-collapse justify-content-center" style="flex-direction: inherit;padding-right: 0; ">
-                        <button mat-icon-button [matMenuTriggerFor]="menu" class="title" *ngIf="!menucollapse">
-                            <div>
+                    <li class="nav-item px-2">
+                        <a class="nav-link navbar-brand fontheader">
+                            <mat-icon *ngIf="!menucollapse">language</mat-icon>
+                         <select class="dropdown" style="bottom: 5px;" *ngIf="!menucollapse" #Languages (change)="onDropdownChange($event)"
+                            (change)="translate.use(Languages.value)">
+                            <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
+                        </select>                            
+                        </a>
+                    </li>    
+                    <li class="nav-item px-1">       
+                            <button style="bottom: 10px;" mat-icon-button [matMenuTriggerFor]="menu" class="title" *ngIf="!menucollapse">
                                 <mat-menu #menu="matMenu">
                                     <div class="title">
                                         <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
@@ -114,16 +122,16 @@
                                         </mat-menu>
                                     </div>
                                 </mat-menu>
-                            </div>
-                            <mat-icon>more_vert</mat-icon>
-                        </button>
-                        <mat-icon *ngIf="!menucollapse">language</mat-icon>
-                        <select class="dropdown" *ngIf="!menucollapse" #Languages (change)="onDropdownChange($event)"
-                            (change)="translate.use(Languages.value)">
-                            <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
-                        </select>
+                                <a   class="nav-link navbar-brand fontheader">
+                                    <mat-icon >more_vert</mat-icon>
+                                </a>
+
+                        </button>  
+                                       
+                    </li>    
+
+                        
                     </ul>
-                </ul>
             </div>
         </div>
     </nav>
