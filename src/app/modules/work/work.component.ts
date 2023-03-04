@@ -46,17 +46,6 @@ export class WorkComponent implements OnInit {
   ngOnInit(): void {
     this.getUsersData();
     this.setColDef();
-    if(this.dialogData.dialogAction=='EDIT'){
-      let datakeys = Object.keys(this.dialogData.rowNode)
-        datakeys.map((keys:any)=>{
-          const charControl = this.LoginData.get(keys);
-          if(charControl){
-            charControl.setValue(this.dialogData.rowNode[keys]);
-          }
-        })
-  
-  
-      }
   }
   getUsersData() {
     this._DataService.getAgGirdData().subscribe

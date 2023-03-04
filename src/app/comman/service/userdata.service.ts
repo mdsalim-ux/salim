@@ -9,22 +9,28 @@ export class UserdataService {
 
   constructor(private _http: HttpClient) { }
   addUserData(data: any): Observable<any> {
-    return this._http.post('http://localhost:3000/Users', data)
+    const options = { withCredentials: true };
+    return this._http.post('http://localhost:3000/Users', data,options)
   }
   userlogin(): Observable<any> {
-    return this._http.get('http://localhost:3000/Users')
+    const options = { withCredentials: true };
+    return this._http.get('http://localhost:3000/Users',options)
   }
   AgGirdData(data: any): Observable<any> {
-    return this._http.post('http://localhost:3000/AgGirdData', data)
+    const options = { withCredentials: true };
+    return this._http.post('http://localhost:3000/AgGirdData', data,options)
   }
   getAgGirdData(): Observable<any> {
-    return this._http.get('http://localhost:3000/AgGirdData')
+    const options = { withCredentials: true };
+    return this._http.get('http://localhost:3000/AgGirdData',options)
   }
   getTechnology(): Observable<any> {
-    return this._http.get('http://localhost:3000/Technology')
+    const options = { withCredentials: true };
+    return this._http.get('http://localhost:3000/Technology',options)
   }
   deleteGridData(id:any): Observable<any> {
-    return this._http.delete(`http://localhost:3000/AgGirdData/${id}`)
+    const options = { withCredentials: true };
+    return this._http.delete(`http://localhost:3000/AgGirdData/${id}`,options)
 
   }
   
