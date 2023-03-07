@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.0.0",
-  "main":"index.js",
+  "main": "index.js",
   "scripts": {
     "ng": "ng",
     "start": "node index.js",
@@ -40,6 +40,7 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "wcwidth": "^1.0.1",
+    "xng-breadcrumb": "^7.2.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

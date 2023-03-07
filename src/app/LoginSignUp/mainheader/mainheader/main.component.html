@@ -49,15 +49,12 @@
             </mat-list-item>
         </mat-sidenav>
     </mat-sidenav-container> -->
-
-
-    <header class="row justify-content-center">
-        <div>
-            <p>
-                <mat-toolbar class="backgroundlight">
-                    <span class="example-spacer"></span>
-                    <button mat-raised-button color="primary" routerLink="/work">{{'Crud Operation'|translate}}</button>
-                </mat-toolbar>
-            </p>
-        </div>
-    </header>
+    <nav  class="justify-content-end navbar navbar-expand-lg navbar-light nav-shadow bg-color">
+        <div class="container-fluid" style="padding-right: calc(var(--bs-gutter-x) *2)">
+            <ul class="navbar-nav" style="flex-direction: inherit;padding-right: 0;">
+                <li class="px-1 pt-3">
+                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" routerLink="/work">{{'Crud Operation'|translate}}</b>
+                </li>
+            </ul>      
+            </div>
+    </nav>

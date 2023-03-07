@@ -26,12 +26,12 @@ import { LoginComponent } from './LoginSignUp/login/login.component';
 import { SignUpComponent } from './LoginSignUp/sign-up/sign-up.component';
 import { MainheaderComponent } from './LoginSignUp/mainheader/mainheader/main.component';
 import { FooterComponent } from './modules/footer/footer.component';
-import { MenuComponent } from './modules/menu/menu.component';
 import { EncrDecrService } from './comman/encr-decr-service.service';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { DailogboxComponent } from './comman/dailogbox/crudOperation.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { EditAgGridComponent } from './comman/edit-ag-grid/edit-ag-grid.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
@@ -51,7 +51,6 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     SignUpComponent,
     MainheaderComponent,
     FooterComponent,
-    MenuComponent,
     DailogboxComponent,
     EditAgGridComponent,
     
@@ -68,6 +67,7 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     NotificationModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BreadcrumbModule,
     NgxHideOnScrollModule,
     ToastrModule.forRoot({
     }),

@@ -7,7 +7,7 @@
     "Download_CV": "Download CV",
     "Linkedin": "LinkedIn Profile",
     "en": "English",
-    "hn": "Hindi",
+    "hn": "हिंदी",
     "Info": "Info",
     "Language_Msg": "Are you sure you want to change languague to any other languague",
     "Welcome": "Welcome to My Portfolio",
@@ -47,7 +47,7 @@
     "Software_Engineer":"Software Engineer",
     "Summary":"Seeking a challenging career in the IT sector to get a position of responsibility, using my skills and efficiency to communicate my ideas & views, and commit myself to achieving organizational objectives with team effort and my positive attitude and performance",
     "Read_More":"Read More",
-    "ur":"Urdu",
+    "ur":"اردو",
     "Best_View":"For the best view, please use desktop view",
     "Ok":"Ok",
     "R1":"➊ Implemented WEB API to Object to connect to SQL server database from Repositories classes for retrieving, manipulating, querying,and storing data from the database",
@@ -100,7 +100,7 @@
     "Marks_1":"MARKS: 64%",
     "Marks_2":"MARKS: 75%",
     "Marks_3":"MARKS: 63%",
-    "Skills":"📝 Skills",
+    "Skills":"Professional Skills",
     "ED_Date_1":"📅 06/2015 - 07/2018",
     "ED_Date_2":"📅 04/2012 - 05/2015",
     "ED_Date_3":"📅 02/2011 - 03/2012",
@@ -112,8 +112,9 @@
     "LANGUAGES":"◍ LANGUAGES",
     "School_10th":"Inter High School Kishanganj",
     "CGI_India":"CGI India",
-    "C":"C#"
-
-
+    "C":"C#",
+    "once_access":"After Login we will able to see my Workspace",
+    "GetAccess":"To get access ping to WhatsApp +918971525470",
+    "Address":"Address: Village-Ghurna,Post-Pat Koi Hat,Dist-Kishanganj, BIHAR-855107"
 
 }

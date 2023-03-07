@@ -47,12 +47,6 @@ export class DailogboxComponent implements OnInit {
       this.dialogRef.close({event:'add',data:UserFormData})
       this._DataService.AgGirdData(this.UserForm.value).subscribe
         (val => {
-          if(val){
-            let currentUrl = this.router.url;
-            this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-            this.router.onSameUrlNavigation = 'reload';
-            this.router.navigate([currentUrl]);
-          }
         }, err => {
         });
     }

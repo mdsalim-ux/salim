@@ -26,11 +26,11 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // this._DataService.userlogin().subscribe
-        //     (res => { this.LoginData = res })
+        this._DataService.getLoginData().subscribe
+            (res => { this.LoginData = res })
         this.loginForm = this.formBuilder.group({
-            // phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],
-            password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
+            phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],
+            //password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
             username: ['', [Validators.required, Validators.pattern("^[a-zA-Z\\s]*$")]],
 
             //otp: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(8), Validators.pattern(/^[0-6]\d*$/)]],
@@ -47,58 +47,64 @@ export class LoginComponent implements OnInit {
             this.loginIsInvalid = true;
         }
     }
-    login() {
-        this.loginForm.markAllAsTouched();
-        if (this.loginForm.valid) {
-         this.loginForm.reset()
-         this.dialogRef.close(true);
-        this.router.navigate(['/main'])
-        this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
-        }
+    // login() {
+    //     this.loginForm.markAllAsTouched();
+    //     if (this.loginForm.valid) {
+    //      this.loginForm.reset()
+    //      this.dialogRef.close(true);
+    //     this.router.navigate(['/main'])
+    //     this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
+    //     }
 
-    }
+    // }
     // signUp(){
     //     this.dialogRef.
     // }
-    // login() {
-    //     if (this.loginForm.valid) {
-    //         let res = this.LoginData;
-    //         for (let i = 0; i < res.length; i++) {
-    //             var encrypted = this.EncrDecr.set('123456$#@$^@1ERF', res[i].phone);
-    //             res[i].phone = encrypted,
-    //                 this.loginForm.value.phone = encrypted,
-    //                 res[i].username = res[i].username
-    //         }
-    //         const users = res.find((a: any) => {
-    //             return a.username === this.loginForm.value.username
-    //         });
-    //         if (users) {
-    //             if (this.loginForm.valid) {
-    //                 this.loginForm.reset()
-    //                 this.router.navigate(['/work'])
-    //                 this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
-    //                 let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
-    //                 this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
-    //                     return
+    login() {
+        this.loginForm.markAllAsTouched();
+        if (this.loginForm.valid) {
+            let res = this.LoginData;
+            for (let i = 0; i < res.length; i++) {
+                // var encrypted = this.EncrDecr.set('123456$#@$^@1ERF', res[i].phone);
+                // res[i].phone = encrypted,
+                //     this.loginForm.value.phone = encrypted,
+                    res[i].username = res[i].username
+            }
+            const users = res.find((a: any) => {
+                return a.username === this.loginForm.value.username
+            });
+            if (users) {
+                if (this.loginForm.valid) {
+                    this.dialogRef.close(true);
+                    this.loginForm.reset()
+                    this.router.navigate(['/main'])
+                    this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
+                    let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
+                    this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
+                        return
 
-    //                 })
-    //             }
-
-    //         }
-    //     }
-    // }
-    // userNameExist() {
-    //     let usernameexists = this.loginForm.controls['username'].value;
-    //     let loginData = this.LoginData;
-    //     this.loginIsInvalid = false;
-    //     if (loginData != undefined) {
-    //         for (let i = 0; i < loginData.length; i++) {
-    //             if (loginData[i].username.trim() != usernameexists && usernameexists != '') {
-    //                 this.loginIsInvalid = true;
-    //                 this.loginForm.controls['username'].setErrors({ 'incorrect': true });
-    //                 return;
-    //             }
-    //         }
-    //     }
-    // }
+                    })
+                }  
+            }
+        }
+    }
+    userNameExist() {
+        let usernameexists = this.loginForm.controls['username'].value;
+        let phone = this.loginForm.controls['phone'].value;
+        let loginData = this.LoginData;
+        this.loginIsInvalid = false;
+        if (loginData != undefined) {
+            for (let i = 0; i < loginData.length; i++) {
+                if ((loginData[i].username.trim() != usernameexists) && usernameexists !="" && (loginData[i].phone !=phone)) {
+                    this.loginIsInvalid = true;
+                    this.loginForm.controls['username'].setErrors({ 'incorrect': true });
+                    break;
+                }
+                else{
+                    this.loginIsInvalid = false;
+                    break;
+                }
+            }
+        }
+    }
 }

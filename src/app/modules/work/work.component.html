@@ -10,11 +10,12 @@ rowSelection="multiple"
 [frameworkComponents]="frameworkComponents"
 style="width: 100%; height: 300px;"
 ></ag-grid-angular>
-<button mat-raised-button *ngIf="getSelectedRow()" style="cursor: not-allowed;" >{{'Copy'|translate}}</button>
-<button mat-raised-button *ngIf="!getSelectedRow()" (click)="editUser()">{{'Copy'|translate}}</button>&nbsp;
-<button mat-raised-button *ngIf="getSelectedRow()" style="cursor: not-allowed;" >{{'Delete'|translate}}</button>
-<button mat-raised-button *ngIf="!getSelectedRow()"  (click)="deleteRow()">{{'Delete'|translate}}</button>&nbsp;
-<button mat-raised-button color="primary"   (click)="AddData('ADD')" >{{'Add'|translate}}</button>
+<button mat-raised-button [disabled]="!editEnable"  *ngIf="getSelectedRow()" style="cursor: not-allowed;" >{{'Edit'|translate}}</button>
+<button mat-raised-button [disabled]="editEnable"  *ngIf="!getSelectedRow()" (click)="editUser()">{{'Edit'|translate}}</button>&nbsp;
+<button mat-raised-button [disabled]="!editEnable"  *ngIf="getSelectedRow()" style="cursor: not-allowed;" >{{'Delete'|translate}}</button>
+<button mat-raised-button [disabled]="editEnable"  *ngIf="!getSelectedRow()"  (click)="deleteRow()">{{'Delete'|translate}}</button>&nbsp;
+<button mat-raised-button color="primary"   (click)="AddData('ADD')" >{{'Add'|translate}}</button>&nbsp;
+<button mat-raised-button color="primary"   (click)="Cancel()" >{{'Cancel'|translate}}</button>
 
 
 

@@ -14,14 +14,14 @@ const routes: Routes = [
   { path: '', redirectTo: '/header', pathMatch: 'full' },
   { path: 'main', component: MainheaderComponent },
   { path: 'login', component: LoginComponent },
+  {path:'login',component:LoginComponent},
   { path: 'signup', component: SignUpComponent },
-  { path: "header", component: HeaderComponent },
+  { path: "header", component: HeaderComponent},
   { path: "home", component: HomeComponent },
   { path: "intro", component: IntroComponent },
   { path: "work", component: WorkComponent },
   { path: "footer", component: FooterComponent },
-  { path: "crud", component: DailogboxComponent },
-
+  { path: "crud", component: DailogboxComponent }
 ];
 
 @NgModule({
