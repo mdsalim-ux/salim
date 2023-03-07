@@ -1,28 +1,31 @@
 <mat-dialog-content class="mat-typography">
         <mat-icon class="cancelIcon" mat-dialog-close>close</mat-icon>
-        <h2 mat-dialog-title>{{'Login'|translate}}</h2>
+        <b >{{'Login'|translate}}</b>
         <form (ngSubmit)="login()" name="loginForm" [formGroup]="loginForm">
-                <mat-form-field appearance="outline">
-                    <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
+            <br>
+                <mat-form-field appearance="outline" style="width: 400px">
+                    <mat-icon matPrefix style="color:blueviolet;">account_circle</mat-icon>
                     <mat-label >{{'Username'|translate}}</mat-label>
-                    <input type="text" matInput  formControlName="username" placeholder="{{'Username'|translate}}"
+                    <input type="text" matInput formControlName="username"  placeholder="{{'Username'|translate}}"
                         required>
                     <mat-error 
                         *ngIf="loginForm.controls['username'].invalid  && !loginIsInvalid">{{'User_Valid'|translate}}
                     </mat-error>
                     <mat-error  *ngIf="loginIsInvalid">{{'Invalid_Users'|translate}}</mat-error>
                 </mat-form-field><br>
-                <mat-form-field appearance="outline" >
-                    <mat-icon matPrefix style="color:blueviolet">lock</mat-icon>
-                    <mat-label >{{'Password_Val'|translate}}</mat-label>
-                    <input type="password"  formControlName="password" matInput
-                        placeholder="{{'Password_Val'|translate}}" required>
-                    <mat-error  *ngIf="loginForm.controls['password'].invalid">{{'Password_Confirm_Val'|translate}}
+                <mat-form-field appearance="outline" style="width: 400px">
+                    <mat-icon matPrefix style="color:blueviolet;">lock</mat-icon>
+                    <mat-label >{{'Mobile_No'|translate}}</mat-label>
+                    <input type="phone"   formControlName="phone" matInput
+                        placeholder="{{'Mobile_No'|translate}}" required>
+                    <mat-error  *ngIf="loginForm.controls['phone'].invalid">{{'Mobile_Val'|translate}}
                     </mat-error>
                 </mat-form-field>
         </form>
+        <b>{{'once_access'|translate}}</b><br>
+        <b>{{'GetAccess'|translate}}</b>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button color="primary"  mat-dialog-close>{{'Cancel'|translate}}</button>
-    <button mat-raised-button color="accent"  (click)="login()">{{'Login'|translate}}</button>
+    <button mat-raised-button color="accent" (click)="userNameExist()" (click)="login()">{{'Login'|translate}}</button>
 </mat-dialog-actions>

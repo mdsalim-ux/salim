@@ -43,7 +43,7 @@ export class HeaderComponent {
   openDialogLogin() {
     const dialogRef = this.dialog.open(LoginComponent,{
       disableClose: true,
-      width:"300px"
+      width:"450px"
     });
     dialogRef.afterClosed().subscribe(result => {
     });

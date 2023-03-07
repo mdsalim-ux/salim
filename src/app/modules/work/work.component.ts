@@ -26,6 +26,7 @@ export class WorkComponent implements OnInit {
   LoginData: any;
   dialogData: any;
   service: any;
+  editEnable: boolean=false;
 
   constructor(public _DataService: UserdataService,private router: Router, private _http: HttpClient,
      public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data:any) {
@@ -88,10 +89,10 @@ export class WorkComponent implements OnInit {
     }
   }
   editUser() {
-    const data = this.gridApi.getSelectedRows()[0]; // get the selected data
+    const data = this.gridApi.getSelectedRows()[0];
   const dialogRef = this.dialog.open(EditAgGridComponent, {
     
-    data:data // pass the selected data to the dialog
+    data:data 
   });
   this.gridApi.applyTransaction({ add: data });
 
@@ -105,28 +106,42 @@ export class WorkComponent implements OnInit {
     this.gridApi.refreshCells(params); 
     this.rowData = this.LoginData
   }
-  AddData(action: string) {
-    let data
-    if (action == 'ADD') {
-      data = {
-        dailogAction: action,
-        gridData: this.rowData
-      }
-    }
-    const dialogRef = this.dialog.open(DailogboxComponent, {
-      disableClose: true
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result?.event == 'ADD') {
-        result.data['index'] = this.rowData?this.rowData.length: 0;
-        if (this.rowData) {
-          this.rowData = [...this.rowData, ...result?.data]
-        }
-        else {
-          this.rowData = result?.data
-        }
-      }
-    });
+  // AddData(action: string) {
+  //   let data
+  //   if (action == 'ADD') {
+  //     data = {
+  //       dailogAction: action,
+  //       gridData: this.rowData
+  //     }
+  //   }
+  //   const dialogRef = this.dialog.open(DailogboxComponent, {
+  //     disableClose: true
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result?.event == 'ADD') {
+  //       result.data['index'] = this.rowData?this.rowData.length: 0;
+  //       if (this.rowData) {
+  //         this.rowData = [...this.rowData, ...result?.data]
+  //       }
+  //       else {
+  //         this.rowData = result?.data
+  //       }
+  //     }
+  //   });
+    
+  // }
+  Cancel(){
+    this.router.navigate(['/main'])
+  }
+  AddData(action:string){
+    let newRowData = this.rowData.slice();
+    let newId =
+      this.rowData.length === 0
+        ? 0
+        : this.rowData[this.rowData.length - 1].id + 1;
+    let newRow = { username: "Md Salim",email: "mdsalimalam8@gmail.com",phone: "+9189715254570",skills: "Angular", id: newId };
+    newRowData.push(newRow);
+    this.rowData = newRowData;
   }
   deleteRow() {
     const selectedRows = this.gridApi.getSelectedRows();
