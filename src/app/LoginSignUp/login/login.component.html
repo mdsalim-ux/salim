@@ -1,9 +1,9 @@
 <mat-dialog-content class="mat-typography">
         <mat-icon class="cancelIcon" mat-dialog-close>close</mat-icon>
         <b >{{'Login'|translate}}</b>
-        <form (ngSubmit)="login()" name="loginForm" [formGroup]="loginForm">
+        <form (ngSubmit)="login()" name="loginForm" style="text-align: center"[formGroup]="loginForm">
             <br>
-                <mat-form-field appearance="outline" style="width: 400px">
+                <mat-form-field appearance="outline" style="width: 250px">
                     <mat-icon matPrefix style="color:blueviolet;">account_circle</mat-icon>
                     <mat-label >{{'Username'|translate}}</mat-label>
                     <input type="text" matInput formControlName="username"  placeholder="{{'Username'|translate}}"
@@ -12,14 +12,15 @@
                         *ngIf="loginForm.controls['username'].invalid  && !loginIsInvalid">{{'User_Valid'|translate}}
                     </mat-error>
                     <mat-error  *ngIf="loginIsInvalid">{{'Invalid_Users'|translate}}</mat-error>
-                </mat-form-field><br>
-                <mat-form-field appearance="outline" style="width: 400px">
+                </mat-form-field><br><br>
+                <mat-form-field appearance="outline" style="width: 250px">
                     <mat-icon matPrefix style="color:blueviolet;">lock</mat-icon>
                     <mat-label >{{'Mobile_No'|translate}}</mat-label>
                     <input type="phone"   formControlName="phone" matInput
                         placeholder="{{'Mobile_No'|translate}}" required>
-                    <mat-error  *ngIf="loginForm.controls['phone'].invalid">{{'Mobile_Val'|translate}}
+                    <mat-error  *ngIf="loginForm.controls['phone'].invalid && !loginIsInvalid">{{'Mobile_Val'|translate}}
                     </mat-error>
+                    <mat-error  *ngIf="loginIsInvalid">{{'Invalid_Users'|translate}}</mat-error>
                 </mat-form-field>
         </form>
         <b>{{'once_access'|translate}}</b><br>
