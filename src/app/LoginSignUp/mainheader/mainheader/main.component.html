@@ -68,13 +68,13 @@
     <div  *ngIf="numberInput">
         <b >{{'Number_Only'|translate}}</b><br>
         <mat-form-field appearance="outline">
-            <input  matInput placeholder="{{'Number_Only'|translate}}" (keypress)="numberOnly($event)" required>
+            <input  matInput placeholder="{{'Number_Only'|translate}}" (keydown)="numberOnly($event)" required>
         </mat-form-field>
     </div>
     <div  *ngIf="decimalInput">
         <b >{{'Decimal_Number'|translate}}</b><br>
         <mat-form-field appearance="outline">
-            <input  matInput placeholder="{{'Decimal_Number'|translate}}" (keypress)="decimalFilter($event)" required>
+            <input  matInput placeholder="{{'Decimal_Number'|translate}}" (keydown)="decimalFilter($event)" required>
         </mat-form-field>
     </div>
     <div  *ngIf="CopyPasteInput">

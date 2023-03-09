@@ -25,6 +25,10 @@ export class UserdataService {
   {
     return of(this.login.LoginData)
   }
+  LoginData(data: any): Observable<any>
+  {
+    return of(this.login.LoginData,data)
+  }
   deleteGridData(id : any){
     this.data.AgGirdData=this.data.AgGirdData.filter((x:any)=>{ return x['id'] !== id});
     return of(true);

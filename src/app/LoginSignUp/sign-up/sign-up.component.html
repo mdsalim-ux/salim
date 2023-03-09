@@ -5,7 +5,7 @@
                 <mat-form-field appearance="outline">
                     <mat-icon matPrefix style="color:blueviolet">account_circle</mat-icon>
                     <mat-label >{{'Username'|translate}}</mat-label>
-                    <input type="text"  matInput formControlName="username" placeholder="{{'Username'|translate}}"
+                    <input type="text"  matInput formControlName="username"  placeholder="{{'Username'|translate}}"
                         required>
                     <mat-error
                         *ngIf="signForm.controls['username'].invalid && !duplicateName" >{{'User_Name_Val'|translate}}</mat-error>
@@ -50,18 +50,9 @@
                     <mat-error
                      *ngIf="signForm.controls['confirmpassword'].invalid">{{'Pass_not_match'|translate}}</mat-error>
                 </mat-form-field>
-            <!-- <div class="row">
-                        <h4>{{'Gender'|translate}}</h4>
-                        <mat-radio-group formControlName="gender">
-                            <mat-radio-button value="Male">{{'Male'|translate}}</mat-radio-button>
-                            <mat-radio-button value="Female">{{'Female'|translate}}</mat-radio-button>
-                            <mat-radio-button value="Other">{{'Others'|translate}}</mat-radio-button>
-                        </mat-radio-group>
-                    </div> -->
-            <!-- <header class="justify-content-center"> -->
         </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button  color="primary" mat-dialog-close>{{'Cancel'|translate}}</button>
-    <button mat-raised-button   color="accent"(click)="signUp()">{{'Create_Account'|translate}}</button>
+    <button mat-raised-button   color="accent"  (click)="signUp();duplicateUserName()">{{'Create_Account'|translate}}</button>
 </mat-dialog-actions>

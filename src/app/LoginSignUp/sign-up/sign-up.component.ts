@@ -9,7 +9,8 @@ import { UserdataService } from 'src/app/comman/service/userdata.service';
 import * as CryptoJS from 'crypto-js';
 import { EncrDecrService } from 'src/app/comman/encr-decr-service.service';
 import { HeaderComponent } from 'src/app/modules/header/header.component';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,16 +23,16 @@ export class SignUpComponent {
   DataValid: boolean = false;
   alluserdata: any;
   duplicateName: boolean = false;
-  constructor(private formBuilder: FormBuilder, public _DataService: UserdataService,
+  constructor(private formBuilder: FormBuilder, public _DataService: UserdataService,public dialog: MatDialog,
     public loaderService: LoaderService, private _notification: NotificationService, 
     private EncrDecr: EncrDecrService,private router: Router, private dialogRef:MatDialogRef<HeaderComponent>,public translate: TranslateService) {
     translate.setDefaultLang('en');
   }
   ngOnInit(): void {
-    // this._DataService.userlogin().subscribe
-    // (res => {
-    //   this.alluserdata = res;
-    // });
+    this._DataService.getLoginData().subscribe
+    (val => {    
+      this.alluserdata = val;
+    })
     this.signForm = this.formBuilder.group({
      // gender: ['Male'],
       DOB:[''],
@@ -43,64 +44,58 @@ export class SignUpComponent {
     },
       { validators: passwordMatchValidator });
   }
-  signUp(){
-    this.signForm.markAllAsTouched();
-    if (this.signForm.valid) {
-      this.dialogRef.close(true);
-      this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
-      this.router.navigate(['/login'])
-    }
-    // if(this.signForm.invalid){
-    //   return
-  //}
-  }
-  
-
-  // signUp() {
-  //   if (this.DataValid == false && this.signForm.valid) {
-  //       // var encrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.signForm.value.password);
-  //       // this.signForm.value.password=encrypted,
-  //       // this.signForm.value.phone=encrypted,
-  //       // this.signForm.value.email=encrypted,
-  //       // this.signForm.value.confirmpassword=encrypted,
-  //       // console.log('Encrypted :' + encrypted);
-  //     this._DataService.addUserData(this.signForm.value).subscribe
-  //       (val => {    
-  //     }, err => {
-  //         this.router.navigate(['signup'])
-  //       });
-  //   }
+  // signUp(){
+  //   this.signForm.markAllAsTouched();
   //   if (this.signForm.valid) {
-     
-     
+  //     this.dialogRef.close(true);
   //     this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
   //     this.router.navigate(['/login'])
   //   }
-  //   else if (this.signForm.invalid && this.signForm.value.confirmpassword == '') {
-  //      this.signForm.reset()
-  //     this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
-  //   }
-  //   else if (this.signForm.invalid && this.signForm.value.confirmpassword == null) {
-  //     // this.signForm.reset()
-  //     this.router.navigate(['signup'])
-  //     this.DataValid = true;
-  //     return
-  //   }
+  //   // if(this.signForm.invalid){
+  //   //   return
+  // //}
   // }
-  // duplicateUserName() {
-  //   let duplicateName = this.signForm.controls['username'].value;
-  //   let logindata = this.alluserdata;
-  //   this.duplicateName = false;
-  //   if (logindata != undefined) {
-  //     for (let i = 0; i < logindata.length; i++) {
-  //       if (logindata[i].username == duplicateName) {
-  //         this.duplicateName = true;
-  //         this.signForm.controls['username'].setErrors({ 'incorrect': true });
-  //         return;
-  //       }
-  //     }
-  //   }
-  // }
+  
+
+  signUp() {
+    this.signForm.markAllAsTouched()
+    if (this.signForm.valid) {
+      this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
+      this.openDialogLogin()
+    }
+    else if (this.signForm.invalid && this.signForm.value.confirmpassword == '') {
+       this.signForm.reset()
+      this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
+    }
+    else if (this.signForm.invalid && this.signForm.value.confirmpassword == null) {
+      this.DataValid = true;
+      return
+    }
+  }
+  openDialogLogin() {
+    const dialogRef = this.dialog.open(LoginComponent,{
+      disableClose: true,
+      width:"450px"
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  duplicateUserName() {
+    let duplicateName = this.signForm.controls['username'].value;
+    let logindata = this.alluserdata;
+    if (logindata != undefined) {
+      for (let i = 0; i < logindata.length; i++) {
+        if (logindata[i].username == duplicateName && duplicateName !=null) {
+          this.duplicateName = true;
+          this.signForm.controls['username'].setErrors({ 'incorrect': true });
+          break;
+        }
+        else{
+          this.duplicateName = false;
+        }
+      }
+    }
+  }
 }
 
 
