@@ -17,7 +17,7 @@
     </div>
    
 </header> -->
-    <!-- <mat-sidenav-container>
+    <mat-sidenav-container>
         <mat-sidenav #sidenav mode="side" opened="true">
             <mat-list-item>
                 <mat-icon mat-list-icon class="chevron-button sidenave-button"  *ngIf="!isExpanded" (click)="isExpanded =!isExpanded"
@@ -28,33 +28,65 @@
                     [ngClass]="{'rotate':isExpanded}">close</mat-icon>
             </mat-list-item>
             <mat-list-item>
-                <mat-icon mat-list-icon class="">home</mat-icon>
-                <b *ngIf="isExpanded" style="cursor: pointer;" routerLink="/header">Dashboard</b>
+                <mat-icon mat-list-icon class="chevron-button sidenave-button">home</mat-icon>
+                <b *ngIf="isExpanded" style="cursor: pointer; margin: 2px;" routerLink="/home">Dashboard</b>
             </mat-list-item>
             <mat-list-item>
-                <mat-icon mat-list-icon class="">info</mat-icon>
-                <b *ngIf="isExpanded" style="cursor: pointer;" routerLink="/intro">Info</b>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
-                <b *ngIf="isExpanded" style="cursor: pointer;" routerLink="/login">Login</b>
-            </mat-list-item>
-            <mat-list-item>
-
                 <mat-icon mat-list-icon>language</mat-icon>
-                <select *ngIf="isExpanded" style="font-size: initial;" #Languages (change)="onDropdownChange($event)"
+                <select *ngIf="isExpanded" style="font-size: initial;margin: 2px;" #Languages (change)="onDropdownChange($event)"
                     (change)="translate.use(Languages.value)">
                     <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
                 </select>
             </mat-list-item>
         </mat-sidenav>
-    </mat-sidenav-container> -->
-    <nav  class="justify-content-end navbar navbar-expand-lg navbar-light nav-shadow bg-color">
+    </mat-sidenav-container>
+    <br>
+    <nav  class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color mt-1 mb-2 ">
         <div class="container-fluid" style="padding-right: calc(var(--bs-gutter-x) *2)">
             <ul class="navbar-nav" style="flex-direction: inherit;padding-right: 0;">
-                <li class="px-1 pt-3">
-                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" routerLink="/work">{{'Crud Operation'|translate}}</b>
+                <li class="px-1 pt-2">
+                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" routerLink="/main">{{'Menu_collapse'|translate}}</b>
+                </li>
+                <li class="px-1 pt-2">
+                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" (click)="openDialogSignUp()">{{'Create_Account'|translate}}</b>
+                </li>
+                <li class="px-1 pt-2">
+                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" (click)="decimalInput =!decimalInput">{{'Decimal_Number'|translate}}</b>
+                </li>
+                <li class="px-1 pt-2">
+                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" (click)="CopyPasteInput =!CopyPasteInput">{{'Special_Char'|translate}}</b>
+                </li>
+                <li class="px-1 pt-2">
+                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" (click)="numberInput =!numberInput" >{{'Number_Only'|translate}}</b>
+                </li>
+                <li class="px-1 pt-2">
+                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" routerLink="/work" >{{'Ag_Grid'|translate}}</b>
                 </li>
             </ul>      
             </div>
     </nav>
+    <div  *ngIf="numberInput">
+        <b >{{'Number_Only'|translate}}</b><br>
+        <mat-form-field appearance="outline">
+            <input  matInput placeholder="{{'Number_Only'|translate}}" (keypress)="numberOnly($event)" required>
+        </mat-form-field>
+    </div>
+    <div  *ngIf="decimalInput">
+        <b >{{'Decimal_Number'|translate}}</b><br>
+        <mat-form-field appearance="outline">
+            <input  matInput placeholder="{{'Decimal_Number'|translate}}" (keypress)="decimalFilter($event)" required>
+        </mat-form-field>
+    </div>
+    <div  *ngIf="CopyPasteInput">
+        <b >{{'Copy_Paste'|translate}}</b><br>
+        <mat-form-field appearance="outline">
+            <input  matInput placeholder="{{'Copy_Paste'|translate}}"  (paste)="copyPaste($event)" required>
+        </mat-form-field>
+    </div>
+    <div  *ngIf="CopyPasteInput">
+        <b >{{'Specail_Char'|translate}}</b><br>
+        <mat-form-field appearance="outline">
+            <input  matInput placeholder="{{'Specail_Char'|translate}}" (keypress)="specialChar($event)" required>
+        </mat-form-field>
+    </div>
+    

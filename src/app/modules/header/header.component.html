@@ -53,12 +53,11 @@
 
 </header> -->
 
-    <nav  class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color ">
+    <nav  class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color mt-1 mb-2">
         <div class="container-fluid" style="padding-right: calc(var(--bs-gutter-x) *2)">
             <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1 fontheader">
                     <mat-icon  (click)="menucollapses()" (click)="menucollapse =!menucollapse">menu</mat-icon>
-                <!-- <mat-icon *ngIf="!menucollapse" (click)="menucollapse =!menucollapse">keyboard_backspace</mat-icon> -->
                 </li>
             </ul>
             <ul class="navbar-nav" style="flex-direction: inherit">
@@ -78,7 +77,6 @@
                         <div class="">
                             <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
                             <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
-                            <!-- <button mat-menu-item routerLink="/work">{{'Workspace'|translate}}</button> -->
                             <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
                             <mat-menu #submenu="matMenu">
                                 <div>
@@ -92,7 +90,7 @@
                             </mat-menu>
                         </div>
                     </mat-menu>
-                        <mat-icon >more_vert</mat-icon>
+                    <mat-icon >more_vert</mat-icon>
             </button>  
            </li>   
         </ul>
@@ -106,18 +104,10 @@
                         <a class="nav-link navbar-brand fontheader" routerLink="/intro" routerLinkActive="active"
                             *ngIf="!menucollapse">{{'Intro'|translate}}</a>
                     </li>
-                    <!-- <li class="nav-item px-2">
-                        <a class="nav-link navbar-brand" routerLink="/work"
-                            routerLinkActive="active">{{'Workspace'|translate}}</a>
-                    </li> -->
                     <li class="nav-item px-2">
                         <a class="nav-link navbar-brand fontheader" style="cursor: pointer;" (click)="openDialogLogin()" routerLinkActive="active"
                             *ngIf="!menucollapse">{{'Login'|translate}}</a>
                     </li>
-                    <!-- <li class="nav-item px-2">
-                        <a class="nav-link navbar-brand fontheader" style="cursor: pointer;" (click)="openDialogSignUp()" routerLinkActive="active"
-                        *ngIf="!menucollapse">{{'Create_Account'|translate}}</a>
-                    </li> -->
                     <li class="nav-item px-2">
                         <a class="nav-link navbar-brand fontheader">
                             <mat-icon *ngIf="!menucollapse">language</mat-icon>
@@ -127,9 +117,6 @@
                         </select>                            
                         </a>
                     </li>    
-                  
-
-                        
                     </ul>
             </div>
         </div>

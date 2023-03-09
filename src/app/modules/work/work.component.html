@@ -1,21 +1,33 @@
+<div class="container">
 
-<ag-grid-angular></ag-grid-angular>
+<mat-chip-option color="accent" (click)="readMore =!readMore">{{'Function'|translate}}</mat-chip-option>
+<br>
+<b *ngIf="readMore">{{'AG_Grid'|translate}}</b>
+<p *ngIf="readMore">{{'Add_Functionalty_AG_Grid'|translate}}</p>
+<p *ngIf="readMore">{{'Edit_Functionalty_AG_Grid'|translate}}</p>
+<p *ngIf="readMore">{{'Cancel_Functionalty_AG_Grid'|translate}}</p>
+<p *ngIf="readMore">{{'Filter_Functionalty_AG_Grid'|translate}}</p>
+<p *ngIf="readMore">{{'Not_allowed'|translate}}</p>
+<p *ngIf="readMore">{{'Added_Filter_allowed'|translate}}</p>
+
 <ag-grid-angular
 style="width: 500%; height: 500px;"
 class="ag-theme-alpine"
 [columnDefs]="columnDefs"
 [rowData]="rowData"
+*ngIf="!readMore"
 rowSelection="multiple"
+[defaultColDef]="defaultColDef"
 (gridReady)="onGridReady($event)"
 [frameworkComponents]="frameworkComponents"
 style="width: 100%; height: 300px;"
 ></ag-grid-angular>
-<button mat-raised-button [disabled]="!editEnable"  *ngIf="getSelectedRow()" style="cursor: not-allowed;" >{{'Edit'|translate}}</button>
-<button mat-raised-button [disabled]="editEnable"  *ngIf="!getSelectedRow()" (click)="editUser()">{{'Edit'|translate}}</button>&nbsp;
-<button mat-raised-button [disabled]="!editEnable"  *ngIf="getSelectedRow()" style="cursor: not-allowed;" >{{'Delete'|translate}}</button>
-<button mat-raised-button [disabled]="editEnable"  *ngIf="!getSelectedRow()"  (click)="deleteRow()">{{'Delete'|translate}}</button>&nbsp;
-<button mat-raised-button color="primary"   (click)="AddData('ADD')" >{{'Add'|translate}}</button>&nbsp;
-<button mat-raised-button color="primary"   (click)="Cancel()" >{{'Cancel'|translate}}</button>
+<button mat-raised-button [disabled]="!editEnable"  *ngIf="getSelectedRow()&& !readMore" style="cursor: not-allowed;" >{{'Edit'|translate}}</button>
+<button mat-raised-button [disabled]="editEnable"  *ngIf="!getSelectedRow() && !readMore" (click)="editUser()">{{'Edit'|translate}}</button>&nbsp;
+<button mat-raised-button [disabled]="!editEnable"  *ngIf="getSelectedRow() &&!readMore" style="cursor: not-allowed;" >{{'Delete'|translate}}</button>
+<button mat-raised-button [disabled]="editEnable"  *ngIf="!getSelectedRow() && !readMore"  (click)="deleteRow()">{{'Delete'|translate}}</button>&nbsp;
+<button mat-raised-button *ngIf="!readMore"color="accent"   (click)="AddData('ADD')" >{{'Add'|translate}}</button>&nbsp;
+<button mat-raised-button *ngIf="!readMore"color="accent"   (click)="Cancel()" >{{'Cancel'|translate}}</button>
 
 
 
