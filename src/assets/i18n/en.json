@@ -131,7 +131,7 @@
     "Gen":"Gender: Male",
     "Read_More_ED_Lang":"Education Details and languagues",
     "Function":" AG Grid implementation",
-    "Menu_collapse":"Menu Collapse",
+    "Menu_collapse":"Menu Collapse & Angular Table",
     "Edit":"Edit",
     "Cancel":"Cancel",
     "Delete":"Delete",
@@ -140,5 +140,6 @@
     "Number_Only":"Number Only",
     "Copy_Paste":"Copy Paste",
     "Specail_Char":"Special characters",
-    "Special_Char_not_allowed":"Following Special characters not allowed"
+    "Special_Char_not_allowed":"Following Special characters not allowed",
+    "Angular_Table":"Angular Custom Table"
 }

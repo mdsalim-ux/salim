@@ -1,22 +1,4 @@
-<!-- <header class="row justify-content-center">
-    <div>
-        <p>
-            <mat-toolbar class="backgroundlight">
-                <span class="example-spacer"></span>
-                <button mat-raised-button color="accent" routerLink="/login">{{'Login'|translate}}</button>&nbsp;
-                <button mat-raised-button color="accent"
-                    routerLink="/signup">{{'Create_Account'|translate}}</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <select class="dropdown" #Languages (change)="onDropdownChange($event)"
-                    (change)="translate.use(Languages.value)">
-                    <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
-                </select>
-            </mat-toolbar>
 
-            
-        </p>
-    </div>
-   
-</header> -->
     <mat-sidenav-container>
         <mat-sidenav #sidenav mode="side" opened="true">
             <mat-list-item>
@@ -89,4 +71,42 @@
             <input  matInput placeholder="{{'Specail_Char'|translate}}" (keypress)="specialChar($event)" required>
         </mat-form-field>
     </div>
-    
+    <button mat-raised-button (click)="addColumn()"> Add column </button>
+    <button mat-raised-button (click)="removeColumn()"> Remove column </button><br><br>
+    <mat-form-field appearance="outline">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+      </mat-form-field>      
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="Id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Username">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+            <td mat-cell *matCellDef="let row"> {{row.username}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+            <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Skills">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Skills </th>
+            <td mat-cell *matCellDef="let row"> {{row.skills}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>

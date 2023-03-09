@@ -16,11 +16,12 @@ class="ag-theme-alpine"
 [columnDefs]="columnDefs"
 [rowData]="rowData"
 *ngIf="!readMore"
+[pagination]="true"
 rowSelection="multiple"
 [defaultColDef]="defaultColDef"
 (gridReady)="onGridReady($event)"
 [frameworkComponents]="frameworkComponents"
-style="width: 100%; height: 300px;"
+style="width: 100%; height: 350px;"
 ></ag-grid-angular>
 <button mat-raised-button [disabled]="!editEnable"  *ngIf="getSelectedRow()&& !readMore" style="cursor: not-allowed;" >{{'Edit'|translate}}</button>
 <button mat-raised-button [disabled]="editEnable"  *ngIf="!getSelectedRow() && !readMore" (click)="editUser()">{{'Edit'|translate}}</button>&nbsp;

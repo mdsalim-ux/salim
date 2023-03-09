@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,27 +7,36 @@ import { LoaderService } from 'src/app/comman/loader/loader.service';
 import { MaterialModule } from 'src/app/angular/material/material.module';
 import { SignUpComponent } from '../../sign-up/sign-up.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { AgGirdData } from 'src/app/comman/interface/user';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainheaderComponent implements OnInit {
+export class MainheaderComponent implements AfterViewInit  {
   supportedLanguages = ['en', 'hn','ur'];
   dropdownindex: any;
   isExpanded:boolean=false;
   numberInput:boolean=false;
   decimalInput:boolean=false;
   CopyPasteInput:boolean=false;
+  displayedColumns: string[] = ['Id', 'Username', 'Phone', 'Email','Skills'];
+  data=new AgGirdData();
 
+  dataSource = new MatTableDataSource (this.data.AgGirdData);
   constructor(public loaderService: LoaderService, public dialog: MatDialog,public mat:MaterialModule,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     translate.setDefaultLang('en');
   }
+  @ViewChild(MatPaginator)paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-
-  ngOnInit(): void {
-
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
   onDropdownChange(event: any) {
     for (let i = 0; i < event.currentTarget.length; i++) {
@@ -38,7 +47,24 @@ export class MainheaderComponent implements OnInit {
       }
     }
   }
+  
+  addColumn() {
+    const randomColumn = Math.floor(Math.random() * this.displayedColumns.length);
+    this.displayedColumns.push(this.displayedColumns[randomColumn]);
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  removeColumn() {
+    if (this.displayedColumns.length) {
+      this.displayedColumns.pop();
+    }
+  }
   openDialogSignUp() {
     const dialogRef = this.dialog.open(SignUpComponent,{
       disableClose: true
@@ -101,4 +127,11 @@ export class MainheaderComponent implements OnInit {
       })
     };
   }
+}
+export interface PeriodicElement {
+  Id: number;
+  username: string;
+  phone: number;
+  email: string;
+  skills:string
 }
