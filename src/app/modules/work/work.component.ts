@@ -3,7 +3,7 @@ import { Component, Inject, inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, GridApi, GridOptions } from 'ag-grid-community';
+import { ColDef, GridApi, GridOptions, INumberFilterParams, ISetFilterParams, ITextFilterParams, SideBarDef } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { DailogboxComponent } from 'src/app/comman/dailogbox/crudOperation.component';
 import { EditAgGridComponent } from 'src/app/comman/edit-ag-grid/edit-ag-grid.component';
@@ -22,8 +22,9 @@ export class WorkComponent implements OnInit {
   rowData: any;
   private gridApi!: GridApi;
   private ChargridApi!: GridApi;
- agGirdShow:boolean=false
+  agGirdShow:boolean=false
   LoginData: any;
+  readMore:boolean=false;
   dialogData: any;
   service: any;
   editEnable: boolean=false;
@@ -55,30 +56,66 @@ export class WorkComponent implements OnInit {
       })
   }
   setColDef() {
-    this.columnDefs = [
+    this.columnDefs = [  
       {
-        headerName: "ID", field: 'id', sortable: true, filter: true,
+        headerName: "ID", field: 'id', sortable: true,
         checkboxSelection: true,
         headerCheckboxSelection: true,
+        filter:false,
+        filterParams: {
+        } as INumberFilterParams,
       },
       {
         headerName: "Username", field: 'username', sortable: true, filter: true,
+        filterParams: {
+        } as ISetFilterParams,
+      
       },
       {
-        headerName: "Email", field: 'email', sortable: true, filter: true,editable: true,
+        headerName: "Email", field: 'email', sortable: true,editable: true,filter: true,
+        filterParams: {
+        } as ISetFilterParams,
       },
       {
         headerName: "Phone", field: 'phone', sortable: true, filter: true, editable: true,
       },
       {
         headerName: "Skills", field: 'skills', sortable: true, filter: true,
+        filterParams: {
+          showTooltips: true,
+          buttons: ['clear', 'apply'],
+          closeOnApply: true,
+        } as ISetFilterParams,
       }
     ];
     this.frameworkComponents={  
       editRenderer:  DailogboxComponent,
     }
   }
-
+  public defaultColDef: ColDef = {
+    flex: 1,
+    minWidth: 200,
+    resizable: true,
+    floatingFilter: true,
+    filter: 'agNumberColumnFilter,agTextColumnFilter,agNumberColumnFilter',
+    filterParams: {
+      textFormatter: (value: string) => {
+          return value
+              .replace(/\s/g, '')
+              .replace(/[àáâãäå]/g, 'a')
+              .replace(/æ/g, 'ae')
+              .replace(/ç/g, 'c')
+              .replace(/[èéêë]/g, 'e')
+              .replace(/[ìíîï]/g, 'i')
+              .replace(/ñ/g, 'n')
+              .replace(/[òóôõö]/g, 'o')
+              .replace(/œ/g, 'oe')
+              .replace(/[ùúûü]/g, 'u')
+              .replace(/[ýÿ]/g, 'y')
+              .replace(/\W/g, '');
+      }
+    }
+  };
   getSelectedRow() {
     const selectedData = this.ChargridApi?.getSelectedRows()?.length;
     if(selectedData ==0 || selectedData >1){

@@ -29,7 +29,7 @@
                 <mat-form-field appearance="outline">
                     <mat-icon matPrefix style="color:blueviolet">phone</mat-icon>
                     <mat-label >{{'Mobile_No'|translate}}</mat-label>
-                    <input  type="phone" matInput formControlName="phone" placeholder="{{'Mobile_No'|translate}}"
+                    <input  type="number" matInput formControlName="phone" placeholder="{{'Mobile_No'|translate}}"
                         required>
                     <mat-error  *ngIf="signForm.controls['phone'].invalid">{{'Mobile_Val'|translate}}</mat-error>
                 </mat-form-field><br>

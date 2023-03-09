@@ -11,6 +11,8 @@ import { NotificationService } from 'src/app/comman/notification/notification.se
 export class HomeComponent implements OnInit {
   constructor(public loader:LoaderService,private _notification:NotificationService) { }
   educationview:boolean=false;
+  personaldetails:boolean=false;
+
   ngOnInit(): void {
   }
   

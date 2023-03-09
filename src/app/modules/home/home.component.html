@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <b class=" fs-6" >{{'My_Name'|translate}}</b><br>
             <b >{{'Address'|translate}}</b><br>
-            <b >{{'Mobile_No'|translate}}:</b>&nbsp; <a href="tel:+918971525470">+918971525470</a>&nbsp;&nbsp; 
+            <b >{{'Mobile_No'|translate}}:</b>&nbsp; <a href="tel:+918971525470">+918971525470</a>&nbsp;&nbsp;
             <b >{{'Email_Id'|translate}}:</b>&nbsp;
             <a href="mailto:mdsalimalam8@gmail.com">mdsalimalam8@gmail.com</a><br>
             <mat-progress-bar color="primary" mode="buffer" value="0"></mat-progress-bar>
@@ -23,9 +23,10 @@
             <b class="  size-color">{{'Jquery'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
             <b class="  size-color">{{'ASP'|translate}}</b><mat-progress-bar color="primary" mode="buffer" value="60"></mat-progress-bar>
             <b class="  size-color">{{'ADO'|translate}}</b><mat-progress-bar color="primary" mode="buffer"
-                value="60"></mat-progress-bar>
-            <b class="  title">{{'Education'|translate}}</b><br>
-            <mat-chip-option color="primary"   (click)="educationview =!educationview">{{'Read_More'|translate}}</mat-chip-option>
+                value="60"></mat-progress-bar><br>
+            <mat-chip-option color="primary"   (click)="educationview =!educationview">{{'Read_More_ED_Lang'|translate}}</mat-chip-option>
+            <mat-chip-option color="primary"   (click)="personaldetails =!personaldetails">{{'Personal_Details'|translate}}</mat-chip-option>
+            <br><b class="title" *ngIf="educationview">{{'Education'|translate}}</b><br>
             <mat-progress-bar color="accent" *ngIf="educationview"mode="buffer" value="0"></mat-progress-bar>
             <p class="  size-color"*ngIf="educationview">{{'Secab_insitute'|translate}}</p>
             <p class="  size-color"*ngIf="educationview">{{'BE_Degree'|translate}}</p>
@@ -67,6 +68,11 @@
                 <mat-checkbox class="example-margin" *ngIf="educationview" [checked]=true>{{'ur'|translate}}</mat-checkbox>
             </section>
         </div>
-
+        <mat-progress-bar color="primary" mode="buffer" *ngIf="personaldetails" value="0"></mat-progress-bar>
+        <br><b class="title" *ngIf="personaldetails">{{'Personal_Details'|translate}}</b><br>
+        <p class="  size-color"*ngIf="personaldetails">{{'Father_name'|translate}}</p>
+        <p class="  size-color"*ngIf="personaldetails">{{'Date_Of_birth'|translate}}</p>
+        <p class="  size-color"*ngIf="personaldetails">{{'Nationalty'|translate}}</p>
+        <p class="  size-color"*ngIf="personaldetails">{{'Gen'|translate}}</p>
     </div>
 </div>

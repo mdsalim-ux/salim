@@ -27,7 +27,9 @@
   }
   .navbar-light .navbar-nav .nav-link{
     /* font-weight: 800; */
-    border-bottom: 3px solid white ;
+    border-bottom: 3px solid #20d29b ;
+    background: linear-gradient(to top, #c9c9ff 50%, #6e6ef6 90%) no-repeat;
+
     color:#5236AB;
   }
   .navbar-light .navbar-nav .nav-link.active {
