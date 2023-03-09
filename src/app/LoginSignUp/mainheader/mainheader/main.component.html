@@ -1,5 +1,14 @@
 
-    <mat-sidenav-container>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" (selectedTabChange)="selectedTabValue($event)">
+    <mat-tab label="{{'Special_Char'|translate}}"></mat-tab>
+    <mat-tab label="{{'Menu_collapse'|translate}}" ></mat-tab>
+    <mat-tab label="{{'Create_Account'|translate}}"></mat-tab>
+    <mat-tab label="{{'Decimal_Number'|translate}}"></mat-tab>
+    <mat-tab label="{{'Number_Only'|translate}}"></mat-tab>
+    <mat-tab label="{{'Ag_Grid'|translate}}"></mat-tab>
+  </mat-tab-group>
+  <!-- start menu bar -->
+    <mat-sidenav-container *ngIf="menuHide">
         <mat-sidenav #sidenav mode="side" opened="true">
             <mat-list-item>
                 <mat-icon mat-list-icon class="chevron-button sidenave-button"  *ngIf="!isExpanded" (click)="isExpanded =!isExpanded"
@@ -23,30 +32,7 @@
         </mat-sidenav>
     </mat-sidenav-container>
     <br>
-    <nav  class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color mt-1 mb-2 ">
-        <div class="container-fluid" style="padding-right: calc(var(--bs-gutter-x) *2)">
-            <ul class="navbar-nav" style="flex-direction: inherit;padding-right: 0;">
-                <li class="px-1 pt-2">
-                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" routerLink="/main">{{'Menu_collapse'|translate}}</b>
-                </li>
-                <li class="px-1 pt-2">
-                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" (click)="openDialogSignUp()">{{'Create_Account'|translate}}</b>
-                </li>
-                <li class="px-1 pt-2">
-                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" (click)="decimalInput =!decimalInput">{{'Decimal_Number'|translate}}</b>
-                </li>
-                <li class="px-1 pt-2">
-                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" (click)="CopyPasteInput =!CopyPasteInput">{{'Special_Char'|translate}}</b>
-                </li>
-                <li class="px-1 pt-2">
-                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" (click)="numberInput =!numberInput" >{{'Number_Only'|translate}}</b>
-                </li>
-                <li class="px-1 pt-2">
-                    <b class="nav-link navbar-brand fontheader" style="cursor: pointer;" routerLinkActive="active" routerLink="/work" >{{'Ag_Grid'|translate}}</b>
-                </li>
-            </ul>      
-            </div>
-    </nav>
+    <!-- start text field -->
     <div  *ngIf="numberInput">
         <b >{{'Number_Only'|translate}}</b><br>
         <mat-form-field appearance="outline">
@@ -59,25 +45,29 @@
             <input  matInput placeholder="{{'Decimal_Number'|translate}}" (keydown)="decimalFilter($event)" required>
         </mat-form-field>
     </div>
-    <div  *ngIf="CopyPasteInput">
+    <div  *ngIf="!CopyPasteInput">
         <b >{{'Copy_Paste'|translate}}</b><br>
         <mat-form-field appearance="outline">
             <input  matInput placeholder="{{'Copy_Paste'|translate}}"  (paste)="copyPaste($event)" required>
         </mat-form-field>
     </div>
-    <div  *ngIf="CopyPasteInput">
+    <div  *ngIf="!CopyPasteInput">
         <b >{{'Specail_Char'|translate}}</b><br>
         <mat-form-field appearance="outline">
             <input  matInput placeholder="{{'Specail_Char'|translate}}" (keypress)="specialChar($event)" required>
         </mat-form-field>
     </div>
-    <button mat-raised-button (click)="addColumn()"> Add column </button>
-    <button mat-raised-button (click)="removeColumn()"> Remove column </button><br><br>
-    <mat-form-field appearance="outline">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
-      </mat-form-field>      
-    <div class="mat-elevation-z8">
+    <button mat-raised-button (click)="addColumn()" *ngIf="menuHide"> Add column </button>
+    <button mat-raised-button (click)="removeColumn()"  *ngIf="menuHide"> Remove column </button><br><br>
+
+    
+      
+      <!-- start angular table -->
+    <div class="mat-elevation-z8" *ngIf="menuHide">
+        <mat-form-field appearance="outline" >
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input >
+          </mat-form-field>    
         <table mat-table [dataSource]="dataSource" matSort>
           <ng-container matColumnDef="Id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>

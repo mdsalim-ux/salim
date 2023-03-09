@@ -26,8 +26,9 @@ export class MainheaderComponent implements AfterViewInit  {
   CopyPasteInput:boolean=false;
   displayedColumns: string[] = ['Id', 'Username', 'Phone', 'Email','Skills'];
   data=new AgGirdData();
-
+  menuHide:boolean=false;
   dataSource = new MatTableDataSource (this.data.AgGirdData);
+  TabIndex: any;
   constructor(public loaderService: LoaderService, public dialog: MatDialog,public mat:MaterialModule,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     translate.setDefaultLang('en');
   }
@@ -72,7 +73,53 @@ export class MainheaderComponent implements AfterViewInit  {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-
+  selectedTabValue(event: any) {
+    // on refresh tab change issue
+    if (event == undefined) {
+      this.router.navigate(['/home'])
+      return
+    }
+    this.TabIndex = event.index;
+    if (this.TabIndex == 0) {
+      this.CopyPasteInput=false
+      this.menuHide=false
+      this.decimalInput=false
+      this.numberInput=false
+    }
+    if (this.TabIndex == 1) {
+      this.menuHide=true
+      this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=false
+      this.router.navigate(['/main'])
+    }
+    if (this.TabIndex == 2) {
+      this.menuHide=false
+      this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=false
+      this.openDialogSignUp();
+    }
+    if (this.TabIndex == 3) {
+      this.menuHide=false
+      this.CopyPasteInput=true
+      this.numberInput=false
+      this.decimalInput=true
+    }
+    if (this.TabIndex == 4) {
+      this.menuHide=false
+      this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=true
+    }
+    if (this.TabIndex == 5) {
+      this.menuHide=false
+      this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=false
+      this.router.navigate(['/work'])
+    }
+  }
   decimalFilter(event: any) {
     let reg: RegExp = new RegExp(/^\d{1,3}(\.$|\.\d{1,2}$|$)/);
     let input: Array<string> = ['Backspace', 'Tab', 'End', 'Home', 'ArrowLeft', 'ArrowRight', 'Del', 'Delete'];
