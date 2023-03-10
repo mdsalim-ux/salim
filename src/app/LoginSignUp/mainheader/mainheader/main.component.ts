@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from 'src/app/comman/notification/notification.service';
@@ -27,8 +27,12 @@ export class MainheaderComponent implements AfterViewInit  {
   displayedColumns: string[] = ['Id', 'Username', 'Phone', 'Email','Skills'];
   data=new AgGirdData();
   menuHide:boolean=false;
+  step = 0;
   dataSource = new MatTableDataSource (this.data.AgGirdData);
   TabIndex: any;
+  expensionPanel: boolean=false;
+  skillsList: string[] = ['Angular', 'ASP.NET', 'C#', 'SQL', 'JavaScript', 'HTML', 'JSON', 'Jquery'];
+  multiSelection: boolean=false;
   constructor(public loaderService: LoaderService, public dialog: MatDialog,public mat:MaterialModule,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     translate.setDefaultLang('en');
   }
@@ -84,13 +88,17 @@ export class MainheaderComponent implements AfterViewInit  {
       this.CopyPasteInput=false
       this.menuHide=false
       this.decimalInput=false
+      this.multiSelection=false;
       this.numberInput=false
+      this.expensionPanel=false;
     }
     if (this.TabIndex == 1) {
       this.menuHide=true
       this.CopyPasteInput=true
       this.decimalInput=false
+      this.expensionPanel=false;
       this.numberInput=false
+      this.multiSelection=false;
       this.router.navigate(['/main'])
     }
     if (this.TabIndex == 2) {
@@ -98,27 +106,62 @@ export class MainheaderComponent implements AfterViewInit  {
       this.CopyPasteInput=true
       this.decimalInput=false
       this.numberInput=false
+      this.expensionPanel=false;
       this.openDialogSignUp();
+      this.multiSelection=false;
     }
     if (this.TabIndex == 3) {
       this.menuHide=false
       this.CopyPasteInput=true
       this.numberInput=false
+      this.expensionPanel=false;
       this.decimalInput=true
+      this.multiSelection=false;
     }
     if (this.TabIndex == 4) {
       this.menuHide=false
       this.CopyPasteInput=true
       this.decimalInput=false
       this.numberInput=true
+      this.expensionPanel=false;
+      this.multiSelection=false;
     }
     if (this.TabIndex == 5) {
       this.menuHide=false
       this.CopyPasteInput=true
       this.decimalInput=false
       this.numberInput=false
+      this.multiSelection=false;
+      this.expensionPanel=false;
       this.router.navigate(['/work'])
     }
+    if (this.TabIndex == 6) {
+      this.menuHide=false
+      this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=false
+      this.expensionPanel=true;
+      this.multiSelection=false;
+    }
+    if (this.TabIndex == 7) {
+      this.menuHide=false
+      this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=false
+      this.expensionPanel=false;
+      this.multiSelection=true;
+    }
+  }
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
   }
   decimalFilter(event: any) {
     let reg: RegExp = new RegExp(/^\d{1,3}(\.$|\.\d{1,2}$|$)/);
