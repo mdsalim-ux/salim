@@ -61,6 +61,7 @@ export class SignUpComponent {
     this.signForm.markAllAsTouched()
     if (this.signForm.valid) {
       this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
+      this.dialogRef.close(true);
       this.openDialogLogin()
     }
     else if (this.signForm.invalid && this.signForm.value.confirmpassword == '') {
