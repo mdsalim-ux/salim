@@ -32,6 +32,8 @@ import { DailogboxComponent } from './comman/dailogbox/crudOperation.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { EditAgGridComponent } from './comman/edit-ag-grid/edit-ag-grid.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
+import { FilterPipe } from './comman/pipe/filter.pipe';
+import { UniquePipe } from './comman/pipe/unique.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
@@ -53,6 +55,8 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     FooterComponent,
     DailogboxComponent,
     EditAgGridComponent,
+    FilterPipe,
+    UniquePipe,
     
   ],
   imports: [

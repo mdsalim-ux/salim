@@ -57,7 +57,7 @@
         <div class="container-fluid" style="padding-right: calc(var(--bs-gutter-x) *2)">
             <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1 fontheader">
-                    <mat-icon  (click)="menucollapses()" (click)="menucollapse =!menucollapse">menu</mat-icon>
+                    <mat-icon  matTooltip="{{'Menu'|translate}}" (click)="menucollapses()"  (click)="menucollapse =!menucollapse">menu</mat-icon>
                 </li>
             </ul>
             <ul class="navbar-nav" style="flex-direction: inherit">
@@ -67,22 +67,22 @@
             </ul>
             <ul class="navbar-nav" style="flex-direction: inherit">
                 <li class="px-1 pt-1">
-                    <a class="navbar-brand   title" routerLinkActive="active" routerLink="/home">{{'My_Portfolio'|translate}}</a>
+                    <a class="navbar-brand   title" matTooltip="{{'My_Portfolio'|translate}}" routerLinkActive="active" routerLink="/home">{{'My_Portfolio'|translate}}</a>
                 </li>
             </ul>
             <ul class="navbar-nav" style="flex-direction: inherit;">
             <li class="nav-item px-1" >       
-                <button  mat-icon-button [matMenuTriggerFor]="menu" class="" *ngIf="menucollapse">
+                <button  mat-icon-button [matMenuTriggerFor]="menu" class="" *ngIf="menucollapse" matTooltip="{{'More'|translate}}">
                     <mat-menu #menu="matMenu">
                         <div class="">
-                            <button mat-menu-item routerLink="/home">{{'Home'|translate}}</button>
-                            <button mat-menu-item routerLink="/intro">{{'Intro'|translate}}</button>
-                            <button mat-menu-item [matMenuTriggerFor]="submenu">{{'About_Me'|translate}}</button>
+                            <button mat-menu-item routerLink="/home" matTooltip="{{'Home'|translate}}">{{'Home'|translate}}</button>
+                            <button mat-menu-item routerLink="/intro" matTooltip="{{'Intro'|translate}}">{{'Intro'|translate}}</button>
+                            <button mat-menu-item [matMenuTriggerFor]="submenu" matTooltip="{{'About_Me'|translate}}">{{'About_Me'|translate}}</button>
                             <mat-menu #submenu="matMenu">
                                 <div>
-                                    <button mat-menu-item
+                                    <button mat-menu-item matTooltip="{{'Linkedin'|translate}}"
                                         (click)="LinkedinProfile()">{{'Linkedin'|translate}}</button>
-                                    <button mat-menu-item
+                                    <button mat-menu-item matTooltip="{{'Download_CV'|translate}}"
                                         (click)="downloadCV()">{{'Download_CV'|translate}}</button>
                                     <button mat-menu-item (click)="onShareClick($event)">{{'Share'|translate}}
                                     </button>
@@ -98,19 +98,19 @@
                 <ul class="navbar-nav" style="flex-direction: inherit;padding-right: 0;">
                     <li class="nav-item px-2">
                         <a class="nav-link navbar-brand fontheader" routerLink="/home" routerLinkActive="active"
-                            *ngIf="!menucollapse">{{'Home'|translate}}</a>
+                            *ngIf="!menucollapse" matTooltip="{{'Home'|translate}}">{{'Home'|translate}}</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link navbar-brand fontheader" routerLink="/intro" routerLinkActive="active"
-                            *ngIf="!menucollapse">{{'Intro'|translate}}</a>
+                            *ngIf="!menucollapse"  matTooltip="{{'Intro'|translate}}">{{'Intro'|translate}}</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link navbar-brand fontheader" style="cursor: pointer;" (click)="openDialogLogin()" routerLinkActive="active"
-                            *ngIf="!menucollapse">{{'Login'|translate}}</a>
+                            *ngIf="!menucollapse"  matTooltip="{{'Login'|translate}}">{{'Login'|translate}}</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link navbar-brand fontheader">
-                            <mat-icon *ngIf="!menucollapse">language</mat-icon>
+                            <mat-icon *ngIf="!menucollapse" matTooltip="{{'Language'|translate}}">language</mat-icon>
                          <select class="dropdown" style="bottom: 5px;" *ngIf="!menucollapse" #Languages (change)="onDropdownChange($event)"
                             (change)="translate.use(Languages.value)">
                             <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>

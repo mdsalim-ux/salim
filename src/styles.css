@@ -9,7 +9,6 @@ body {
 html, body {
     height: 0%;
     width: 100%;
-    padding: 0px;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
  }
@@ -17,10 +16,11 @@ body {
     margin: 0;
     font-size: 12px;
     font-weight: 400;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
 }
 .bg-color{
     background: white;
+    left: 0px;
 }
 ul li p {
     font-weight: bold;

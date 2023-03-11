@@ -11,6 +11,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { AgGirdData } from 'src/app/comman/interface/user';
 import { MatSort } from '@angular/material/sort';
+import { UserService } from 'src/app/comman/service/user.service';
+import { UserdataService } from 'src/app/comman/service/userdata.service';
 
 @Component({
   selector: 'app-main',
@@ -33,13 +35,17 @@ export class MainheaderComponent implements AfterViewInit  {
   expensionPanel: boolean=false;
   skillsList: string[] = ['Angular', 'ASP.NET', 'C#', 'SQL', 'JavaScript', 'HTML', 'JSON', 'Jquery'];
   multiSelection: boolean=false;
-  constructor(public loaderService: LoaderService, public dialog: MatDialog,public mat:MaterialModule,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
+  AnimationState: boolean=true;
+  Skills: any;
+  tab: any;
+  constructor(public loaderService: LoaderService,public _Service:UserdataService,public dialog: MatDialog,public mat:MaterialModule,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     translate.setDefaultLang('en');
   }
   @ViewChild(MatPaginator)paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit(): void {
+    this.getSkills()
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
@@ -52,7 +58,9 @@ export class MainheaderComponent implements AfterViewInit  {
       }
     }
   }
-  
+  getSkills() {
+    this._Service.getSkill().subscribe((data: any) => { this.Skills = data });
+  }
   addColumn() {
     const randomColumn = Math.floor(Math.random() * this.displayedColumns.length);
     this.displayedColumns.push(this.displayedColumns[randomColumn]);
@@ -77,6 +85,47 @@ export class MainheaderComponent implements AfterViewInit  {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+  selectedTab(event:any){
+    if (event == undefined) {
+      this.router.navigate(['/home'])
+      return
+    }
+    this.tab = event.index;
+    if (this.tab == 0) {
+      this.menuHide=false
+      this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=true
+      this.expensionPanel=false;
+      this.multiSelection=false;
+      this.router.navigate(['/main'])
+    }
+    if (this.tab == 1) {
+      this.menuHide=false
+       this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=true
+      this.multiSelection=false;
+      this.expensionPanel=false;
+      this.router.navigate(['/work'])
+    }
+    if (this.tab == 2) {
+      this.menuHide=false
+       this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=true
+      this.expensionPanel=true;
+      this.multiSelection=false;
+    }
+    if (this.tab == 3) {
+      this.menuHide=false
+       this.CopyPasteInput=true
+      this.decimalInput=false
+      this.numberInput=true
+      this.expensionPanel=false;
+      this.multiSelection=true;
+    }
+  }
   selectedTabValue(event: any) {
     // on refresh tab change issue
     if (event == undefined) {
@@ -85,19 +134,20 @@ export class MainheaderComponent implements AfterViewInit  {
     }
     this.TabIndex = event.index;
     if (this.TabIndex == 0) {
-      this.CopyPasteInput=false
+       this.CopyPasteInput=true
       this.menuHide=false
       this.decimalInput=false
       this.multiSelection=false;
-      this.numberInput=false
+      this.numberInput=true
       this.expensionPanel=false;
+      this.router.navigate(['/main'])
     }
     if (this.TabIndex == 1) {
       this.menuHide=true
       this.CopyPasteInput=true
       this.decimalInput=false
       this.expensionPanel=false;
-      this.numberInput=false
+      this.numberInput=true
       this.multiSelection=false;
       this.router.navigate(['/main'])
     }
@@ -105,7 +155,7 @@ export class MainheaderComponent implements AfterViewInit  {
       this.menuHide=false
       this.CopyPasteInput=true
       this.decimalInput=false
-      this.numberInput=false
+      this.numberInput=true
       this.expensionPanel=false;
       this.openDialogSignUp();
       this.multiSelection=false;
@@ -113,44 +163,13 @@ export class MainheaderComponent implements AfterViewInit  {
     if (this.TabIndex == 3) {
       this.menuHide=false
       this.CopyPasteInput=true
-      this.numberInput=false
+      this.numberInput=true
       this.expensionPanel=false;
       this.decimalInput=true
       this.multiSelection=false;
     }
-    if (this.TabIndex == 4) {
-      this.menuHide=false
-      this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=true
-      this.expensionPanel=false;
-      this.multiSelection=false;
-    }
-    if (this.TabIndex == 5) {
-      this.menuHide=false
-      this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=false
-      this.multiSelection=false;
-      this.expensionPanel=false;
-      this.router.navigate(['/work'])
-    }
-    if (this.TabIndex == 6) {
-      this.menuHide=false
-      this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=false
-      this.expensionPanel=true;
-      this.multiSelection=false;
-    }
-    if (this.TabIndex == 7) {
-      this.menuHide=false
-      this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=false
-      this.expensionPanel=false;
-      this.multiSelection=true;
-    }
+   
+ 
   }
   setStep(index: number) {
     this.step = index;
@@ -216,6 +235,16 @@ export class MainheaderComponent implements AfterViewInit  {
         return
       })
     };
+  }
+  pauseAnimation() {
+    let s = document.getElementById('card') as HTMLElement
+    s.style.animationPlayState = 'paused';
+    this.AnimationState = false;
+  }
+  startAnimation() {
+    let s = document.getElementById('card') as HTMLElement
+    s.style.animationPlayState = 'running';
+    this.AnimationState = true;
   }
 }
 export interface PeriodicElement {

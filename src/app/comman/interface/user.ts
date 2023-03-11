@@ -149,3 +149,24 @@ export class AgGirdData {
           }
     ] 
 }
+
+export class EmployeeData {
+  Skills = [
+      { skillId: 1, skillName: 'HTML', technologyId:1,technologyName:'Frontend'},
+      { skillId: 2, skillName: 'CSS',technologyId:1,technologyName:'Frontend' },
+      { skillId: 3, skillName: 'JavaScript',technologyId:1,technologyName:'Frontend'},
+      { skillId: 4, skillName: 'Angular' ,technologyId:1,technologyName:'Frontend'},
+      { skillId: 5, skillName: 'C#',technologyId:2,technologyName:'Backend'},
+      { skillId: 6, skillName: 'MVC' ,technologyId:2,technologyName:'Backend'},
+      { skillId: 7, skillName: 'SQL' ,technologyId:2,technologyName:'Database'},
+      { skillId: 9, skillName: 'Jquery' ,technologyId:1,technologyName:'Frontend'},
+  ]
+  Designations = [
+      {designationId:1,designationName:'Associate Software Engineer'},
+      {designationId:2,designationName:'Software Engineer'},
+      {designationId:3,designationName:'Senior Software Engineer'}
+  ]
+  Employees = [
+    { employeeId:1, employeeName: 'Md Salim', email: 'mdsalimalam8@gmail.com', designationName: 'Software Engineer', gEmployeeSkills: [{ skillId: 1,isCertified:true,certificationCompletionDate:new Date() }, { skillId: 2,isCertified:false,certificationCompletionDate:null }] },
+  ]
+}

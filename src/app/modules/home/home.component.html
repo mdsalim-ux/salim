@@ -1,13 +1,27 @@
 <div class="container" >
     <div class="row">
         <div class="col-md-12">
-            <b class=" fs-6" >{{'My_Name'|translate}}</b><br>
-            <b >{{'Address'|translate}}</b><br>
-            <b >{{'Mobile_No'|translate}}:</b>&nbsp; <a href="tel:+918971525470">+918971525470</a>&nbsp;&nbsp;
-            <b >{{'Email_Id'|translate}}:</b>&nbsp;
-            <a href="mailto:mdsalimalam8@gmail.com">mdsalimalam8@gmail.com</a><br>
+            <h3 >{{'My_Name'|translate}}</h3>
+            <div class="flip-card" >
+                <div class="flip-card-inner" >
+                    <div class="flip-card-front bg-white">
+                        <img class="image" src="assets/photo/profilephoto.png" alter="Profile Photo" /><br>
+                        <b>{{'My_Name'|translate}}</b>
+                        <p>{{'Software_Engineer'|translate}}</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <b >{{'Mobile_No'|translate}}:</b>
+                        <a href="tel:+918971525470" >+918971525470</a><br>
+                        <b >{{'Email_Id'|translate}}:</b>
+                        <a href="mailto:mdsalimalam8@gmail.com" >mdsalimalam8@gmail.com</a><br>
+                        <b >{{'Address'|translate}}</b><br>
+                       
+                    </div>
+                </div>
+            </div>
+           
             <mat-progress-bar color="warn" mode="buffer" value="100"></mat-progress-bar>
-            <b class="title">{{'Software_Engineer'|translate}}</b>
+            <b class="title">{{'Summary_Title'|translate}}</b>
             <p class=" size-color ">{{'Summary'|translate}}</p>
             <mat-progress-bar color="warn" mode="buffer" value="100"></mat-progress-bar>
             <b class=" title">{{'Skills'|translate}}</b><br>

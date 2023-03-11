@@ -3,8 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'unique'
 })
+export class UniquePipe implements PipeTransform {
 
-export class Pipemodule implements PipeTransform {
   transform(items: any[], args: string): any {
     if (items.length > 0) {
       return items.filter((v, i, a) => a.findIndex(t => (t[args] === v[args])) === i)
@@ -12,6 +12,5 @@ export class Pipemodule implements PipeTransform {
     else {
       return items;
     }
-
   }
 }

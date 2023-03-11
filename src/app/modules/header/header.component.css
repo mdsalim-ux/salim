@@ -65,6 +65,13 @@ textalign {
   border-bottom: 3px solid white ;
   color:#5236AB;
 }
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
 .navbar-light .navbar-nav .nav-link.active {
   color: black !important;
   font-weight: 600;

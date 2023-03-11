@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/enviroments/enviroment.prod';
-import { AgGirdData } from '../interface/user';
+import { AgGirdData, EmployeeData } from '../interface/user';
 import { loginData } from '../interface/user';
 
 @Injectable({
@@ -17,9 +17,14 @@ export class UserdataService {
 
   data=new AgGirdData();
   login=new loginData();
+  skills=new EmployeeData()
   getAgGirdData()
   {
     return of(this.data.AgGirdData)
+  }
+  getSkill()
+  {
+    return of(this.skills.Skills)
   }
   getLoginData()
   {

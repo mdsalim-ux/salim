@@ -4,6 +4,9 @@
     <mat-tab label="{{'Menu_collapse'|translate}}" ></mat-tab>
     <mat-tab label="{{'Create_Account'|translate}}"></mat-tab>
     <mat-tab label="{{'Decimal_Number'|translate}}"></mat-tab>
+    
+  </mat-tab-group>
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" (selectedTabChange)="selectedTab($event)">
     <mat-tab label="{{'Number_Only'|translate}}"></mat-tab>
     <mat-tab label="{{'Ag_Grid'|translate}}"></mat-tab>
     <mat-tab label="{{'Expansion panel'|translate}}"></mat-tab>
@@ -35,7 +38,7 @@
     </mat-sidenav-container>
     <br>
     <!-- start text field -->
-    <div  *ngIf="numberInput">
+    <div  *ngIf="!numberInput">
         <b >{{'Number_Only'|translate}}</b><br>
         <mat-form-field appearance="outline">
             <input  matInput placeholder="{{'Number_Only'|translate}}" (keydown)="numberOnly($event)" required>
@@ -176,10 +179,89 @@
       
       </mat-accordion>
       <!-- Start mulitselect from here -->
+      <div *ngIf="multiSelection">
+      <h2 class="text-primary text-center">Multi Select Dropdown Demo</h2>
+      <p class="text-primary fw-bold">Key features</p>
+      <div class="mb-5">
+          <ul>
+              <li>
+                  <p>Angular Material Dropdowns</p>
+              </li>
+          </ul>
+      </div>
+    </div>
   <mat-form-field appearance="outline" *ngIf="multiSelection">
     <mat-label>{{'Skills'|translate}}</mat-label>
     <mat-select  multiple>
       <mat-option *ngFor="let skill of skillsList" [value]="skill">{{skill}}</mat-option>
     </mat-select>
   </mat-form-field>
+<!-- 
+  <h3 >Flip Card</h3>
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front bg-white">
+            <h1 class="text-primary">{{'Hover Me'|translate}}</h1>
+        </div>
+        <div class="flip-card-back">
+            <b>{{'My_Name'|translate}}</b>
+            <p>{{'Software_Engineer'|translate}}</p>
+            <p>{{'Angular'|translate}}</p>
+        </div>
+    </div>
+</div>
+<h3>Rotating Animation</h3>
+<div>
+    <div id="card" class='card'>
+        <div class='face'>{{'Angular'|translate}}</div>
+        <div class='face'>{{'SQL'|translate}}/div>
+    </div>
+    <div class="card-btn">
+        <button [hidden]="!AnimationState" class="btn btn-primary" (click)="pauseAnimation()"><i
+                class="bi bi-pause"></i></button>
+        <button [hidden]="AnimationState" class="btn btn-primary" (click)="startAnimation()"><i
+                class="bi bi-play"></i></button>
+    </div>
+</div> -->
+
+
+<!-- Starts Cascade Dropdown Demo -->
      
+<div class="div" *ngIf="multiSelection">
+    <h2 class="text-primary text-center">Cascade Dropdown Demo</h2>
+    <p class="text-primary fw-bold">Key features</p>
+    <div class="mb-5">
+        <ul>
+            <li>
+                <p>Angular Material Dropdowns</p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>Custom Pipes</p>
+            </li>
+        </ul>
+    </div>
+    <div class="row m-2">
+        <div class="col-sm-6">
+            <mat-form-field class="col-sm-6" appearance="outline">
+                <mat-label>Technology</mat-label>
+                <mat-select #Technology>
+                    <mat-option *ngFor="let technology of Skills | unique : 'technologyId'"
+                        [value]="technology.technologyId">
+                        {{technology.technologyName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+            <mat-form-field class="col-sm-6" appearance="outline">
+                <mat-label>Skill</mat-label>
+                <mat-select #Skill [disabled]="!Technology.value">
+                    <mat-option *ngFor="let skill of Skills | filter : 'technologyId' : Technology.value"
+                        [value]="skill.skillId">
+                        {{skill.skillName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div><br><br>
