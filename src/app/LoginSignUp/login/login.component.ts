@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         this._DataService.getLoginData().subscribe
             (res => { this.LoginData = res })
         this.loginForm = this.formBuilder.group({
-            phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],
+            phone: ['', [Validators.required,Validators.max(10), Validators.pattern(/^[0-9]\d*$/)]],
             //password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
             username: ['', [Validators.required, Validators.pattern("^[a-zA-Z\\s]*$")]],
 

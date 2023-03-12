@@ -92,13 +92,13 @@ export class MainheaderComponent implements AfterViewInit  {
     }
     this.tab = event.index;
     if (this.tab == 0) {
+      this.router.navigate(['/main'])
       this.menuHide=false
       this.CopyPasteInput=true
       this.decimalInput=false
       this.numberInput=true
       this.expensionPanel=false;
       this.multiSelection=false;
-      this.router.navigate(['/main'])
     }
     if (this.tab == 1) {
       this.menuHide=false
@@ -134,13 +134,13 @@ export class MainheaderComponent implements AfterViewInit  {
     }
     this.TabIndex = event.index;
     if (this.TabIndex == 0) {
-       this.CopyPasteInput=true
+      this.router.navigate(['/main'])
+      this.CopyPasteInput=true
       this.menuHide=false
       this.decimalInput=false
       this.multiSelection=false;
       this.numberInput=true
       this.expensionPanel=false;
-      this.router.navigate(['/main'])
     }
     if (this.TabIndex == 1) {
       this.menuHide=true

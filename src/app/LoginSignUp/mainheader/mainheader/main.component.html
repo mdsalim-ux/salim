@@ -9,11 +9,27 @@
   <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" (selectedTabChange)="selectedTab($event)">
     <mat-tab label="{{'Number_Only'|translate}}"></mat-tab>
     <mat-tab label="{{'Ag_Grid'|translate}}"></mat-tab>
-    <mat-tab label="{{'Expansion panel'|translate}}"></mat-tab>
-    <mat-tab label="{{'Multi Selection'|translate}}"></mat-tab>
+    <mat-tab label="{{'Expansion_panel'|translate}}"></mat-tab>
+    <mat-tab label="{{'Multi_Selection'|translate}}"></mat-tab>
   </mat-tab-group>
   <!-- start menu bar -->
+  <div *ngIf="menuHide">
+    <h2 class="text-primary text-center">{{'Menu'|translate}}</h2>
+    <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+    <div class="mb-5">
+        <ul>
+            <li>
+                <p>{{"Angular_Hid_Show"|translate}}</p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>{{'Angular_Hid_content'|translate}}</p>
+            </li>
+        </ul>
+ 
     <mat-sidenav-container *ngIf="menuHide">
+      
         <mat-sidenav #sidenav mode="side" opened="true">
             <mat-list-item>
                 <mat-icon mat-list-icon class="chevron-button sidenave-button"  *ngIf="!isExpanded" (click)="isExpanded =!isExpanded"
@@ -37,38 +53,118 @@
         </mat-sidenav>
     </mat-sidenav-container>
     <br>
+    </div>
+  </div>
     <!-- start text field -->
     <div  *ngIf="!numberInput">
+      <h2 class="text-primary text-center">{{'Number_Only'|translate}}</h2>
+      <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+      <div class="mb-5">
+          <ul>
+              <li>
+                  <p>{{'Angular_Textbox'|translate}}</p>
+              </li>
+          </ul>
+          <ul>
+              <li>
+                  <p>{{'Allow_Number'|translate}}</p>
+              </li>
+          </ul>
+      </div>
         <b >{{'Number_Only'|translate}}</b><br>
         <mat-form-field appearance="outline">
             <input  matInput placeholder="{{'Number_Only'|translate}}" (keydown)="numberOnly($event)" required>
         </mat-form-field>
     </div>
     <div  *ngIf="decimalInput">
+      <h2 class="text-primary text-center">{{'Decimal_Number'|translate}}</h2>
+      <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+      <div class="mb-5">
+          <ul>
+              <li>
+                  <p>{{'Angular_Textbox'|translate}}</p>
+              </li>
+          </ul>
+          <ul>
+              <li>
+                  <p>{{'Allow_Decimal'|translate}} i.e 123.23</p>
+              </li>
+          </ul>
+      </div>
         <b >{{'Decimal_Number'|translate}}</b><br>
         <mat-form-field appearance="outline">
             <input  matInput placeholder="{{'Decimal_Number'|translate}}" (keydown)="decimalFilter($event)" required>
         </mat-form-field>
     </div>
     <div  *ngIf="!CopyPasteInput">
+      <h2 class="text-primary text-center">{{'Copy_Paste'|translate}}</h2>
+      <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+      <div class="mb-5">
+          <ul>
+              <li>
+                  <p>{{'Angular_Textbox'|translate}}</p>
+              </li>
+          </ul>
+          <ul>
+              <li>
+                  <p>{{'Copy_Paste_Not'|translate}} i.e *:"<>/?\|</p>
+              </li>
+          </ul>
+      </div>
         <b >{{'Copy_Paste'|translate}}</b><br>
         <mat-form-field appearance="outline">
             <input  matInput placeholder="{{'Copy_Paste'|translate}}"  (paste)="copyPaste($event)" required>
         </mat-form-field>
     </div>
     <div  *ngIf="!CopyPasteInput">
+      <h2 class="text-primary text-center">{{'Specail_Char'|translate}}</h2>
+      <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+      <div class="mb-5">
+          <ul>
+              <li>
+                  <p>{{'Angular_Textbox'|translate}}</p>
+              </li>
+          </ul>
+          <ul>
+              <li>
+                  <p>{{'Type_Not'|translate}} i.e *:"<>/?\|</p>
+              </li>
+          </ul>
+      </div>
         <b >{{'Specail_Char'|translate}}</b><br>
         <mat-form-field appearance="outline">
             <input  matInput placeholder="{{'Specail_Char'|translate}}" (keypress)="specialChar($event)" required>
         </mat-form-field>
     </div>
-    <button mat-raised-button (click)="addColumn()" *ngIf="menuHide"> Add column </button>
-    <button mat-raised-button (click)="removeColumn()"  *ngIf="menuHide"> Remove column </button><br><br>
-
     
-      
       <!-- start angular table -->
     <div class="mat-elevation-z8" *ngIf="menuHide">
+      <h2 class="text-primary text-center">{{'Angular Table'|translate}}</h2>
+      <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+      <div class="mb-5">
+          <ul>
+              <li>
+                  <p>{{'Angular_Tables'|translate}}</p>
+              </li>
+          </ul>
+          <ul>
+              <li>
+                  <p>{{'Search_Allow'|translate}}</p>
+              </li>
+          </ul>
+        <ul>
+          <li>
+              <p>{{'Column_Add'|translate}}</p>
+          </li>
+      </ul>
+      <ul>
+        <li>
+            <p>{{'Column_Remove'|translate}}</p>
+        </li>
+    </ul>
+      </div>
+      <button mat-raised-button (click)="addColumn()" *ngIf="menuHide"> Add column </button>
+      <button mat-raised-button (click)="removeColumn()"  *ngIf="menuHide"> Remove column </button><br><br>
         <mat-form-field appearance="outline" >
             <mat-label>{{'Filter'|translate}}</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="{{'Search'|translate}}" #input >
@@ -97,7 +193,7 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            <td class="mat-cell" colspan="4">{{'serach_filter'|translate}} "{{input.value}}"</td>
           </tr>
         </table>
         <mat-paginator [pageSizeOptions]="[5, 10, 20]"
@@ -106,6 +202,27 @@
         </mat-paginator>
       </div>
       <!-- start expansion table from here -->
+      <div *ngIf="expensionPanel">
+        <h2 class="text-primary text-center">{{'expensionPanel'|translate}}</h2>
+        <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+        <div class="mb-5">
+            <ul>
+                <li>
+                    <p>{{'Step1'|translate}}</p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p>{{'Step2'|translate}}</p>
+                </li>
+            </ul>
+          <ul>
+            <li>
+                <p>{{'Step3'|translate}}</p>
+            </li>
+        </ul>
+
+      
       <mat-accordion class="example-headers-align" *ngIf="expensionPanel">
         <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
           <mat-expansion-panel-header>
@@ -113,13 +230,13 @@
               {{'Personal_Details'|translate}}
             </mat-panel-title>
             <mat-panel-description>
-              {{'Type your name and age'|translate}}
+              {{'type_yourname'|translate}}
               <mat-icon>account_box</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
       
           <mat-form-field appearance="outline">
-            <mat-label>{{'First name'|translate}}</mat-label>
+            <mat-label>{{'Username'|translate}}</mat-label>
             <input matInput>
           </mat-form-field>&nbsp;
       
@@ -138,7 +255,7 @@
               {{'Destination'|translate}}
             </mat-panel-title>
             <mat-panel-description>
-              {{'Type the country name'|translate}}
+              {{'Country_name'|translate}}
               <mat-icon>my_location</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
@@ -157,10 +274,10 @@
         <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{'Day of the trip'|translate}}
+              {{'Day_trip'|translate}}
             </mat-panel-title>
             <mat-panel-description>
-              {{'Inform the date you wish to travel'|translate}}
+              {{'travelling'|translate}}
               <mat-icon>calendar_view_day</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
@@ -178,14 +295,16 @@
         </mat-expansion-panel>
       
       </mat-accordion>
+    </div>
+
       <!-- Start mulitselect from here -->
       <div *ngIf="multiSelection">
-      <h2 class="text-primary text-center">Multi Select Dropdown Demo</h2>
-      <p class="text-primary fw-bold">Key features</p>
+      <h2 class="text-primary text-center">{{'MultiSelect'|translate}}</h2>
+      <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
       <div class="mb-5">
           <ul>
               <li>
-                  <p>Angular Material Dropdowns</p>
+                  <p>{{'DropdownA'|translate}}</p>
               </li>
           </ul>
       </div>
@@ -228,24 +347,24 @@
 <!-- Starts Cascade Dropdown Demo -->
      
 <div class="div" *ngIf="multiSelection">
-    <h2 class="text-primary text-center">Cascade Dropdown Demo</h2>
-    <p class="text-primary fw-bold">Key features</p>
+    <h2 class="text-primary text-center">{{'Cascade_Dropdown'|translate}}</h2>
+    <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
     <div class="mb-5">
         <ul>
             <li>
-                <p>Angular Material Dropdowns</p>
+                <p>{{'DropdownA'|translate}}/p>
             </li>
         </ul>
         <ul>
             <li>
-                <p>Custom Pipes</p>
+                <p>{{'Custom_Pipes'|translate}}</p>
             </li>
         </ul>
     </div>
     <div class="row m-2">
         <div class="col-sm-6">
             <mat-form-field class="col-sm-6" appearance="outline">
-                <mat-label>Technology</mat-label>
+                <mat-label>{{'Technology'|translate}}</mat-label>
                 <mat-select #Technology>
                     <mat-option *ngFor="let technology of Skills | unique : 'technologyId'"
                         [value]="technology.technologyId">
@@ -255,7 +374,7 @@
         </div>
         <div class="col-sm-6">
             <mat-form-field class="col-sm-6" appearance="outline">
-                <mat-label>Skill</mat-label>
+                <mat-label>{{'Skills'|translate}}</mat-label>
                 <mat-select #Skill [disabled]="!Technology.value">
                     <mat-option *ngFor="let skill of Skills | filter : 'technologyId' : Technology.value"
                         [value]="skill.skillId">

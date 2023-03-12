@@ -108,3 +108,7 @@ textalign {
 .example-full-width {
   width: 100%;
 }
+.mat-icons{
+  padding-top: 4px;
+  padding-right: 25px;
+}
