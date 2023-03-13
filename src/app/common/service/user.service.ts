@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/enviroments/enviroment.prod';
-import { ILogin, IRefreshToken, IRegister } from 'src/app/comman/interface/user';
+import { ILogin, IRefreshToken, IRegister } from 'src/app/common/interface/user';
 
 @Injectable({
   providedIn: 'root'

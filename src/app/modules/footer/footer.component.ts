@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoaderService } from 'src/app/comman/loader/loader.service';
-import { NotificationService } from 'src/app/comman/notification/notification.service';
+import { LoaderService } from 'src/app/common/loader/loader.service';
+import { NotificationService } from 'src/app/common/notification/notification.service';
 
 @Component({
   selector: 'app-footer',

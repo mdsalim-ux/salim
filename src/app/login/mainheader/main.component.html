@@ -1,0 +1,380 @@
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" (selectedTabChange)="selectedTabValue($event)">
+  <mat-tab color="accent" label="{{'Home'|translate}}"></mat-tab>
+  <mat-tab color="accent" label="{{'Workspace'|translate}}"></mat-tab>
+  <mat-tab label="{{'Ag_Grid'|translate}}"></mat-tab>
+  <mat-tab label="{{'Create_Account'|translate}}"></mat-tab>
+</mat-tab-group>
+
+
+<!-- start menu bar -->
+<div>
+  <h2 class="text-primary text-center">{{'Menu'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{"Angular_Hid_Show"|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Angular_Hid_content'|translate}}</p>
+      </li>
+    </ul>
+
+    <mat-sidenav-container>
+
+      <mat-sidenav #sidenav mode="side" opened="true">
+        <mat-list-item>
+          <mat-icon mat-list-icon class="chevron-button sidenave-button" *ngIf="!isExpanded"
+            (click)="isExpanded =!isExpanded" [ngClass]="{'rotate':isExpanded}">menu</mat-icon>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon class="chevron-button sidenave-button" *ngIf="isExpanded"
+            (click)="isExpanded =!isExpanded" [ngClass]="{'rotate':isExpanded}">close</mat-icon>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon class="chevron-button sidenave-button">home</mat-icon>
+          <b *ngIf="isExpanded" style="cursor: pointer; margin: 2px;" routerLink="/home">Dashboard</b>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>language</mat-icon>
+          <select *ngIf="isExpanded" style="font-size: initial;margin: 2px;" #Languages
+            (change)="onDropdownChange($event)" (change)="translate.use(Languages.value)">
+            <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
+          </select>
+        </mat-list-item>
+      </mat-sidenav>
+    </mat-sidenav-container>
+    <br>
+  </div>
+</div>
+<!-- start text field -->
+<div >
+  <h2 class="text-primary text-center">{{'Number_Only'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{'Angular_Textbox'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Allow_Number'|translate}}</p>
+      </li>
+    </ul>
+  </div>
+  <b>{{'Number_Only'|translate}}</b><br>
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="{{'Number_Only'|translate}}" (keydown)="numberOnly($event)" required>
+  </mat-form-field>
+</div>
+<div >
+  <h2 class="text-primary text-center">{{'Decimal_Number'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{'Angular_Textbox'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Allow_Decimal'|translate}} i.e 123.23</p>
+      </li>
+    </ul>
+  </div>
+  <b>{{'Decimal_Number'|translate}}</b><br>
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="{{'Decimal_Number'|translate}}" (keydown)="decimalFilter($event)" required>
+  </mat-form-field>
+</div>
+<div >
+  <h2 class="text-primary text-center">{{'Copy_Paste'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{'Angular_Textbox'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Copy_Paste_Not'|translate}} i.e *:"<>/?\|</p>
+      </li>
+    </ul>
+  </div>
+  <b>{{'Copy_Paste'|translate}}</b><br>
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="{{'Copy_Paste'|translate}}" (paste)="copyPaste($event)" required>
+  </mat-form-field>
+</div>
+<div >
+  <h2 class="text-primary text-center">{{'Specail_Char'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{'Angular_Textbox'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Type_Not'|translate}} i.e *:"<>/?\|</p>
+      </li>
+    </ul>
+  </div>
+  <b>{{'Specail_Char'|translate}}</b><br>
+  <mat-form-field appearance="outline">
+    <input matInput placeholder="{{'Specail_Char'|translate}}" (keypress)="specialChar($event)" required>
+  </mat-form-field>
+</div>
+
+<!-- start angular table -->
+<div class="mat-elevation-z8">
+  <h2 class="text-primary text-center">{{'Angular Table'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{'Angular_Tables'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Search_Allow'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Column_Add'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Column_Remove'|translate}}</p>
+      </li>
+    </ul>
+  </div>
+  <button mat-raised-button (click)="addColumn()" > Add column </button>
+  <button mat-raised-button (click)="removeColumn()"> Remove column </button><br><br>
+  <mat-form-field appearance="outline">
+    <mat-label>{{'Filter'|translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="{{'Search'|translate}}" #input>
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'No.'|translate}} </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Username">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Username'|translate}} </th>
+      <td mat-cell *matCellDef="let row"> {{row.username}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Phone'|translate}} </th>
+      <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Email'|translate}} </th>
+      <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Skills">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Skills'|translate}} </th>
+      <td mat-cell *matCellDef="let row"> {{row.skills}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">{{'serach_filter'|translate}} "{{input.value}}"</td>
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+<!-- start expansion table from here -->
+<div >
+  <h2 class="text-primary text-center">{{'expensionPanel'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{'Step1'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Step2'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Step3'|translate}}</p>
+      </li>
+    </ul>
+
+
+    <mat-accordion class="example-headers-align">
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'Personal_Details'|translate}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{'type_yourname'|translate}}
+            <mat-icon>account_box</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{'Username'|translate}}</mat-label>
+          <input matInput>
+        </mat-form-field>&nbsp;
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{'Age'|translate}}</mat-label>
+          <input matInput type="number" min="1">
+        </mat-form-field>
+        <mat-action-row>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'Destination'|translate}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{'Country_name'|translate}}
+            <mat-icon>my_location</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{'Country'|translate}}</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">{{'Previous'|translate}}</button>
+          <button mat-button color="primary" (click)="nextStep()">{{'Next'|translate}}</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'Day_trip'|translate}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{'travelling'|translate}}
+            <mat-icon>calendar_view_day</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{'Date'|translate}}</mat-label>
+          <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
+        </mat-form-field>
+        <mat-datepicker #picker></mat-datepicker>
+
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">{{'Previous'|translate}}</button>
+          <button mat-button color="primary" (click)="nextStep()">{{'End'|translate}}</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+</div>
+
+  <!-- Start mulitselect from here -->
+  <div>
+    <h2 class="text-primary text-center">{{'MultiSelect'|translate}}</h2>
+    <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+    <div class="mb-5">
+      <ul>
+        <li>
+          <p>{{'DropdownA'|translate}}</p>
+        </li>
+      </ul>
+    </div>
+  <mat-form-field appearance="outline">
+    <mat-label>{{'Skills'|translate}}</mat-label>
+    <mat-select multiple>
+      <mat-option *ngFor="let skill of skillsList" [value]="skill">{{skill}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+
+
+<!-- 
+  <h3 >Flip Card</h3>
+<div class="flip-card">
+    <div class="flip-card-inner">
+        <div class="flip-card-front bg-white">
+            <h1 class="text-primary">{{'Hover Me'|translate}}</h1>
+        </div>
+        <div class="flip-card-back">
+            <b>{{'My_Name'|translate}}</b>
+            <p>{{'Software_Engineer'|translate}}</p>
+            <p>{{'Angular'|translate}}</p>
+        </div>
+    </div>
+</div>
+<h3>Rotating Animation</h3>
+<div>
+    <div id="card" class='card'>
+        <div class='face'>{{'Angular'|translate}}</div>
+        <div class='face'>{{'SQL'|translate}}/div>
+    </div>
+    <div class="card-btn">
+        <button [hidden]="!AnimationState" class="btn btn-primary" (click)="pauseAnimation()"><i
+                class="bi bi-pause"></i></button>
+        <button [hidden]="AnimationState" class="btn btn-primary" (click)="startAnimation()"><i
+                class="bi bi-play"></i></button>
+    </div>
+</div> -->
+
+
+<!-- Starts Cascade Dropdown Demo -->
+
+<div class="div">
+  <h2 class="text-primary text-center">{{'Cascade_Dropdown'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{'DropdownA'|translate}}/p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Custom_Pipes'|translate}}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="row m-2">
+    <div class="col-sm-6">
+      <mat-form-field class="col-sm-6" appearance="outline">
+        <mat-label>{{'Technology'|translate}}</mat-label>
+        <mat-select #Technology>
+          <mat-option *ngFor="let technology of Skills | unique : 'technologyId'" [value]="technology.technologyId">
+            {{technology.technologyName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field class="col-sm-6" appearance="outline">
+        <mat-label>{{'Skills'|translate}}</mat-label>
+        <mat-select #Skill [disabled]="!Technology.value">
+          <mat-option *ngFor="let skill of Skills | filter : 'technologyId' : Technology.value" [value]="skill.skillId">
+            {{skill.skillName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div><br><br>

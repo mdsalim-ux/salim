@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { NotificationService } from '../../comman/notification/notification.service';
-import { LoaderService } from '../../comman/loader/loader.service';
-import { UserdataService } from 'src/app/comman/service/userdata.service';
-import { EncrDecrService } from 'src/app/comman/encr-decr-service.service';
+import { NotificationService } from '../../common/notification/notification.service';
+import { LoaderService } from '../../common/loader/loader.service';
+import { UserdataService } from 'src/app/common/service/userdata.service';
+import { EncrDecrService } from 'src/app/common/encr-decr-service.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HeaderComponent } from 'src/app/modules/header/header.component';
 
@@ -63,12 +63,12 @@ export class LoginComponent implements OnInit {
                     this.dialogRef.close(true);
                     this.loginForm.reset()
                     this.router.navigate(['/main'])
-                    this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
                     let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
                     this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
                         return
 
                     })
+                    this._notification.info('','Scroll down to see the all functionalty ')
                 }
             }
         }

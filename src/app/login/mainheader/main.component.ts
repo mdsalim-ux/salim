@@ -2,17 +2,17 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { NotificationService } from 'src/app/comman/notification/notification.service';
-import { LoaderService } from 'src/app/comman/loader/loader.service';
+import { NotificationService } from 'src/app/common/notification/notification.service';
+import { LoaderService } from 'src/app/common/loader/loader.service';
 import { MaterialModule } from 'src/app/angular/material/material.module';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { AgGirdData } from 'src/app/comman/interface/user';
+import { AgGirdData } from 'src/app/common/interface/user';
 import { MatSort } from '@angular/material/sort';
-import { UserService } from 'src/app/comman/service/user.service';
-import { UserdataService } from 'src/app/comman/service/userdata.service';
+import { UserService } from 'src/app/common/service/user.service';
+import { UserdataService } from 'src/app/common/service/userdata.service';
 
 @Component({
   selector: 'app-main',
@@ -32,7 +32,7 @@ export class MainheaderComponent implements AfterViewInit  {
   step = 0;
   dataSource = new MatTableDataSource (this.data.AgGirdData);
   TabIndex: any;
-  expensionPanel: boolean=false;
+  expensionPanel: boolean=true;
   skillsList: string[] = ['Angular', 'ASP.NET', 'C#', 'SQL', 'JavaScript', 'HTML', 'JSON', 'Jquery'];
   multiSelection: boolean=false;
   AnimationState: boolean=true;
@@ -80,52 +80,13 @@ export class MainheaderComponent implements AfterViewInit  {
   }
   openDialogSignUp() {
     const dialogRef = this.dialog.open(SignUpComponent,{
-      disableClose: true
+      disableClose: true,
+      autoFocus:false
     });
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-  selectedTab(event:any){
-    if (event == undefined) {
-      this.router.navigate(['/home'])
-      return
-    }
-    this.tab = event.index;
-    if (this.tab == 0) {
-      this.router.navigate(['/main'])
-      this.menuHide=false
-      this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=true
-      this.expensionPanel=false;
-      this.multiSelection=false;
-    }
-    if (this.tab == 1) {
-      this.menuHide=false
-       this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=true
-      this.multiSelection=false;
-      this.expensionPanel=false;
-      this.router.navigate(['/work'])
-    }
-    if (this.tab == 2) {
-      this.menuHide=false
-       this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=true
-      this.expensionPanel=true;
-      this.multiSelection=false;
-    }
-    if (this.tab == 3) {
-      this.menuHide=false
-       this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=true
-      this.expensionPanel=false;
-      this.multiSelection=true;
-    }
-  }
+
   selectedTabValue(event: any) {
     // on refresh tab change issue
     if (event == undefined) {
@@ -134,39 +95,17 @@ export class MainheaderComponent implements AfterViewInit  {
     }
     this.TabIndex = event.index;
     if (this.TabIndex == 0) {
-      this.router.navigate(['/main'])
-      this.CopyPasteInput=true
-      this.menuHide=false
-      this.decimalInput=false
-      this.multiSelection=false;
-      this.numberInput=true
-      this.expensionPanel=false;
+     this._notification.info('','Scroll down to see the all functionalty ')
     }
     if (this.TabIndex == 1) {
-      this.menuHide=true
-      this.CopyPasteInput=true
-      this.decimalInput=false
-      this.expensionPanel=false;
-      this.numberInput=true
-      this.multiSelection=false;
-      this.router.navigate(['/main'])
+      this._notification.success('','Welcome to my Workspace')
     }
     if (this.TabIndex == 2) {
-      this.menuHide=false
-      this.CopyPasteInput=true
-      this.decimalInput=false
-      this.numberInput=true
-      this.expensionPanel=false;
-      this.openDialogSignUp();
-      this.multiSelection=false;
+      this._notification.info('','Click the button to see the AG Gird')
+      this.router.navigate(['/work'])
     }
     if (this.TabIndex == 3) {
-      this.menuHide=false
-      this.CopyPasteInput=true
-      this.numberInput=true
-      this.expensionPanel=false;
-      this.decimalInput=true
-      this.multiSelection=false;
+      this.openDialogSignUp();
     }
    
  

@@ -9,31 +9,31 @@ import { WorkComponent } from './modules/work/work.component';
 import { HeaderComponent } from './modules/header/header.component'
 import { MaterialModule } from './angular/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslationModule } from './comman/translation/translation.module';
+import { TranslationModule } from './common/translation/translation.module';
 import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AlertboxModule } from './comman/dialogbox/alertbox/alertbox.module';
+import { AlertboxModule } from './common/dialogbox/alertbox/alertbox.module';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AlertboxComponent } from './comman/dialogbox/alertbox/alertbox.component';
+import { AlertboxComponent } from './common/dialogbox/alertbox/alertbox.component';
 import { InjectionToken } from '@angular/core';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { NotificationModule } from './comman/notification/notification.module';
-import { UserService } from './comman/service/user.service';
+import { NotificationModule } from './common/notification/notification.module';
+import { UserService } from './common/service/user.service';
 import { TokenInterceptor } from './core/interceptor/token.interceptor';
-import { LoaderComponent } from './comman/loader/loader/loader.component';
-import { LoginComponent } from './LoginSignUp/login/login.component';
-import { SignUpComponent } from './LoginSignUp/sign-up/sign-up.component';
-import { MainheaderComponent } from './LoginSignUp/mainheader/main.component';
+import { LoaderComponent } from './common/loader/loader/loader.component';
+import { LoginComponent } from './login/login/login.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { MainheaderComponent } from './login/mainheader/main.component';
 import { FooterComponent } from './modules/footer/footer.component';
-import { EncrDecrService } from './comman/encr-decr-service.service';
+import { EncrDecrService } from './common/encr-decr-service.service';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
-import { DailogboxComponent } from './comman/dialogbox/cruddialogbox/crudOperation.component';
+import { DailogboxComponent } from './common/dialogbox/cruddialogbox/crudOperation.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { EditAgGridComponent } from './comman/edit-ag-grid/edit-ag-grid.component';
+import { EditAgGridComponent } from './common/edit-ag-grid/edit-ag-grid.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
-import { FilterPipe } from './comman/pipe/filter.pipe';
-import { UniquePipe } from './comman/pipe/unique.pipe';
+import { FilterPipe } from './common/pipe/filter.pipe';
+import { UniquePipe } from './common/pipe/unique.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")

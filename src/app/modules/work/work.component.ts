@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, GridApi, GridOptions, INumberFilterParams, ISetFilterParams, ITextFilterParams, SideBarDef } from 'ag-grid-community';
 import { Observable } from 'rxjs';
-import { DailogboxComponent } from 'src/app/comman/dialogbox/cruddialogbox/crudOperation.component';
-import { EditAgGridComponent } from 'src/app/comman/edit-ag-grid/edit-ag-grid.component';
-import { UserdataService } from 'src/app/comman/service/userdata.service';
+import { DailogboxComponent } from 'src/app/common/dialogbox/cruddialogbox/crudOperation.component';
+import { EditAgGridComponent } from 'src/app/common/edit-ag-grid/edit-ag-grid.component';
+import { UserdataService } from 'src/app/common/service/userdata.service';
 
 @Component({
   selector: 'app-work',

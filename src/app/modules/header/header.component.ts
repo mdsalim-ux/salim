@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { LoaderService } from 'src/app/comman/loader/loader.service';
+import { LoaderService } from 'src/app/common/loader/loader.service';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { NotificationService } from 'src/app/comman/notification/notification.service';
-import { LoginComponent } from 'src/app/LoginSignUp/login/login.component';
-import { SignUpComponent } from 'src/app/LoginSignUp/sign-up/sign-up.component';
+import { NotificationService } from 'src/app/common/notification/notification.service';
+import { LoginComponent } from 'src/app/login/login/login.component';
+import { SignUpComponent } from 'src/app/login/sign-up/sign-up.component';
 
 @Component({
   selector: 'app-header',

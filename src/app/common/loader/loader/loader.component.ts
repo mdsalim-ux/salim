@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { Subject } from 'rxjs';
-import { LoaderService } from 'src/app/comman/loader/loader.service';
+import { LoaderService } from 'src/app/common/loader/loader.service';
 
 @Component({
   selector: 'app-loader',

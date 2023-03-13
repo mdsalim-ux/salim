@@ -8,10 +8,10 @@ import {
 } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, filter, finalize, switchMap, take, tap } from 'rxjs/operators'
-import { UserService } from 'src/app/comman/service/user.service';
-import { LoaderService } from 'src/app/comman/loader/loader.service';
-import { NotificationService } from 'src/app/comman/notification/notification.service';
-import { IRefreshToken } from 'src/app/comman/interface/user';
+import { UserService } from 'src/app/common/service/user.service';
+import { LoaderService } from 'src/app/common/loader/loader.service';
+import { NotificationService } from 'src/app/common/notification/notification.service';
+import { IRefreshToken } from 'src/app/common/interface/user';
 
 import { Router } from '@angular/router';
 
