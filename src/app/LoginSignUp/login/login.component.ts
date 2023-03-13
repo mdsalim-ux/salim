@@ -22,18 +22,15 @@ export class LoginComponent implements OnInit {
     loginIsInvalid: boolean = false;
     LoginData: any;
     constructor(public _DataService: UserdataService, public LoaderService: LoaderService,
-        private _notification: NotificationService,private dialogRef:MatDialogRef<HeaderComponent>, private EncrDecr: EncrDecrService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
+        private _notification: NotificationService, private dialogRef: MatDialogRef<HeaderComponent>, private EncrDecr: EncrDecrService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
     }
 
     ngOnInit(): void {
         this._DataService.getLoginData().subscribe
             (res => { this.LoginData = res })
         this.loginForm = this.formBuilder.group({
-            phone: ['', [Validators.required,Validators.max(10), Validators.pattern(/^[0-9]\d*$/)]],
-            //password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
+            phone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             username: ['', [Validators.required, Validators.pattern("^[a-zA-Z\\s]*$")]],
-
-            //otp: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(8), Validators.pattern(/^[0-6]\d*$/)]],
         });
     }
     generateOTP() {
@@ -47,19 +44,7 @@ export class LoginComponent implements OnInit {
             this.loginIsInvalid = true;
         }
     }
-    // login() {
-    //     this.loginForm.markAllAsTouched();
-    //     if (this.loginForm.valid) {
-    //      this.loginForm.reset()
-    //      this.dialogRef.close(true);
-    //     this.router.navigate(['/main'])
-    //     this._notification.success(this.LoaderService.getTranslatedLanguages('Login_Success'), '');
-    //     }
 
-    // }
-    // signUp(){
-    //     this.dialogRef.
-    // }
     login() {
         this.loginForm.markAllAsTouched();
         if (this.loginForm.valid) {
@@ -68,7 +53,7 @@ export class LoginComponent implements OnInit {
                 // var encrypted = this.EncrDecr.set('123456$#@$^@1ERF', res[i].phone);
                 // res[i].phone = encrypted,
                 //     this.loginForm.value.phone = encrypted,
-                    res[i].username = res[i].username
+                res[i].username = res[i].username
             }
             const users = res.find((a: any) => {
                 return a.username === this.loginForm.value.username
@@ -84,7 +69,7 @@ export class LoginComponent implements OnInit {
                         return
 
                     })
-                }  
+                }
             }
         }
     }
@@ -95,12 +80,12 @@ export class LoginComponent implements OnInit {
         this.loginIsInvalid = false;
         if (loginData != undefined) {
             for (let i = 0; i < loginData.length; i++) {
-                if ((loginData[i].username.trim() != usernameexists) && usernameexists !="" && (loginData[i].phone !=phone)) {
+                if ((loginData[i].username.trim() != usernameexists) && usernameexists != "" && (loginData[i].phone != phone)) {
                     this.loginIsInvalid = true;
                     this.loginForm.controls['username'].setErrors({ 'incorrect': true });
                     break;
                 }
-                else{
+                else {
                     this.loginIsInvalid = false;
                     break;
                 }

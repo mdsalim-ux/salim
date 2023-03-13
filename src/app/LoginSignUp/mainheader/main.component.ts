@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from 'src/app/comman/notification/notification.service';
 import { LoaderService } from 'src/app/comman/loader/loader.service';
 import { MaterialModule } from 'src/app/angular/material/material.module';
-import { SignUpComponent } from '../../sign-up/sign-up.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';

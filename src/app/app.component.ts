@@ -18,8 +18,10 @@ export class AppComponent {
   ngOnInit(): void {
     let parsedUrl = new URL(window.location.href);
 
-    if (!parsedUrl.href.includes('main'))
+    if (parsedUrl.href.includes('home'))
+    {
       this.router.navigate(['/']);
+    }
 
     this.timeinterval = setInterval(() => {
       this.minutes++;

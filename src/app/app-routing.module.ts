@@ -6,15 +6,14 @@ import { HeaderComponent } from './modules/header/header.component';
 import { HomeComponent } from './modules/home/home.component';
 import { IntroComponent } from './modules/intro/intro.component';
 import { WorkComponent } from './modules/work/work.component';
-import { MainheaderComponent } from './LoginSignUp/mainheader/mainheader/main.component';
+import { MainheaderComponent } from './LoginSignUp/mainheader/main.component';
 import { FooterComponent } from './modules/footer/footer.component';
-import { DailogboxComponent } from './comman/dailogbox/crudOperation.component';
+import { DailogboxComponent } from './comman/dialogbox/cruddialogbox/crudOperation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/header', pathMatch: 'full' },
   { path: 'main', component: MainheaderComponent },
   { path: 'login', component: LoginComponent },
-  {path:'login',component:LoginComponent},
   { path: 'signup', component: SignUpComponent },
   { path: "header", component: HeaderComponent},
   { path: "home", component: HomeComponent },

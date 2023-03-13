@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'src/app/enum/user';
 import { IntroComponent } from 'src/app/modules/intro/intro.component';
-import { UserdataService } from '../service/userdata.service';
+import { UserdataService } from '../../service/userdata.service';
 
 @Component({
   selector: 'app-dailogbox',

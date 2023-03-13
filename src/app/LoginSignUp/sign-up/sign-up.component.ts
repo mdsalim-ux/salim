@@ -34,28 +34,15 @@ export class SignUpComponent {
       this.alluserdata = val;
     })
     this.signForm = this.formBuilder.group({
-     // gender: ['Male'],
       DOB:[''],
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[0-9]\d*$/)]],
+      phone: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       password: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
       username: ['', [Validators.required, Validators.pattern("^[a-zA-Z\\s]*$")]],
       confirmpassword: ['', [Validators.required, Validators.minLength(1), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{10,}')]],
     },
       { validators: passwordMatchValidator });
   }
-  // signUp(){
-  //   this.signForm.markAllAsTouched();
-  //   if (this.signForm.valid) {
-  //     this.dialogRef.close(true);
-  //     this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
-  //     this.router.navigate(['/login'])
-  //   }
-  //   // if(this.signForm.invalid){
-  //   //   return
-  // //}
-  // }
-  
 
   signUp() {
     this.signForm.markAllAsTouched()

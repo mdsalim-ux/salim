@@ -43,6 +43,7 @@ export class HeaderComponent {
   openDialogLogin() {
     const dialogRef = this.dialog.open(LoginComponent,{
       disableClose: true,
+      autoFocus:false,
       width:"450px"
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -50,7 +51,8 @@ export class HeaderComponent {
   }
   openDialogSignUp() {
     const dialogRef = this.dialog.open(SignUpComponent,{
-      disableClose: true
+      disableClose: true,
+      autoFocus:false,
     });
     dialogRef.afterClosed().subscribe(result => {
     });
