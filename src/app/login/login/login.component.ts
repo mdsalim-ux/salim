@@ -8,6 +8,7 @@ import { UserdataService } from 'src/app/common/service/userdata.service';
 import { EncrDecrService } from 'src/app/common/encr-decr-service.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HeaderComponent } from 'src/app/modules/header/header.component';
+import { TranslationModule } from 'src/app/common/translation/translation.module';
 
 @Component({
     selector: 'app-login',
@@ -22,7 +23,9 @@ export class LoginComponent implements OnInit {
     loginIsInvalid: boolean = false;
     LoginData: any;
     constructor(public _DataService: UserdataService, public LoaderService: LoaderService,
-        private _notification: NotificationService, private dialogRef: MatDialogRef<HeaderComponent>, private EncrDecr: EncrDecrService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
+        private _notification: NotificationService, private dialogRef: MatDialogRef<HeaderComponent>,
+         private EncrDecr: EncrDecrService, private formBuilder: FormBuilder, 
+         private router: Router, public translate:TranslationModule) {
     }
 
     ngOnInit(): void {
@@ -63,7 +66,7 @@ export class LoginComponent implements OnInit {
                     this.dialogRef.close(true);
                     this.loginForm.reset()
                     this.router.navigate(['/main'])
-                    let input = { 'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Welcome')), ''] }
+                    let input = { 'title': this.translate.getTranslatedLanguages('Info'), message: [(this.translate.getTranslatedLanguages('Welcome')), ''] }
                     this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
                         return
 

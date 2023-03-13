@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LoaderService } from 'src/app/common/loader/loader.service';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/common/notification/notification.service';
 import { LoginComponent } from 'src/app/login/login/login.component';
 import { SignUpComponent } from 'src/app/login/sign-up/sign-up.component';
+import { TranslationModule } from 'src/app/common/translation/translation.module';
 
 @Component({
   selector: 'app-header',
@@ -22,7 +23,8 @@ export class HeaderComponent {
   event: any;
   menucollapse:boolean=false;
   constructor(public dialog: MatDialog, public router: Router, private location: Location,
-    public LoaderService: LoaderService, public translate: TranslateService, private _notification: NotificationService) {
+    public LoaderService: LoaderService, public translate: TranslationModule, 
+    private _notification: NotificationService,public _translate: TranslateService, ) {
     router.events.subscribe((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.LoaderService.show();
@@ -31,7 +33,7 @@ export class HeaderComponent {
         this.LoaderService.hide();
       }
     })
-    translate.setDefaultLang('en');
+    _translate.setDefaultLang('en');
   }
   ngOnInit(): void {
     this.location.go('/');
@@ -66,7 +68,7 @@ export class HeaderComponent {
     }
     this.TabIndex = event.index;
     if (this.TabIndex == 0) {
-      this._notification.success(this.LoaderService.getTranslatedLanguages('Welcome'), '');
+      this._notification.success(this.translate.getTranslatedLanguages('Welcome'), '');
       this.router.navigate(['/home'])
     }
     if (this.TabIndex == 1) {
@@ -78,7 +80,7 @@ export class HeaderComponent {
   }
   menucollapses(){
     if(this.menucollapse==true){
-      let input = {'title': this.LoaderService.getTranslatedLanguages('Info'), message: [(this.LoaderService.getTranslatedLanguages('Best_View')), ''] }
+      let input = {'title': this.translate.getTranslatedLanguages('Info'), message: [(this.translate.getTranslatedLanguages('Best_View')), ''] }
       this.LoaderService.AlertDialogBox(input, '450px').subscribe((data: any) => {
           return
       })
@@ -87,13 +89,13 @@ export class HeaderComponent {
   onShareClick(event: any) {
     const url = `https://web.whatsapp.com/?url=${encodeURIComponent(this.linkToShare)}`;
     window.open(url, '_blank');
-    this._notification.success(this.LoaderService.getTranslatedLanguages('Link_Share_WhatsApp'), '');
+    this._notification.success(this.translate.getTranslatedLanguages('Link_Share_WhatsApp'), '');
   }
   onDropdownChange(event: any) {
     for (let i = 0; i < event.currentTarget.length; i++) {
       this.dropdownindex = event.currentTarget;
       if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1 || this.dropdownindex.selectedIndex==2) {
-        this._notification.success(this.LoaderService.getTranslatedLanguages('Language_Change'), '');
+        this._notification.success(this.translate.getTranslatedLanguages('Language_Change'), '');
         break;
       }
     }

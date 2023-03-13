@@ -11,6 +11,7 @@ import { EncrDecrService } from 'src/app/common/encr-decr-service.service';
 import { HeaderComponent } from 'src/app/modules/header/header.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { TranslationModule } from 'src/app/common/translation/translation.module';
 
 @Component({
   selector: 'app-sign-up',
@@ -25,8 +26,8 @@ export class SignUpComponent {
   duplicateName: boolean = false;
   constructor(private formBuilder: FormBuilder, public _DataService: UserdataService,public dialog: MatDialog,
     public loaderService: LoaderService, private _notification: NotificationService, 
-    private EncrDecr: EncrDecrService,private router: Router, private dialogRef:MatDialogRef<HeaderComponent>,public translate: TranslateService) {
-    translate.setDefaultLang('en');
+    private EncrDecr: EncrDecrService,private router: Router, private dialogRef:MatDialogRef<HeaderComponent>,public translate: TranslationModule) {
+    
   }
   ngOnInit(): void {
     this._DataService.getLoginData().subscribe
@@ -47,13 +48,13 @@ export class SignUpComponent {
   signUp() {
     this.signForm.markAllAsTouched()
     if (this.signForm.valid) {
-      this._notification.success(this.loaderService.getTranslatedLanguages('Account_created'), '');
+      this._notification.success(this.translate.getTranslatedLanguages('Account_created'), '');
       this.dialogRef.close(true);
       this.openDialogLogin()
     }
     else if (this.signForm.invalid && this.signForm.value.confirmpassword == '') {
        this.signForm.reset()
-      this._notification.warning(this.loaderService.getTranslatedLanguages('Filled_Form_details'), '');
+      this._notification.warning(this.translate.getTranslatedLanguages('Filled_Form_details'), '');
     }
     else if (this.signForm.invalid && this.signForm.value.confirmpassword == null) {
       this.DataValid = true;

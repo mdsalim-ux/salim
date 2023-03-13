@@ -93,7 +93,7 @@
     "Date3":"📅 02/2021 - 09/2021",
     "C_location":"📍Bangalore",
     "Project":"📰 Project : ",
-    "Education":"📖 Education",
+    "Education":"Education",
     "Secab_insitute":"Secab Institute of Engineering & Technology",
     "BE_Degree":"Bachelor of Engineering in EEE",
     "FC":"FIRST CLASS",
@@ -177,5 +177,8 @@
     "Step1":"You add personal details click next data will be save the in the first step",
     "Step2":"After enter the text value you can click on next to go next step else you go to preview in the Step One",
     "Step3":"You can end by click on end or you can go to preview",
-    "See_Grid":"Click here to see Grid"
+    "See_Grid":"Click here to see Grid",
+    "Education_Details":"Xth ,Diploma,Engineering and Personal Details",
+    "Skills_used":"Visual Studio (2017,18,19),Visual Studio Code, SQL, Postman",
+    "Thanks_Check":"Thanks for checkout my Profile"
 }

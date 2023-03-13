@@ -13,7 +13,7 @@ export class LoaderService {
   public isLoadingMessage = new BehaviorSubject({});
   isLoadingMessageObs = this.isLoadingMessage.asObservable()
 
-  constructor(private TranslatedLanguages:TranslateService,public dialog:MatDialog) {
+  constructor(public dialog:MatDialog) {
     this.isLoadingMessage.next(this.data);
   }
   show() {
@@ -27,10 +27,7 @@ export class LoaderService {
     this.isLoadingMessage.next(this.data);
   }
   //get translate the file in typescript
-  getTranslatedLanguages(key:string){
-    let language=this.TranslatedLanguages.currentLang
-    return this.TranslatedLanguages.translations[language][key]
-  }
+ 
   AlertDialogBox(input: any, width: any): Observable<any> {
     const dialogRef = this.dialog.open(AlertboxComponent, {
       width: width,

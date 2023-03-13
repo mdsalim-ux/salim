@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoaderService } from 'src/app/common/loader/loader.service';
 import { NotificationService } from 'src/app/common/notification/notification.service';
+import { TranslationModule } from 'src/app/common/translation/translation.module';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,7 @@ import { NotificationService } from 'src/app/common/notification/notification.se
 })
 export class FooterComponent {
   intropage:boolean=false;
-  constructor(public loader:LoaderService,private _notification:NotificationService) { }
+  constructor(public loader:LoaderService,private _notification:NotificationService,private translate:TranslationModule) { }
 
   getArray(n: number) {
     return new Array(n);
@@ -23,7 +24,7 @@ export class FooterComponent {
     document.body.appendChild(link);
     link.click();
     link.remove();
-    this._notification.success(this.loader.getTranslatedLanguages('Downloaded_Resume'), '');
+    this._notification.success(this.translate.getTranslatedLanguages('Downloaded_Resume'), '');
   }
 
   LinkedinProfile() {

@@ -13,6 +13,7 @@ import { AgGirdData } from 'src/app/common/interface/user';
 import { MatSort } from '@angular/material/sort';
 import { UserService } from 'src/app/common/service/user.service';
 import { UserdataService } from 'src/app/common/service/userdata.service';
+import { TranslationModule } from 'src/app/common/translation/translation.module';
 
 @Component({
   selector: 'app-main',
@@ -38,8 +39,9 @@ export class MainheaderComponent implements AfterViewInit  {
   AnimationState: boolean=true;
   Skills: any;
   tab: any;
-  constructor(public loaderService: LoaderService,public _Service:UserdataService,public dialog: MatDialog,public mat:MaterialModule,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslateService) {
-    translate.setDefaultLang('en');
+  constructor(public loaderService: LoaderService,public _Service:UserdataService,public dialog: MatDialog,public mat:MaterialModule,
+    public _translate: TranslateService,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslationModule) {
+      _translate.setDefaultLang('en');
   }
   @ViewChild(MatPaginator)paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -53,7 +55,7 @@ export class MainheaderComponent implements AfterViewInit  {
     for (let i = 0; i < event.currentTarget.length; i++) {
       this.dropdownindex = event.currentTarget;
       if (this.dropdownindex.selectedIndex == 0 || this.dropdownindex.selectedIndex == 1 || this.dropdownindex.selectedIndex == 2) {
-        this._notification.success(this.loaderService.getTranslatedLanguages('Language_Change'), '');
+        this._notification.success(this.translate.getTranslatedLanguages('Language_Change'), '');
         break;
       }
     }
@@ -154,7 +156,7 @@ export class MainheaderComponent implements AfterViewInit  {
       let msg: string = "";
       event.preventDefault();
       let input = {'title': '', 
-      message: [msg.concat('').concat(this.loaderService.getTranslatedLanguages('Special_Char_not_allowed')), msg.concat(' ').concat('*:"<>/?\|')]
+      message: [msg.concat('').concat(this.translate.getTranslatedLanguages('Special_Char_not_allowed')), msg.concat(' ').concat('*:"<>/?\|')]
       }
       this.loaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
         return
@@ -168,7 +170,7 @@ export class MainheaderComponent implements AfterViewInit  {
     if (regex.test(pastedText)) {
       event.preventDefault();
       let input = {
-        message: [msg.concat('').concat(this.loaderService.getTranslatedLanguages('Special_Char_not_allowed')), msg.concat(' ').concat('*:"<>/?\|')]
+        message: [msg.concat('').concat(this.translate.getTranslatedLanguages('Special_Char_not_allowed')), msg.concat(' ').concat('*:"<>/?\|')]
       }
       this.loaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
         return

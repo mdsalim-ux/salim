@@ -41,7 +41,7 @@
         <mat-list-item>
           <mat-icon mat-list-icon>language</mat-icon>
           <select *ngIf="isExpanded" style="font-size: initial;margin: 2px;" #Languages
-            (change)="onDropdownChange($event)" (change)="translate.use(Languages.value)">
+            (change)="onDropdownChange($event)" (change)="_translate.use(Languages.value)">
             <option *ngFor="let lang of supportedLanguages" [value]="lang">{{lang|translate}}</option>
           </select>
         </mat-list-item>

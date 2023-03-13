@@ -28,11 +28,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 })
 
 export class TranslationModule {
-  constructor(translate: TranslateService) {
-    translate.addLangs(['en', 'hn','ur']);
-    const broswerLang = translate.getBrowserLang();
-    translate.use(broswerLang?.match(/en|hn|ur/) ? broswerLang : 'en')
+  constructor(translate: TranslateService,private TranslatedLanguages:TranslateService) {
+  
 
+  }
+  getTranslatedLanguages(key:string){
+    let language=this.TranslatedLanguages.currentLang
+    return this.TranslatedLanguages.translations[language][key]
   }
 }
 
