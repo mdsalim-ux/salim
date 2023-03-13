@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'src/app/angular/material/material.module';
 import { TranslationModule } from 'src/app/common/translation/translation.module';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { AlertboxComponent } from './alertbox.component';
+import { Observable } from 'rxjs';
 
 
 @NgModule({
@@ -14,4 +16,17 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatDialogModule
     ]
 })
-export class AlertboxModule { }
+export class AlertboxModule { 
+    constructor(public dialog:MatDialog){
+
+    }
+    AlertDialogBox(input: any, width: any): Observable<any> {
+        const dialogRef = this.dialog.open(AlertboxComponent, {
+          width: width,
+          autoFocus: false,
+          data: input,
+          disableClose: true
+        });
+        return dialogRef.afterClosed()
+      }
+}

@@ -14,7 +14,8 @@ export class IRefreshToken {
 export class loginData{
   LoginData=[
     {
-      "username": "ProS",
+      "id":"1",
+      "username": "SA",
       "phone": "7739238924",
     }
   ]

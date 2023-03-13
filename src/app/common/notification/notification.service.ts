@@ -10,7 +10,7 @@ export class NotificationService {
   toasterSetting: any;
   constructor(private notification: ToastrService, private toastr: ToastrService) {
     this.toasterSetting = {
-      timeOut: 3000,
+      timeOut: 7000,
       progressBar: true,
       preventDuplicates: false,
       Animation: "fade",

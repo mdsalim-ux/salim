@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <h3 >{{'My_Name'|translate}}</h3>
+            <mat-progress-bar color="accent"mode="buffer"  value="100"></mat-progress-bar>
             <div class="flip-card" >
                 <div class="flip-card-inner" >
                     <div class="flip-card-front bg-white">
@@ -75,51 +76,53 @@
               <mat-icon>book</mat-icon>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <mat-progress-bar color="accent" mode="buffer" value="100"></mat-progress-bar>
-          <p class="  size-color">{{'Secab_insitute'|translate}}</p>
-          <p class="  size-color">{{'BE_Degree'|translate}}</p>
-          <p class="  size-color">{{'ED_Date_1'|translate}}</p>
-          <p class="  size-color">{{'S_location2'|translate}}</p>
-          <div class="row" >
+          <mat-chip-option color="accent" (click)="educationview =!educationview"  >{{'Read_More'|translate}}</mat-chip-option>
+          <mat-progress-bar color="accent" mode="buffer" value="100" *ngIf="educationview"></mat-progress-bar>
+          <p class="  size-color"*ngIf="educationview">{{'Secab_insitute'|translate}}</p>
+          <p class="  size-color"*ngIf="educationview">{{'BE_Degree'|translate}}</p>
+          <p class="  size-color"*ngIf="educationview">{{'ED_Date_1'|translate}}</p>
+          <p class="  size-color"*ngIf="educationview">{{'S_location2'|translate}}</p>
+          <div class="row" *ngIf="educationview">
               <div class="col-md-10" >
                   <p class="  size-color">{{'FC'|translate}}</p>
                   <p class="  size-color">{{'Marks_2'|translate}}</p>
               </div>
           </div>
-          <p class="size-color">{{'Malik_Sandal'|translate}}</p>
-            <p class="  size-color">{{'Dipl_Degree'|translate}}</p>
-            <p class="  size-color">{{'ED_Date_2'|translate}}</p>
-            <p class="  size-color">{{'S_location2'|translate}}</p>
-            <div class="row">
+          <p class="size-color"*ngIf="educationview">{{'Malik_Sandal'|translate}}</p>
+            <p class="  size-color"*ngIf="educationview">{{'Dipl_Degree'|translate}}</p>
+            <p class="  size-color"*ngIf="educationview">{{'ED_Date_2'|translate}}</p>
+            <p class="  size-color"*ngIf="educationview">{{'S_location2'|translate}}</p>
+            <div class="row"*ngIf="educationview">
                 <div class="col-md-6">
                     <p class="size-color" >{{'FC'|translate}}</p>
                     <p class="size-color" >{{'Marks_3'|translate}}</p>
                 </div>
             </div>
-            <mat-progress-bar color="primary" mode="buffer"  value="100"></mat-progress-bar>
-            <p class="size-color">{{'10TH'|translate}}</p>
-            <p class="size-color">{{'School_10th'|translate}}</p>
-            <p class="size-color">{{'ED_Date_3'|translate}}</p>
-            <p class=" size-color">{{'S_location1'|translate}}</p>
-            <div class="row">
+            <mat-progress-bar color="primary" mode="buffer"  value="100" *ngIf="educationview"></mat-progress-bar>
+            <p class="size-color"*ngIf="educationview">{{'10TH'|translate}}</p>
+            <p class="size-color"*ngIf="educationview">{{'School_10th'|translate}}</p>
+            <p class="size-color"*ngIf="educationview">{{'ED_Date_3'|translate}}</p>
+            <p class=" size-color"*ngIf="educationview">{{'S_location1'|translate}}</p>
+            <div class="row" *ngIf="educationview">
                 <div class="col-md-6">
                     <p class="size-color" >{{'FC'|translate}}</p>
                     <p class="size-color" >{{'Marks_1'|translate}}</p>
                 </div>
             </div>
-            
-            <b class=" title" >{{'LANGUAGES'|translate}}</b>
-            <section class="example-section">
+            <p class=" title">{{'LANGUAGES'|translate}}</p>
+            <mat-chip-option color="accent" (click)="lang =!lang"  >{{'Read_More'|translate}}</mat-chip-option>
+            <section class="example-section" *ngIf="lang">
                 <mat-checkbox class="example-margin"  [checked]=true>{{'en'|translate}}</mat-checkbox>
                 <mat-checkbox class="example-margin"  [checked]=true>{{'hn'|translate}}</mat-checkbox>
                 <mat-checkbox class="example-margin"  [checked]=true>{{'ur'|translate}}</mat-checkbox>
             </section>
-        <mat-progress-bar color="primary" mode="buffer"  value="100"></mat-progress-bar>
-        <br><b class="title" >{{'Personal_Details'|translate}}</b><br>
-        <p class="size-color">{{'Father_name'|translate}}</p>
-        <p class="size-color">{{'Date_Of_birth'|translate}}</p>
-        <p class="size-color">{{'Nationalty'|translate}}</p>
-        <p class="size-color">{{'Gen'|translate}}</p>
+        <br><p class="title" >{{'Personal_Details'|translate}}</p><br>
+        <mat-chip-option color="accent" (click)="personaldetails =!personaldetails"  >{{'Read_More'|translate}}</mat-chip-option>
+        <mat-progress-bar color="primary" mode="buffer" *ngIf="personaldetails" value="100"></mat-progress-bar>
+        <p class="size-color"*ngIf="personaldetails">{{'Father_name'|translate}}</p>
+        <p class="size-color"*ngIf="personaldetails">{{'Date_Of_birth'|translate}}</p>
+        <p class="size-color"*ngIf="personaldetails">{{'Nationalty'|translate}}</p>
+        <p class="size-color"*ngIf="personaldetails">{{'Gen'|translate}}</p>
   
           <mat-action-row>
             <button mat-button color="warn" (click)="prevStep()">{{'Previous'|translate}}</button>
@@ -128,4 +131,5 @@
         </mat-expansion-panel>
   
       </mat-accordion>
+      <mat-progress-bar mode="buffer" color="primary" value="100"></mat-progress-bar>
     </div>

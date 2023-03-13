@@ -1,5 +1,6 @@
 import { Component,Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-alertbox',
@@ -22,6 +23,7 @@ export class AlertboxComponent {
   Cancel(): void {
     this.dialogRef.close(false);
   }
+ 
 // exmaple created for multiple msg in the alert box
   // let errormsg:string="";
   //       let counts:number=0;

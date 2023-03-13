@@ -1,56 +1,107 @@
-<div class="container">
-<p class="  title">{{'Company'|translate}}{{'CGI_India'|translate}}</p>
-<p class="  datelocation">{{'Date1'|translate}}</p>
-<p class="  datelocation">{{'C_location'|translate}}</p>
-<mat-progress-bar mode="buffer" color="primary" value="100"></mat-progress-bar>
-    <div class="row">
-        <div class="col-md-12">
-            <p class="  title">{{'Software_Engineer'|translate}}</p> 
-            <p class="  datelocation">{{'Project'|translate}}{{'Estimation_Environment'|translate}}</p> 
-            <mat-chip-option color="accent" (click)="readMoreC1 =!readMoreC1"  routerLink="/intro">{{'Read_More'|translate}}</mat-chip-option>
-            <p class=" datelocation"  *ngIf="readMoreC1">{{'R1'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC1">{{'R2'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC1">{{'R3'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC1">{{'R4'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC1">{{'R5'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC1">{{'R6'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC1">{{'R7'|translate}}</p>
-        </div>
-    </div>
-<p class="  title">{{'Company'|translate}}{{'Mill_Compnay'|translate}}</p>
-<p class="  datelocation">{{'Date2'|translate}}</p>
-<p class="  datelocation">{{'C_location'|translate}}</p>
-<mat-progress-bar mode="buffer" color="accent" value="100"></mat-progress-bar>
-    <div class="row">
-        <div class="col-md-6">
-            <p class="  title">{{'Dot_Net_Developer'|translate}}</p> 
-            <p class="  datelocation">{{'Project'|translate}}{{'Higher_Education'|translate}}</p> 
-            <mat-chip-option color="accent" (click)="readMoreC2 =!readMoreC2"  routerLink="/intro">{{'Read_More'|translate}}</mat-chip-option>
-            <p class=" datelocation"  *ngIf="readMoreC2">{{'R8'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC2">{{'R9'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC2">{{'R10'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC2">{{'R11'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC2">{{'R12'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC2">{{'R13'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC2">{{'R14'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC2">{{'R15'|translate}}</p>
-        </div>
-    </div>
-<p class="  title">{{'Company'|translate}}{{'Talisma'|translate}}</p>
-<p class="  datelocation">{{'Date3'|translate}}</p>
-<p class="  datelocation">{{'C_location'|translate}}</p>
-<mat-progress-bar mode="buffer" color="primary" value="100"></mat-progress-bar>
-    <div class="row">
-        <div class="col-md-6">
-            <p class="  title">{{'Trainee_Developer'|translate}}</p> 
-            <p class="  datelocation">{{'Project'|translate}}{{'Chat_bot'|translate}}</p> 
-            <mat-chip-option color="accent" (click)="readMoreC3 =!readMoreC3"  routerLink="/intro">{{'Read_More'|translate}}</mat-chip-option>
-            <p class=" datelocation"  *ngIf="readMoreC3">{{'R16'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC3">{{'R17'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC3">{{'R18'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC3">{{'R19'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC3">{{'R20'|translate}}</p>
-            <p class=" datelocation"  *ngIf="readMoreC3">{{'R21'|translate}}</p>
-        </div>
-        
+<div class="container" >
+
+    <h2 class="text-primary text-center">{{'Intro'|translate}}</h2>
+    <mat-progress-bar mode="buffer" color="primary" value="100"></mat-progress-bar>
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="step === 0" [expanded]="false" (opened)="setStep(0)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="title">
+              {{'Company'|translate}}{{'CGI_India'|translate}}
+            </mat-panel-title>
+            <mat-panel-title class="  datelocation">
+                {{'Date1'|translate}}
+              </mat-panel-title>
+              <mat-panel-title class="  datelocation">
+                {{'C_location'|translate}}
+              </mat-panel-title>
+            <mat-panel-description>
+              {{'Tools1'|translate}}
+              <mat-icon>assessment</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+  
+          <p class="  title">{{'Software_Engineer'|translate}}</p> 
+          <p class="  text-primary">{{'Project'|translate}}{{'Estimation_Environment'|translate}}</p> 
+          <mat-chip-option color="accent" (click)="readMoreC1 =!readMoreC1"  >{{'Read_More'|translate}}</mat-chip-option>
+          <p class=" datelocation" *ngIf="readMoreC1" >{{'R1'|translate}}</p>
+          <p class=" datelocation" *ngIf="readMoreC1" >{{'R2'|translate}}</p>
+          <p class=" datelocation" *ngIf="readMoreC1" >{{'R3'|translate}}</p>
+          <p class=" datelocation" *ngIf="readMoreC1" >{{'R4'|translate}}</p>
+          <p class=" datelocation" *ngIf="readMoreC1" >{{'R5'|translate}}</p>
+          <p class=" datelocation" *ngIf="readMoreC1" >{{'R6'|translate}}</p>
+          <p class=" datelocation" *ngIf="readMoreC1" >{{'R7'|translate}}</p>
+          <mat-action-row>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="  title">
+                {{'Company'|translate}}{{'Mill_Compnay'|translate}}
+            </mat-panel-title>
+            <mat-panel-title class="  datelocation">
+                {{'Date2'|translate}}
+            </mat-panel-title> 
+            <mat-panel-title class="  datelocation">
+                {{'C_location'|translate}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{'Tools2'|translate}}
+              <mat-icon>assessment</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p class="  title">{{'Dot_Net_Developer'|translate}}</p> 
+            <p class="  text-primary ">{{'Project'|translate}}{{'Higher_Education'|translate}}</p> 
+            <mat-chip-option color="accent" (click)="readMoreC2 =!readMoreC2"  >{{'Read_More'|translate}}</mat-chip-option>
+            <p class=" datelocation" *ngIf="readMoreC2" >{{'R8'|translate}}</p>
+            <p class=" datelocation" *ngIf="readMoreC2" >{{'R9'|translate}}</p>
+            <p class=" datelocation" *ngIf="readMoreC2" >{{'R10'|translate}}</p>
+            <p class=" datelocation" *ngIf="readMoreC2" >{{'R11'|translate}}</p>
+            <p class=" datelocation" *ngIf="readMoreC2" >{{'R12'|translate}}</p>
+            <p class=" datelocation" *ngIf="readMoreC2" >{{'R13'|translate}}</p>
+            <p class=" datelocation" *ngIf="readMoreC2" >{{'R14'|translate}}</p>
+            <p class=" datelocation" *ngIf="readMoreC2" >{{'R15'|translate}}</p>
+  
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">{{'Previous'|translate}}</button>
+            <button mat-button color="primary" (click)="nextStep()">{{'Next'|translate}}</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+  
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="  title">
+                {{'Company'|translate}}{{'Talisma'|translate}}
+            </mat-panel-title>
+            <mat-panel-title class="  datelocation">
+                {{'Date3'|translate}}
+            </mat-panel-title>
+            <mat-panel-title class="  datelocation">
+                {{'C_location'|translate}}
+            </mat-panel-title>
+            <p ></p>
+            <mat-panel-description>
+              {{'Tools3'|translate}}
+              <mat-icon>assessment</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p class="  title">{{'Trainee_Developer'|translate}}</p> 
+          <p class="text-primary ">{{'Project'|translate}}{{'Chat_bot'|translate}}</p> 
+          <mat-chip-option color="accent" (click)="readMoreC3 =!readMoreC3"  >{{'Read_More'|translate}}</mat-chip-option>
+          <p class=" datelocation"  *ngIf="readMoreC3">{{'R16'|translate}}</p>
+          <p class=" datelocation"  *ngIf="readMoreC3">{{'R17'|translate}}</p>
+          <p class=" datelocation"  *ngIf="readMoreC3">{{'R18'|translate}}</p>
+          <p class=" datelocation"  *ngIf="readMoreC3">{{'R19'|translate}}</p>
+          <p class=" datelocation"  *ngIf="readMoreC3">{{'R20'|translate}}</p>
+          <p class=" datelocation"  *ngIf="readMoreC3">{{'R21'|translate}}</p>
+          <mat-datepicker #picker></mat-datepicker>
+  
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">{{'Previous'|translate}}</button>
+            <button mat-button color="primary" (click)="nextStep()">{{'End'|translate}}</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+  
+      </mat-accordion>
+ <mat-progress-bar mode="buffer" color="warn" value="100"></mat-progress-bar>
 </div>

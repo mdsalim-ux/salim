@@ -29,7 +29,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 export class TranslationModule {
   constructor(translate: TranslateService,private TranslatedLanguages:TranslateService) {
-  
+    translate.addLangs(['en', 'hn','ur']);
+    const broswerLang = translate.getBrowserLang();
+    translate.use(broswerLang?.match(/en|hn|ur/) ? broswerLang : 'en')
 
   }
   getTranslatedLanguages(key:string){

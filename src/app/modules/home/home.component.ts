@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   step = 0;
   educationview:boolean=false;
   personaldetails:boolean=false;
+  lang:boolean=false;
 
   constructor(public loader:LoaderService,private _notification:NotificationService,
     public translate:TranslationModule) {
@@ -31,7 +32,6 @@ export class HomeComponent implements OnInit {
 
   nextStep() {
     if (this.step==2){
-      this.step++;
       this._notification.info(this.translate.getTranslatedLanguages('Thanks_Check'),'')
     }
     this.step++;

@@ -55,11 +55,9 @@ export class TokenInterceptor implements HttpInterceptor {
   setError(error: HttpErrorResponse): string {
     let errorMessage = "Unknow error occured";
     if (error.error instanceof ErrorEvent) {
-      // client side error
       errorMessage = error.error.message;
     }
     else {
-      // server side error
       if (error.status === 401) {
         errorMessage = error.statusText;
       }
@@ -70,7 +68,6 @@ export class TokenInterceptor implements HttpInterceptor {
         errorMessage = "Backend server is Down";
       }
       if (error.error.ErrorMessage == "IDX10223: Lifetime validation failed. The token is expired. ValidTo: 'System.DateTime', Current time: 'System.DateTime'.")
-        //  || error.error.ErrorMessage == "IDX10000: The parameter 'token' cannot be a 'null' or an empty object. (Parameter 'token')") {
         {
         errorMessage = "Session Expired";
         if (localStorage.getItem('user'))

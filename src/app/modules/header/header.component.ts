@@ -8,6 +8,7 @@ import { NotificationService } from 'src/app/common/notification/notification.se
 import { LoginComponent } from 'src/app/login/login/login.component';
 import { SignUpComponent } from 'src/app/login/sign-up/sign-up.component';
 import { TranslationModule } from 'src/app/common/translation/translation.module';
+import { AlertboxModule } from 'src/app/common/dialogbox/alertbox/alertbox.module';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +25,7 @@ export class HeaderComponent {
   menucollapse:boolean=false;
   constructor(public dialog: MatDialog, public router: Router, private location: Location,
     public LoaderService: LoaderService, public translate: TranslationModule, 
-    private _notification: NotificationService,public _translate: TranslateService, ) {
+    private _notification: NotificationService,public _translate: TranslateService,public _dialog:AlertboxModule ) {
     router.events.subscribe((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.LoaderService.show();
@@ -45,7 +46,6 @@ export class HeaderComponent {
   openDialogLogin() {
     const dialogRef = this.dialog.open(LoginComponent,{
       disableClose: true,
-      autoFocus:false,
       width:"450px"
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -54,7 +54,6 @@ export class HeaderComponent {
   openDialogSignUp() {
     const dialogRef = this.dialog.open(SignUpComponent,{
       disableClose: true,
-      autoFocus:false,
     });
     dialogRef.afterClosed().subscribe(result => {
     });
@@ -81,7 +80,7 @@ export class HeaderComponent {
   menucollapses(){
     if(this.menucollapse==true){
       let input = {'title': this.translate.getTranslatedLanguages('Info'), message: [(this.translate.getTranslatedLanguages('Best_View')), ''] }
-      this.LoaderService.AlertDialogBox(input, '450px').subscribe((data: any) => {
+      this._dialog.AlertDialogBox(input, '450px').subscribe((data: any) => {
           return
       })
     }

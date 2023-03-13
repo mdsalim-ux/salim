@@ -6,8 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { LoaderService } from 'src/app/common/loader/loader.service';
 import { NotificationService } from 'src/app/common/notification/notification.service';
 import { UserdataService } from 'src/app/common/service/userdata.service';
-import * as CryptoJS from 'crypto-js';
-import { EncrDecrService } from 'src/app/common/encr-decr-service.service';
 import { HeaderComponent } from 'src/app/modules/header/header.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
@@ -26,7 +24,7 @@ export class SignUpComponent {
   duplicateName: boolean = false;
   constructor(private formBuilder: FormBuilder, public _DataService: UserdataService,public dialog: MatDialog,
     public loaderService: LoaderService, private _notification: NotificationService, 
-    private EncrDecr: EncrDecrService,private router: Router, private dialogRef:MatDialogRef<HeaderComponent>,public translate: TranslationModule) {
+    private router: Router, private dialogRef:MatDialogRef<HeaderComponent>,public translate: TranslationModule) {
     
   }
   ngOnInit(): void {
@@ -44,17 +42,20 @@ export class SignUpComponent {
     },
       { validators: passwordMatchValidator });
   }
-
+  login(){
+    this.dialogRef.close(true);
+    this.openDialogLogin();
+  }
   signUp() {
     this.signForm.markAllAsTouched()
-    if (this.signForm.valid) {
+    if (this.signForm.valid && this.duplicateName==false) {
       this._notification.success(this.translate.getTranslatedLanguages('Account_created'), '');
-      this.dialogRef.close(true);
-      this.openDialogLogin()
     }
-    else if (this.signForm.invalid && this.signForm.value.confirmpassword == '') {
-       this.signForm.reset()
+    else if (this.signForm.invalid) {
       this._notification.warning(this.translate.getTranslatedLanguages('Filled_Form_details'), '');
+    }
+    if(this.duplicateName==true){
+      this._notification.warning(this.translate.getTranslatedLanguages('User_already_exits'), '');
     }
     else if (this.signForm.invalid && this.signForm.value.confirmpassword == null) {
       this.DataValid = true;
@@ -77,7 +78,6 @@ export class SignUpComponent {
         if (logindata[i].username == duplicateName && duplicateName !=null) {
           this.duplicateName = true;
           this.signForm.controls['username'].setErrors({ 'incorrect': true });
-          break;
         }
         else{
           this.duplicateName = false;

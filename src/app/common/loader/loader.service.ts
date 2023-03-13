@@ -26,15 +26,6 @@ export class LoaderService {
     this.data["message"] = key
     this.isLoadingMessage.next(this.data);
   }
-  //get translate the file in typescript
  
-  AlertDialogBox(input: any, width: any): Observable<any> {
-    const dialogRef = this.dialog.open(AlertboxComponent, {
-      width: width,
-      autoFocus: false,
-      data: input,
-      disableClose: true
-    });
-    return dialogRef.afterClosed()
-  }
+  
 }

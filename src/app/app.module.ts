@@ -18,15 +18,13 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { AlertboxComponent } from './common/dialogbox/alertbox/alertbox.component';
 import { InjectionToken } from '@angular/core';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { NotificationModule } from './common/notification/notification.module';
 import { UserService } from './common/service/user.service';
-import { TokenInterceptor } from './core/interceptor/token.interceptor';
+import { TokenInterceptor } from './core/token.interceptor';
 import { LoaderComponent } from './common/loader/loader/loader.component';
 import { LoginComponent } from './login/login/login.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { MainheaderComponent } from './login/mainheader/main.component';
 import { FooterComponent } from './modules/footer/footer.component';
-import { EncrDecrService } from './common/encr-decr-service.service';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { DailogboxComponent } from './common/dialogbox/cruddialogbox/crudOperation.component';
 import { AgGridModule } from 'ag-grid-angular';
@@ -68,7 +66,6 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     TranslationModule,
     AlertboxModule,
     MatDialogModule,
-    NotificationModule,
     ReactiveFormsModule,
     HttpClientModule,
     BreadcrumbModule,
@@ -77,7 +74,7 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     }),
     AgGridModule,
   ],
-  providers: [UserService,EncrDecrService, 
+  providers: [UserService, 
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],

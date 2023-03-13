@@ -134,7 +134,7 @@
 
 <!-- start angular table -->
 <div class="mat-elevation-z8">
-  <h2 class="text-primary text-center">{{'Angular Table'|translate}}</h2>
+  <h2 class="text-primary text-center">{{'Angular_Table'|translate}}</h2>
   <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
   <div class="mb-5">
     <ul>
@@ -158,8 +158,8 @@
       </li>
     </ul>
   </div>
-  <button mat-raised-button (click)="addColumn()" > Add column </button>
-  <button mat-raised-button (click)="removeColumn()"> Remove column </button><br><br>
+  <button mat-raised-button (click)="addColumn()" > {{'Add_Column'|translate}} </button>
+  <button mat-raised-button (click)="removeColumn()">{{'Remove_Coloumn'|translate}} </button><br><br>
   <mat-form-field appearance="outline">
     <mat-label>{{'Filter'|translate}}</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="{{'Search'|translate}}" #input>

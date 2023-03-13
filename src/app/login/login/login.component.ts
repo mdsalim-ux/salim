@@ -5,10 +5,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '../../common/notification/notification.service';
 import { LoaderService } from '../../common/loader/loader.service';
 import { UserdataService } from 'src/app/common/service/userdata.service';
-import { EncrDecrService } from 'src/app/common/encr-decr-service.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { HeaderComponent } from 'src/app/modules/header/header.component';
 import { TranslationModule } from 'src/app/common/translation/translation.module';
+import { AlertboxModule } from 'src/app/common/dialogbox/alertbox/alertbox.module';
+import { SignUpComponent } from '../sign-up/sign-up.component';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
     selector: 'app-login',
@@ -24,8 +26,8 @@ export class LoginComponent implements OnInit {
     LoginData: any;
     constructor(public _DataService: UserdataService, public LoaderService: LoaderService,
         private _notification: NotificationService, private dialogRef: MatDialogRef<HeaderComponent>,
-         private EncrDecr: EncrDecrService, private formBuilder: FormBuilder, 
-         private router: Router, public translate:TranslationModule) {
+        private formBuilder: FormBuilder,
+        private router: Router, public translate: TranslationModule, public _dialog: AlertboxModule, public ref: DialogRef, public dialog: MatDialog) {
     }
 
     ngOnInit(): void {
@@ -50,29 +52,27 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loginForm.markAllAsTouched();
-        if (this.loginForm.valid) {
-            let res = this.LoginData;
-            for (let i = 0; i < res.length; i++) {
-                // var encrypted = this.EncrDecr.set('123456$#@$^@1ERF', res[i].phone);
-                // res[i].phone = encrypted,
-                //     this.loginForm.value.phone = encrypted,
-                res[i].username = res[i].username
-            }
-            const users = res.find((a: any) => {
-                return a.username === this.loginForm.value.username
-            });
-            if (users) {
-                if (this.loginForm.valid) {
-                    this.dialogRef.close(true);
-                    this.loginForm.reset()
-                    this.router.navigate(['/main'])
-                    let input = { 'title': this.translate.getTranslatedLanguages('Info'), message: [(this.translate.getTranslatedLanguages('Welcome')), ''] }
-                    this.LoaderService.AlertDialogBox(input, '480px').subscribe((data: any) => {
-                        return
+        let res = this.LoginData;
+        for (let i = 0; i < res.length; i++) {
+            // var encrypted = this.EncrDecr.set('123456$#@$^@1ERF', res[i].phone);
+            // res[i].phone = encrypted,
+            //     this.loginForm.value.phone = encrypted,
+            res[i].username = res[i].username
+        }
+        const users = res.find((a: any) => {
+            return a.username === this.loginForm.value.username
+        });
+        if (users) {
+            if (this.loginForm.valid) {
+                this.dialogRef.close(true);
+                this.loginForm.reset()
+                this.router.navigate(['/main'])
+                let input = { 'title': this.translate.getTranslatedLanguages('Info'), message: [(this.translate.getTranslatedLanguages('Welcome')), ''] }
+                this._dialog.AlertDialogBox(input, '480px').subscribe((data: any) => {
+                    return
 
-                    })
-                    this._notification.info('','Scroll down to see the all functionalty ')
-                }
+                })
+                this._notification.info('', 'Scroll down to see the all functionalty ')
             }
         }
     }
@@ -86,13 +86,26 @@ export class LoginComponent implements OnInit {
                 if ((loginData[i].username.trim() != usernameexists) && usernameexists != "" && (loginData[i].phone != phone)) {
                     this.loginIsInvalid = true;
                     this.loginForm.controls['username'].setErrors({ 'incorrect': true });
+                    this._notification.error(this.translate.getTranslatedLanguages('Filled_Form_detail'), '');
                     break;
                 }
                 else {
                     this.loginIsInvalid = false;
                     break;
                 }
-            }
+           }
         }
+    }
+    SignUp() {
+        this.openDialogSignUp();
+        this.ref.close(true);
+    }
+
+    openDialogSignUp() {
+        const dialogRef = this.dialog.open(SignUpComponent, {
+            disableClose: true,
+        });
+        dialogRef.afterClosed().subscribe(result => {
+        });
     }
 }

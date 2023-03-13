@@ -14,6 +14,7 @@ import { MatSort } from '@angular/material/sort';
 import { UserService } from 'src/app/common/service/user.service';
 import { UserdataService } from 'src/app/common/service/userdata.service';
 import { TranslationModule } from 'src/app/common/translation/translation.module';
+import { AlertboxModule } from 'src/app/common/dialogbox/alertbox/alertbox.module';
 
 @Component({
   selector: 'app-main',
@@ -40,7 +41,8 @@ export class MainheaderComponent implements AfterViewInit  {
   Skills: any;
   tab: any;
   constructor(public loaderService: LoaderService,public _Service:UserdataService,public dialog: MatDialog,public mat:MaterialModule,
-    public _translate: TranslateService,private _notification: NotificationService, private formBuilder: FormBuilder, private router: Router, public translate: TranslationModule) {
+    public _translate: TranslateService,private _notification: NotificationService, private formBuilder: FormBuilder, 
+    private router: Router, public translate: TranslationModule,public _dialog:AlertboxModule) {
       _translate.setDefaultLang('en');
   }
   @ViewChild(MatPaginator)paginator!: MatPaginator;
@@ -97,13 +99,13 @@ export class MainheaderComponent implements AfterViewInit  {
     }
     this.TabIndex = event.index;
     if (this.TabIndex == 0) {
-     this._notification.info('','Scroll down to see the all functionalty ')
+      this._notification.info(this.translate.getTranslatedLanguages('Scroll_Down'),'')
     }
     if (this.TabIndex == 1) {
-      this._notification.success('','Welcome to my Workspace')
+      this._notification.success(this.translate.getTranslatedLanguages('Welcome'),'')
     }
     if (this.TabIndex == 2) {
-      this._notification.info('','Click the button to see the AG Gird')
+      this._notification.info(this.translate.getTranslatedLanguages('See_AgGrid'),'')
       this.router.navigate(['/work'])
     }
     if (this.TabIndex == 3) {
@@ -158,7 +160,7 @@ export class MainheaderComponent implements AfterViewInit  {
       let input = {'title': '', 
       message: [msg.concat('').concat(this.translate.getTranslatedLanguages('Special_Char_not_allowed')), msg.concat(' ').concat('*:"<>/?\|')]
       }
-      this.loaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
+      this._dialog.AlertDialogBox(input, '460px').subscribe((data: any) => {
         return
       })
     }
@@ -172,7 +174,7 @@ export class MainheaderComponent implements AfterViewInit  {
       let input = {
         message: [msg.concat('').concat(this.translate.getTranslatedLanguages('Special_Char_not_allowed')), msg.concat(' ').concat('*:"<>/?\|')]
       }
-      this.loaderService.AlertDialogBox(input, '460px').subscribe((data: any) => {
+      this._dialog.AlertDialogBox(input, '460px').subscribe((data: any) => {
         return
       })
     };
