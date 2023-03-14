@@ -2,11 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import 'ag-grid-community/styles/ag-grid.css';
 @import 'ag-grid-community/styles/ag-theme-alpine.css';
-html,
-body {
-    height: 100%;
-    padding-top: 0%;
-}
+
 html, body {
     height: 0%;
     padding-top: 0.75%;
@@ -46,3 +42,103 @@ ul li p {
   .example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
     margin-left: 8px;
   }
+
+  
+  h3{
+    font-weight: bold;
+    color:blue;
+    animation: move 4s alternate infinite;
+  }
+  @keyframes move {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translate(50%);
+    }
+  }
+  .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 200px;
+      border: 1px solid #f1f1f1;
+      perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
+    
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+    }
+    
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+      background-color: #bbb;
+      color: black;
+    }
+    
+    /* Style the back side */
+    .flip-card-back {
+      background-color: dodgerblue;
+      color: white;
+      transform: rotateY(180deg);
+    }
+    @keyframes rot {
+      from {
+        transform: rotateY(0deg);
+      }
+    
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+    .card-btn {
+      margin: 5em;
+    }
+    
+    .card {
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      text-align: center;
+      font-size: 18px;
+      position: relative;
+      border: none;
+      perspective: 20em;
+      animation: rot 10s linear infinite;
+    }
+    .face {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      border-radius: 50%;
+      backface-visibility: hidden;
+      background: rgb(101, 101, 160);
+      color: white;
+    }
+    
+    .face:last-child {
+      transform: rotateY(.5turn);
+    }

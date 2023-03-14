@@ -57,7 +57,6 @@ textalign {
   background: border-box;
 }
 .fixed-top{
-  position: absolute;
   z-index: 2 !important;
 }
 .navbar-light .navbar-nav .nav-link{
@@ -98,7 +97,14 @@ textalign {
   font-size: medium;
   cursor: pointer;
 }
-
+.progress-circle {
+  position: absolute;
+    right: 81%;
+    top: 14px;
+    width: 35px;
+    height: 35px;
+    color: white;
+  }
 .example-form {
   min-width: 150px;
   max-width: 500px;

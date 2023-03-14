@@ -55,15 +55,18 @@
 
     <nav  class="navbar navbar-expand-lg navbar-light fixed-top nav-shadow bg-color mt-1 mb-2">
         <div class="container-fluid">
-            <ul class="navbar-nav" style="flex-direction: inherit;padding-left: 30px;">
+            <ul class="navbar-nav" style="flex-direction: inherit;">
+                <div class="progress-circle face">
+                    <div class="progress-number "><b>{{liveCounterValue.value}}</b></div>&nbsp;
+               </div>
                 <li class="px-1 pt-1 fontheader">
                     <mat-icon  matTooltip="{{'Menu'|translate}}" (click)="menucollapses()"  (click)="menucollapse =!menucollapse">menu</mat-icon>
                 </li>
             </ul>
-           
             <ul class="navbar-nav" style="flex-direction: inherit">
-                <li class="px-1 pt-1">
-                    <a class="navbar-brand   title" matTooltip="{{'My_Portfolio'|translate}}" routerLinkActive="active" routerLink="/home">{{'My_Portfolio'|translate}}</a>
+                <li>
+                    
+                    <a class="navbar-brand   title" matTooltip="{{'Site_Visit'|translate}}" routerLinkActive="active" routerLink="/home">{{'Site_Visit'|translate}}</a>
                 </li>
             </ul>
             <ul class="navbar-nav" style="flex-direction: inherit;">

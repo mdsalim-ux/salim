@@ -9,6 +9,7 @@ import { LoginComponent } from 'src/app/login/login/login.component';
 import { SignUpComponent } from 'src/app/login/sign-up/sign-up.component';
 import { TranslationModule } from 'src/app/common/translation/translation.module';
 import { AlertboxModule } from 'src/app/common/dialogbox/alertbox/alertbox.module';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -23,9 +24,11 @@ export class HeaderComponent {
   TabIndex: any;
   event: any;
   menucollapse:boolean=false;
+  liveCounterValue: any;
   constructor(public dialog: MatDialog, public router: Router, private location: Location,
     public LoaderService: LoaderService, public translate: TranslationModule, 
-    private _notification: NotificationService,public _translate: TranslateService,public _dialog:AlertboxModule ) {
+    private _notification: NotificationService,public _translate: TranslateService,private http: HttpClient
+    ,public _dialog:AlertboxModule) {
     router.events.subscribe((event: any) => {
       if (event instanceof RouteConfigLoadStart) {
         this.LoaderService.show();
@@ -39,9 +42,9 @@ export class HeaderComponent {
   ngOnInit(): void {
     this.location.go('/');
     this.router.navigate(['/footer'])
-
-    
     this.selectedTabValue(event);
+    this.updateCount()
+
   }
   openDialogLogin() {
     const dialogRef = this.dialog.open(LoginComponent,{
@@ -76,6 +79,13 @@ export class HeaderComponent {
     if (this.TabIndex == 2) {
       this.router.navigate(['/work'])
     }
+  }
+  updateCount() {
+    const url = `https://api.countapi.xyz/update/mdsalimprofile.web.app/porfolio/?amount=${1}`;
+    this.http.jsonp(url,'callback').subscribe(res=>{
+      console.log(res)
+      this.liveCounterValue=res
+    });
   }
   menucollapses(){
     if(this.menucollapse==true){

@@ -10,9 +10,9 @@ import { HeaderComponent } from './modules/header/header.component'
 import { MaterialModule } from './angular/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslationModule } from './common/translation/translation.module';
-import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { APP_BASE_HREF, DatePipe, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientJsonpModule, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlertboxModule } from './common/dialogbox/alertbox/alertbox.module';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlertboxComponent } from './common/dialogbox/alertbox/alertbox.component';
@@ -32,6 +32,8 @@ import { EditAgGridComponent } from './common/edit-ag-grid/edit-ag-grid.componen
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { FilterPipe } from './common/pipe/filter.pipe';
 import { UniquePipe } from './common/pipe/unique.pipe';
+import { OnlineStatusModule } from 'ngx-online-status';
+import { OnlineStatusComponent } from './common/online-status/online-status.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json")
@@ -55,6 +57,7 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     EditAgGridComponent,
     FilterPipe,
     UniquePipe,
+    OnlineStatusComponent,
     
   ],
   imports: [
@@ -63,6 +66,7 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientJsonpModule,
     TranslationModule,
     AlertboxModule,
     MatDialogModule,
@@ -73,8 +77,9 @@ export const TOAST_CONFIG = new InjectionToken<ToastrService>('toast-config');
     ToastrModule.forRoot({
     }),
     AgGridModule,
+    OnlineStatusModule
   ],
-  providers: [UserService, 
+  providers: [UserService,DatePipe,
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],

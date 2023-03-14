@@ -1,0 +1,11 @@
+<div class="status fixed-top" *ngIf="Offline" [class.offline]="status === OnlineStatusType.OFFLINE">
+    <a>{{'Login_Time'|translate}} {{count}} &nbsp;Date & Time : {{currentDate}}</a>
+    {{ OnlineStatusType.OFFLINE ? 'Online' : 'No Internet Connection' }}
+
+</div>
+
+<div class="status fixed-top" *ngIf="!Offline" status = OnlineStatusType.ONLINE>
+    <a>{{'Login_Time'|translate}} {{count}} &nbsp;Date & Time : {{currentDate}}</a>
+    {{ OnlineStatusType.ONLINE ? 'Online' : 'Online' }}
+
+</div>

@@ -1,0 +1,12 @@
+.status {
+    height: 18px;
+    background-color: #00c000;
+    text-align: center;
+    color: #fff;
+    line-height: 18px;
+    transition: background-color 1s ease;
+}
+
+.status.offline {
+    background-color: rgb(20, 19, 19);
+}
