@@ -15,6 +15,52 @@ import { UserService } from 'src/app/common/service/user.service';
 import { UserdataService } from 'src/app/common/service/userdata.service';
 import { TranslationModule } from 'src/app/common/translation/translation.module';
 import { AlertboxModule } from 'src/app/common/dialogbox/alertbox/alertbox.module';
+import {NestedTreeControl} from '@angular/cdk/tree';
+import {} from '@angular/core';
+import {MatTreeNestedDataSource} from '@angular/material/tree';
+
+/**
+ * Food data with nested structure.
+ * Each node has a name and an optiona list of children.
+ */
+interface FoodNode {
+  name: string;
+  children?: FoodNode[];
+}
+
+const TREE_DATA: FoodNode[] = [
+  {
+    name: 'Backend',
+    children: [
+      {name: 'SQL'},
+      {name: 'C#'},
+      {name: 'MVC'},
+    ]
+  }, {
+    name: 'Frontend',
+    children: [
+      {
+        name: 'Angular',
+        children: [
+          {name: 'TypeScript'},
+          {name: 'JSON'},
+        ]
+      }, {
+        name: 'JavaScipt',
+        children: [
+          {name: 'Jquery',
+         children:[
+          {name: 'JavaScript library'}
+        ]},
+          {name: 'JSON',
+          children:[
+            {name: 'JavaScript Object Notation'}
+          ]},
+        ]
+      },
+    ]
+  },
+];
 
 @Component({
   selector: 'app-main',
@@ -40,9 +86,12 @@ export class MainheaderComponent implements AfterViewInit  {
   AnimationState: boolean=true;
   Skills: any;
   tab: any;
+  treeControl = new NestedTreeControl<FoodNode>(node => node.children);
+  dataSources = new MatTreeNestedDataSource<FoodNode>();
   constructor(public loaderService: LoaderService,public _Service:UserdataService,public dialog: MatDialog,public mat:MaterialModule,
     public _translate: TranslateService,private _notification: NotificationService, private formBuilder: FormBuilder, 
     private router: Router, public translate: TranslationModule,public _dialog:AlertboxModule) {
+      this.dataSources.data = TREE_DATA;
       _translate.setDefaultLang('en');
   }
   @ViewChild(MatPaginator)paginator!: MatPaginator;
@@ -189,6 +238,7 @@ export class MainheaderComponent implements AfterViewInit  {
     s.style.animationPlayState = 'running';
     this.AnimationState = true;
   }
+  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
 }
 export interface PeriodicElement {
   Id: number;

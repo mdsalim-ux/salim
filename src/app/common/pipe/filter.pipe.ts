@@ -6,6 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(items: any[], arg1: any, arg2: any): any {
+    if(items !=undefined){
+
     if (items.length > 0) {
       let filterdata = items.filter(e => {
          return e[arg1] == arg2;
@@ -15,6 +17,10 @@ export class FilterPipe implements PipeTransform {
     else{
       return items;
     }
+  }
+  else{
+    return
+  }
   }
 
 }

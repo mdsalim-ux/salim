@@ -100,7 +100,6 @@
                     <p class="size-color" >{{'Marks_3'|translate}}</p>
                 </div>
             </div>
-            <mat-progress-bar color="primary" mode="buffer"  value="100" *ngIf="educationview"></mat-progress-bar>
             <p class="size-color"*ngIf="educationview">{{'10TH'|translate}}</p>
             <p class="size-color"*ngIf="educationview">{{'School_10th'|translate}}</p>
             <p class="size-color"*ngIf="educationview">{{'ED_Date_3'|translate}}</p>
@@ -113,12 +112,13 @@
             </div>
             <p class=" title">{{'LANGUAGES'|translate}}</p>
             <mat-chip-option color="accent" (click)="lang =!lang"  >{{'Read_More'|translate}}</mat-chip-option>
+            <mat-progress-bar color="primary" mode="buffer"  value="100" *ngIf="lang"></mat-progress-bar>
             <section class="example-section" *ngIf="lang">
                 <mat-checkbox class="example-margin"  [checked]=true>{{'en'|translate}}</mat-checkbox>
                 <mat-checkbox class="example-margin"  [checked]=true>{{'hn'|translate}}</mat-checkbox>
                 <mat-checkbox class="example-margin"  [checked]=true>{{'ur'|translate}}</mat-checkbox>
             </section>
-        <br><p class="title" >{{'Personal_Details'|translate}}</p><br>
+        <br><p class="title" >{{'Personal_Details'|translate}}</p>
         <mat-chip-option color="accent" (click)="personaldetails =!personaldetails"  >{{'Read_More'|translate}}</mat-chip-option>
         <mat-progress-bar color="primary" mode="buffer" *ngIf="personaldetails" value="100"></mat-progress-bar>
         <p class="size-color"*ngIf="personaldetails">{{'Father_name'|translate}}</p>

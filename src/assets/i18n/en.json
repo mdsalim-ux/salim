@@ -193,5 +193,8 @@
     "Scroll_Down":"Scroll down to see the all functionality",
     "Angular_TableX":"Angular Table",
     "Site_Visit":"Website Visit",
-    "Login_Time":"Login Time Start:"
+    "Login_Time":"Login Time Start:",
+    "Tree":"Tree structure",
+    "Parent_Tree":"Parent Tree content without child",
+    "Parent_Child":"Parent Tree content with child"
 }

@@ -83,8 +83,10 @@ export class HeaderComponent {
   updateCount() {
     const url = `https://api.countapi.xyz/update/mdsalimprofile.web.app/porfolio/?amount=${1}`;
     this.http.jsonp(url,'callback').subscribe(res=>{
-      console.log(res)
-      this.liveCounterValue=res
+      if(res!=undefined)
+      {
+        this.liveCounterValue=res
+      }
     });
   }
   menucollapses(){

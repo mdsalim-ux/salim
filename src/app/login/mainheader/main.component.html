@@ -50,6 +50,7 @@
     <br>
   </div>
 </div>
+<mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
 <!-- start text field -->
 <div >
   <h2 class="text-primary text-center">{{'Number_Only'|translate}}</h2>
@@ -71,6 +72,7 @@
     <input matInput placeholder="{{'Number_Only'|translate}}" (keydown)="numberOnly($event)" required>
   </mat-form-field>
 </div>
+<mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
 <div >
   <h2 class="text-primary text-center">{{'Decimal_Number'|translate}}</h2>
   <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
@@ -91,6 +93,7 @@
     <input matInput placeholder="{{'Decimal_Number'|translate}}" (keydown)="decimalFilter($event)" required>
   </mat-form-field>
 </div>
+<mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
 <div >
   <h2 class="text-primary text-center">{{'Copy_Paste'|translate}}</h2>
   <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
@@ -110,6 +113,7 @@
   <mat-form-field appearance="outline">
     <input matInput placeholder="{{'Copy_Paste'|translate}}" (paste)="copyPaste($event)" required>
   </mat-form-field>
+  <mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
 </div>
 <div >
   <h2 class="text-primary text-center">{{'Specail_Char'|translate}}</h2>
@@ -131,6 +135,7 @@
     <input matInput placeholder="{{'Specail_Char'|translate}}" (keypress)="specialChar($event)" required>
   </mat-form-field>
 </div>
+<mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
 
 <!-- start angular table -->
 <div class="mat-elevation-z8">
@@ -194,6 +199,8 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
   </mat-paginator>
 </div>
+<mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
+
 <!-- start expansion table from here -->
 <div >
   <h2 class="text-primary text-center">{{'expensionPanel'|translate}}</h2>
@@ -217,7 +224,7 @@
 
 
     <mat-accordion class="example-headers-align">
-      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel [expanded]="step === 0" [expanded]='false'  (opened)="setStep(0)" hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title>
             {{'Personal_Details'|translate}}
@@ -290,6 +297,7 @@
     </mat-accordion>
   </div>
 </div>
+<mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
 
   <!-- Start mulitselect from here -->
   <div>
@@ -309,6 +317,7 @@
     </mat-select>
   </mat-form-field>
   </div>
+  <mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
 
 
 <!-- 
@@ -348,7 +357,7 @@
   <div class="mb-5">
     <ul>
       <li>
-        <p>{{'DropdownA'|translate}}/p>
+        <p>{{'DropdownA'|translate}}</p>
       </li>
     </ul>
     <ul>
@@ -378,3 +387,46 @@
     </div>
   </div>
 </div><br><br>
+<mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
+<!-- start tree structure -->
+<div>
+  <h2 class="text-primary text-center">{{'Tree'|translate}}</h2>
+  <p class="text-primary fw-bold">{{'Key_features'|translate}}</p>
+  <div class="mb-5">
+    <ul>
+      <li>
+        <p>{{'Parent_Tree'|translate}}</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>{{'Parent_Child'|translate}}</p>
+      </li>
+    </ul>
+  </div>
+  <mat-tree [dataSource]="dataSources" [treeControl]="treeControl" class="example-tree">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+      <li class="mat-tree-node">
+        <button mat-icon-button disabled></button>
+        {{node.name}}
+      </li>
+    </mat-tree-node>
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+      <li>
+        <div class="mat-tree-node">
+          <button mat-icon-button matTreeNodeToggle
+                  [attr.aria-label]="'toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          {{node.name}}
+        </div>
+        <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+          <ng-container matTreeNodeOutlet></ng-container>
+        </ul>
+      </li>
+    </mat-nested-tree-node>
+  </mat-tree>
+</div>
+<mat-progress-bar color="warn" mode="buffer"  value="100"></mat-progress-bar>
